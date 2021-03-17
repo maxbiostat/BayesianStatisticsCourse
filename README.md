@@ -4,9 +4,9 @@ A PhD-level course at [EMAp](https://emap.fgv.br/en).
 Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) and tentative programme [here](https://docs.google.com/spreadsheets/d/1kuE-_NeSQzaBNnWc9vezXSbKfSIGQoLdmmb2zRDbOng/edit?usp=sharing). 
 
 # Books
-- [The Bayesian Choice](https://link.springer.com/book/10.1007/0-387-71599-1) (BC) by [Christian Robert](https://stats.stackexchange.com/users/7224/xian) will be our main source
-- [A first course in Bayesian statistical methods](https://pdhoff.github.io/book/) (FC) by [Peter Hoff](https://stat.duke.edu/research/hoff#:~:text=Hoff,-Professor%20of%20Statistical&text=Peter%20Hoff%20develops%20statistical%20methodology,area%20inference%2C%20and%20multigroup%20analysis.) 
-- [Bayesian Theory](https://onlinelibrary.wiley.com/doi/book/10.1002/9780470316870) (BT) by [José Bernardo](https://www.uv.es/bernardo/) and [Adrian Smith](https://en.wikipedia.org/wiki/Adrian_Smith_(statistician)). 
+- [The Bayesian Choice](https://link.springer.com/book/10.1007/0-387-71599-1) (BC) by [Christian Robert](https://stats.stackexchange.com/users/7224/xian) will be our main source.
+- [A first course in Bayesian statistical methods](https://pdhoff.github.io/book/) (FC) by [Peter Hoff](https://stat.duke.edu/research/hoff#:~:text=Hoff,-Professor%20of%20Statistical&text=Peter%20Hoff%20develops%20statistical%20methodology,area%20inference%2C%20and%20multigroup%20analysis.) is a good all-purpose introduction. 
+- [Bayesian Theory](https://onlinelibrary.wiley.com/doi/book/10.1002/9780470316870) (BT) by [José Bernardo](https://www.uv.es/bernardo/) and [Adrian Smith](https://en.wikipedia.org/wiki/Adrian_Smith_(statistician)) is a technical behemoth, suitable for use as a reference guide. 
 
 # Resources
 - See Esteves, Stern and Izbicki's [course notes](https://github.com/rbstern/bayesian_inference_book/raw/gh-pages/book.pdf);
