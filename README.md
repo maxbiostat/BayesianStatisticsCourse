@@ -14,8 +14,8 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - [Bayesian Theory](https://onlinelibrary.wiley.com/doi/book/10.1002/9780470316870) (BT) by [José Bernardo](https://www.uv.es/bernardo/) and [Adrian Smith](https://en.wikipedia.org/wiki/Adrian_Smith_(statistician)) is a technical behemoth, suitable for use as a reference guide. 
 
 # Resources
-- See Esteves, Stern and Izbicki's [course notes](https://github.com/rbstern/bayesian_inference_book/raw/gh-pages/book.pdf);
-- Rafael Stern's excellent [course](https://www.rafaelstern.science/classes/2021_1_bayes/);
+- See Esteves, Stern and Izbicki's [course notes](https://github.com/rbstern/bayesian_inference_book/raw/gh-pages/book.pdf).
+- Rafael Stern's excellent [course](https://www.rafaelstern.science/classes/2021_1_bayes/).
 - [Principles of Uncertainty](https://www.taylorfrancis.com/books/principles-uncertainty-joseph-kadane/10.1201/9781315167565) by the inimitable [J. Kadane](https://en.wikipedia.org/wiki/Joseph_Born_Kadane) is a book about avoiding being a sure loser. See [this](https://www.ceremade.dauphine.fr/~xian/uncertain.pdf) review by Christian Robert.
 
 # Syllabus
