@@ -26,7 +26,7 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - [What is a statistical model?](https://projecteuclid.org/journals/statistical-science/volume-19/issue-1/Modern-Bayesian-Asymptotics/10.1214/088342304000000134.full) by Peter McCullagh gives a good explanation of what a statistical model is. See also BC Ch1.
 - There are a few [Interpretations of Probability](https://plato.stanford.edu/entries/probability-interpret/) and its important to understand them so the various schools of statistical inference make sense. 
 - [WHAT IS BAYESIAN/FREQUENTIST INFERENCE?](https://normaldeviate.wordpress.com/2012/11/17/what-is-bayesianfrequentist-inference/) by [Larry Wasserman](https://www.stat.cmu.edu/~larry/) is a must read in order to understand what makes each inference paradigm tick.
-- 
+
 ## Lecture 1: Belief functions, coherence, exchangeability
 
 ## Lecture 2: Priors I: rationale and construction
@@ -35,7 +35,7 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 ## Lecture 3: Priors II: types of priors; implementation, conjugate analysis
 - [Hidden Dangers of Specifying Noninformative Priors](https://www.tandfonline.com/doi/abs/10.1080/00031305.2012.695938) is a must-read for those who wish to understand the counter-intuitive nature of prior measures and their push-forwards.
 - [The Case for Objective Bayesian Analysis](https://www.ime.usp.br/~abe/lista/pdfTFOW5ADDD0.pdf) is a good read to try and put objective Bayes on solid footing. 
-- 
+
 ## Lecture 4: Bayesian point estimation
 
 ## Lecture 5: Bayesian interval estimation
@@ -50,7 +50,6 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 ## Lecture 9: Applications
 - See [Reporting Bayesian Results](https://journals.sagepub.com/doi/abs/10.1177/0193841X20977619?journalCode=erxb) for a guide on which summaries are indispensable in a Bayesian analysis.
 -  [Visualization in Bayesian workflow](https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/rssa.12378) is a great paper about making useful graphs for a well-calibrated Bayesian analysis.
--  
 
 ## Lecture 10: Discussion Bayes vs Frequentism
 **Disclaimer**: everything in this section needs to be read with care so one does not become a zealot!
