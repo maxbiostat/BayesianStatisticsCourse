@@ -33,11 +33,12 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - The [SHeffield ELicitation Framework (SHELF)](http://tonyohagan.co.uk/shelf/) is a package for rigorous elicitation of probability distributions.
 
 ## Lecture 3: Priors II: types of priors; implementation, conjugate analysis
-
+- [Hidden Dangers of Specifying Noninformative Priors](https://www.tandfonline.com/doi/abs/10.1080/00031305.2012.695938) is a must-read for those who wish to understand the counter-intuitive nature of prior measures and their push-forwards.
+- [The Case for Objective Bayesian Analysis](https://www.ime.usp.br/~abe/lista/pdfTFOW5ADDD0.pdf) is a good read to try 
 ## Lecture 4: Bayesian point estimation
 
 ## Lecture 5: Bayesian interval estimation
-- [Jaynes](https://en.wikipedia.org/wiki/Edwin_Thompson_Jaynes)'s 1976 monograph [Confidence Intervals vs Bayesian Intervals](https://link.springer.com/chapter/10.1007/978-94-009-6581-2_9) is a great source of useful discussion.
+- [Jaynes](https://en.wikipedia.org/wiki/Edwin_Thompson_Jaynes)'s 1976 monograph [Confidence Intervals vs Bayesian Intervals](https://link.springer.com/chapter/10.1007/978-94-009-6581-2_9) is a great source of useful discussion. [PDF](https://link.springer.com/content/pdf/10.1007/978-94-010-1436-6_6.pdf).
 
 ## Lecture 6: Bayesian Testing
 
@@ -46,6 +47,9 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 ## Lecture 8: Model choice
 
 ## Lecture 9: Applications
+- See [Reporting Bayesian Results](https://journals.sagepub.com/doi/abs/10.1177/0193841X20977619?journalCode=erxb) for a guide on which summaries are indispensable in a Bayesian analysis.
+-  [Visualization in Bayesian workflow](https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/rssa.12378) is a great paper about making useful graphs for a well-calibrated Bayesian analysis.
+-  
 
 ## Lecture 10: Discussion Bayes vs Frequentism
 **Disclaimer**: everything in this section needs to be read with care so one does not become a zealot!
