@@ -17,6 +17,8 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - See Esteves, Stern and Izbicki's [course notes](https://github.com/rbstern/bayesian_inference_book/raw/gh-pages/book.pdf).
 - Rafael Stern's excellent [course](https://www.rafaelstern.science/classes/2021_1_bayes/).
 - [Principles of Uncertainty](https://www.taylorfrancis.com/books/principles-uncertainty-joseph-kadane/10.1201/9781315167565) by the inimitable [J. Kadane](https://en.wikipedia.org/wiki/Joseph_Born_Kadane) is a book about avoiding being a sure loser. See [this](https://www.ceremade.dauphine.fr/~xian/uncertain.pdf) review by Christian Robert.
+- [Bayesian Learning](https://github.com/mattiasvillani/BayesLearnCourse) by [Mattias Vilani](mattiasvillani.com) is a book for a computation-minded audience. 
+- Michael Betancourt's website is a treasure trove of rigorous, modern and insightful applied Bayesian statistics. See [this](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#1_Questioning_Authority) as a gateway drug.
 
 # Syllabus
 ## Lecture 0: Overview
@@ -45,3 +47,7 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 ## Lecture 9: Applications
 
 ## Lecture 10: Discussion Bayes vs Frequentism
+**Disclaimer**: everything in this section needs to be read with care so one does not become a zealot!
+
+- 
+- See [Frequentism and Bayesianism: A Practical Introduction](https://jakevdp.github.io/blog/2014/03/11/frequentism-and-bayesianism-a-practical-intro/) for a five-part discussion of the Bayesian vs Orthodox statistics.
