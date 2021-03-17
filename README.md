@@ -3,6 +3,11 @@ A PhD-level course at [EMAp](https://emap.fgv.br/en).
 
 Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) and tentative programme [here](https://docs.google.com/spreadsheets/d/1kuE-_NeSQzaBNnWc9vezXSbKfSIGQoLdmmb2zRDbOng/edit?usp=sharing). 
 
+## Pre-requisites
+- Probability theory with measure. [Jeff Rosenthal](http://probability.ca/jeff/)'s book, [A First Look at Rigorous Probability Theory](http://probability.ca/jeff/grprobbook.html), is a good resource.
+- Classical Statistics at the same level as [Mathematical Statistics](https://emap.fgv.br/disciplina/doutorado/mathematical-statistics). For a review, I suggest 
+[Theory of Statistics](https://www.springer.com/gp/book/9780387945460) by [Mark Schervish](http://www.stat.cmu.edu/people/faculty/mark-schervish). 
+
 # Books
 - [The Bayesian Choice](https://link.springer.com/book/10.1007/0-387-71599-1) (BC) by [Christian Robert](https://stats.stackexchange.com/users/7224/xian) will be our main source.
 - [A first course in Bayesian statistical methods](https://pdhoff.github.io/book/) (FC) by [Peter Hoff](https://stat.duke.edu/research/hoff#:~:text=Hoff,-Professor%20of%20Statistical&text=Peter%20Hoff%20develops%20statistical%20methodology,area%20inference%2C%20and%20multigroup%20analysis.) is a good all-purpose introduction. 
