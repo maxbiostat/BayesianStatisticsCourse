@@ -13,26 +13,26 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - Rafael Stern's excellent [course](https://www.rafaelstern.science/classes/2021_1_bayes/);
 - [What is a statistical model?](https://projecteuclid.org/journals/statistical-science/volume-19/issue-1/Modern-Bayesian-Asymptotics/10.1214/088342304000000134.full) by Peter McCullagh gives a good explanation of what a statistical model is. See also BC Ch1.
 
-# Overview
+# Lecture 0: Overview
 - An overview of computing techniques for Bayesian inference can be found [here](https://arxiv.org/pdf/2004.06425.pdf).
 
-# Belief functions, coherence, exchangeability
+# Lecture 1: Belief functions, coherence, exchangeability
 
-# Priors I: rationale and construction
+# Lecture 2: Priors I: rationale and construction
 - The [SHeffield ELicitation Framework (SHELF)](http://tonyohagan.co.uk/shelf/) is a package for rigorous elicitation of probability distributions.
 
-# Priors II: types of priors; implementation, conjugate analysis
+# Lecture 3: Priors II: types of priors; implementation, conjugate analysis
 
-# Bayesian point estimation
+# Lecture 4: Bayesian point estimation
 
-# Bayesian interval estimation
+# Lecture 5: Bayesian interval estimation
 
-# Bayesian Testing
+# Lecture 6: Bayesian Testing
 
-# Asymptotics
+# Lecture 7: Asymptotics
 
-# Model choice
+# Lecture 8: Model choice
 
-# Applications
+# Lecture 9: Applications
 
-# Discussion Bayes vs Frequentism
+# Lecture 10: Discussion Bayes vs Frequentism
