@@ -37,6 +37,7 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 ## Lecture 4: Bayesian point estimation
 
 ## Lecture 5: Bayesian interval estimation
+- [Jaynes](https://en.wikipedia.org/wiki/Edwin_Thompson_Jaynes)'s 1976 monograph [Confidence Intervals vs Bayesian Intervals](https://link.springer.com/chapter/10.1007/978-94-009-6581-2_9) is a great source of useful discussion.
 
 ## Lecture 6: Bayesian Testing
 
@@ -49,5 +50,5 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 ## Lecture 10: Discussion Bayes vs Frequentism
 **Disclaimer**: everything in this section needs to be read with care so one does not become a zealot!
 
-- 
+- See Jayne's monograph above.
 - See [Frequentism and Bayesianism: A Practical Introduction](https://jakevdp.github.io/blog/2014/03/11/frequentism-and-bayesianism-a-practical-intro/) for a five-part discussion of the Bayesian vs Orthodox statistics.
