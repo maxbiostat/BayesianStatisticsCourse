@@ -31,7 +31,7 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 ## Lecture 1: Belief functions, coherence, exchangeability
 **Principled Inference**:
 
-- Berger and Wolpert's 1988 [monograph](https://errorstatistics.files.wordpress.com/2016/04/berger-wolpert-1988.pdf) is the definitive text on the [Likelihood Principle](https://en.wikipedia.org/wiki/Likelihood_principle).
+- Berger and Wolpert's 1988 [monograph](https://errorstatistics.files.wordpress.com/2016/04/berger-wolpert-1988.pdf) is the definitive text on the [Likelihood Principle](https://en.wikipedia.org/wiki/Likelihood_principle) (LP).
 - See [this](https://arxiv.org/pdf/1906.10733.pdf) paper By Franklin and Bambirra for a generalised version of the LP.
 - As advanced reading, one can consider [Birnbaum (1962)](https://www.tandfonline.com/doi/abs/10.1080/01621459.1962.10480660) and a helpful review [paper](https://link.springer.com/content/pdf/10.1007/978-1-4612-0919-5_31.pdf) published 30 years later by Bjornstad.
 ## Lecture 2: Priors I: rationale and construction
