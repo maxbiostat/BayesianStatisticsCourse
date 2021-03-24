@@ -24,7 +24,7 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 # Syllabus
 ## Lecture 0: Overview
 - The LaplacesDemon introductory [vignette](https://cran.r-project.org/web/packages/LaplacesDemon/vignettes/BayesianInference.pdf) gives a very nice overview of Bayesian Statistics.
-- [What is a statistical model?](https://projecteuclid.org/journals/statistical-science/volume-19/issue-1/Modern-Bayesian-Asymptotics/10.1214/088342304000000134.full) by Peter McCullagh gives a good explanation of what a statistical model is. See also BC Ch1.
+- [What is a statistical model?](https://projecteuclid.org/journals/annals-of-statistics/volume-30/issue-5/What-is-a-statistical-model/10.1214/aos/1035844977.full) by Peter McCullagh gives a good explanation of what a statistical model is. See also BC Ch1.
 - There are a few [Interpretations of Probability](https://plato.stanford.edu/entries/probability-interpret/) and its important to understand them so the various schools of statistical inference make sense. 
 - [WHAT IS BAYESIAN/FREQUENTIST INFERENCE?](https://normaldeviate.wordpress.com/2012/11/17/what-is-bayesianfrequentist-inference/) by [Larry Wasserman](https://www.stat.cmu.edu/~larry/) is a must read in order to understand what makes each inference paradigm tick.
 
