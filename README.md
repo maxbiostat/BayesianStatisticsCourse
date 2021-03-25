@@ -33,12 +33,13 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - Berger and Wolpert's 1988 [monograph](https://errorstatistics.files.wordpress.com/2016/04/berger-wolpert-1988.pdf) is the definitive text on the [Likelihood Principle](https://en.wikipedia.org/wiki/Likelihood_principle) (LP).
 - See [this](https://arxiv.org/pdf/1906.10733.pdf) paper By Franklin and Bambirra for a generalised version of the LP.
 - As advanced reading, one can consider [Birnbaum (1962)](https://www.tandfonline.com/doi/abs/10.1080/01621459.1962.10480660) and a helpful review [paper](https://link.springer.com/content/pdf/10.1007/978-1-4612-0919-5_31.pdf) published 30 years later by Bjornstad.
+- Michael Evans has a few papers on the LP. See [Evans, Fraser & Monette (1986)](https://errorstatistics.files.wordpress.com/2017/12/evans-fraser-monette-1986.pdf) for an argument using a stronger version of CP and [Evans, 2013](https://projecteuclid.org/journals/electronic-journal-of-statistics/volume-7/issue-none/What-does-the-proof-of-Birnbaums-theorem-prove/10.1214/13-EJS857.full) for a flaw with the original 1962 paper by Birnbaum. 
+
 
 ## Lecture 2: Belief functions, coherence, exchangeability
 
 ## Lecture 3: Priors I: rationale and construction
 - The [SHeffield ELicitation Framework (SHELF)](http://tonyohagan.co.uk/shelf/) is a package for rigorous elicitation of probability distributions.
-- Michael Evans has a few papers on the LP. See [Evans, Fraser & Monette (1986)](https://errorstatistics.files.wordpress.com/2017/12/evans-fraser-monette-1986.pdf) for an argument using a stronger version of CP and [Evans, 2013](https://projecteuclid.org/journals/electronic-journal-of-statistics/volume-7/issue-none/What-does-the-proof-of-Birnbaums-theorem-prove/10.1214/13-EJS857.full) for a flaw with the original 1962 paper by Birnbaum. 
 
 ## Lecture 4: Priors II: types of priors; implementation, conjugate analysis
 - [Hidden Dangers of Specifying Noninformative Priors](https://www.tandfonline.com/doi/abs/10.1080/00031305.2012.695938) is a must-read for those who wish to understand the counter-intuitive nature of prior measures and their push-forwards.
