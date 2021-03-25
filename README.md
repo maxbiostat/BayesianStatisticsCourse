@@ -28,36 +28,38 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - There are a few [Interpretations of Probability](https://plato.stanford.edu/entries/probability-interpret/) and its important to understand them so the various schools of statistical inference make sense. 
 - [WHAT IS BAYESIAN/FREQUENTIST INFERENCE?](https://normaldeviate.wordpress.com/2012/11/17/what-is-bayesianfrequentist-inference/) by [Larry Wasserman](https://www.stat.cmu.edu/~larry/) is a must read in order to understand what makes each inference paradigm tick.
 
-## Lecture 1: Belief functions, coherence, exchangeability
-**Principled Inference**:
+## Lecture 2: Principled Inference, decision-theoretical foundations
 
 - Berger and Wolpert's 1988 [monograph](https://errorstatistics.files.wordpress.com/2016/04/berger-wolpert-1988.pdf) is the definitive text on the [Likelihood Principle](https://en.wikipedia.org/wiki/Likelihood_principle) (LP).
 - See [this](https://arxiv.org/pdf/1906.10733.pdf) paper By Franklin and Bambirra for a generalised version of the LP.
 - As advanced reading, one can consider [Birnbaum (1962)](https://www.tandfonline.com/doi/abs/10.1080/01621459.1962.10480660) and a helpful review [paper](https://link.springer.com/content/pdf/10.1007/978-1-4612-0919-5_31.pdf) published 30 years later by Bjornstad.
-## Lecture 2: Priors I: rationale and construction
+
+## Lecture 3: Belief functions, coherence, exchangeability
+
+## Lecture 4: Priors I: rationale and construction
 - The [SHeffield ELicitation Framework (SHELF)](http://tonyohagan.co.uk/shelf/) is a package for rigorous elicitation of probability distributions.
 - Michael Evans has a few papers on the LP. See [Evans, Fraser & Monette (1986)](https://errorstatistics.files.wordpress.com/2017/12/evans-fraser-monette-1986.pdf) for an argument using a stronger version of CP and [Evans, 2013](https://projecteuclid.org/journals/electronic-journal-of-statistics/volume-7/issue-none/What-does-the-proof-of-Birnbaums-theorem-prove/10.1214/13-EJS857.full) for a flaw with the original 1962 paper by Birnbaum. 
 
-## Lecture 3: Priors II: types of priors; implementation, conjugate analysis
+## Lecture 5: Priors II: types of priors; implementation, conjugate analysis
 - [Hidden Dangers of Specifying Noninformative Priors](https://www.tandfonline.com/doi/abs/10.1080/00031305.2012.695938) is a must-read for those who wish to understand the counter-intuitive nature of prior measures and their push-forwards.
 - [The Case for Objective Bayesian Analysis](https://www.ime.usp.br/~abe/lista/pdfTFOW5ADDD0.pdf) is a good read to try and put objective Bayes on solid footing. 
 
-## Lecture 4: Bayesian point estimation
+## Lecture 6: Bayesian point estimation
 
-## Lecture 5: Bayesian interval estimation
+## Lecture 7: Bayesian interval estimation
 - [Jaynes](https://en.wikipedia.org/wiki/Edwin_Thompson_Jaynes)'s 1976 monograph [Confidence Intervals vs Bayesian Intervals](https://link.springer.com/chapter/10.1007/978-94-009-6581-2_9) is a great source of useful discussion. [PDF](https://link.springer.com/content/pdf/10.1007/978-94-010-1436-6_6.pdf).
 
-## Lecture 6: Bayesian Testing
+## Lecture 8: Bayesian Testing
 
-## Lecture 7: Asymptotics
+## Lecture 9: Asymptotics
 
-## Lecture 8: Model choice
+## Lecture 10: Model choice
 
-## Lecture 9: Applications
+## Lecture 11: Applications
 - See [Reporting Bayesian Results](https://journals.sagepub.com/doi/abs/10.1177/0193841X20977619?journalCode=erxb) for a guide on which summaries are indispensable in a Bayesian analysis.
 -  [Visualization in Bayesian workflow](https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/rssa.12378) is a great paper about making useful graphs for a well-calibrated Bayesian analysis.
 
-## Lecture 10: Discussion Bayes vs Frequentism
+## Lecture 12: Discussion Bayes vs Frequentism
 **Disclaimer**: everything in this section needs to be read with care so one does not become a zealot!
 
 - See Jayne's monograph above.
