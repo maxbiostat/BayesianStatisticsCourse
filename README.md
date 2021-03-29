@@ -38,6 +38,8 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 
 ## Lecture 2: Belief functions, coherence, exchangeability
 
+- David Alvarez-Melis and Tamara Broderick were kind enough to provide an [English translation](https://arxiv.org/abs/1512.01229) of De Finetti's seminal 1930 [paper](http://www.brunodefinetti.it/Opere/funzioneCaratteristica.pdf).
+
 ## Lecture 3: Priors I: rationale and construction
 - The [SHeffield ELicitation Framework (SHELF)](http://tonyohagan.co.uk/shelf/) is a package for rigorous elicitation of probability distributions.
 
