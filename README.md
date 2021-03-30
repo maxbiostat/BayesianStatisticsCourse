@@ -41,12 +41,11 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - David Alvarez-Melis and Tamara Broderick were kind enough to provide an [English translation](https://arxiv.org/abs/1512.01229) of De Finetti's seminal 1930 [paper](http://www.brunodefinetti.it/Opere/funzioneCaratteristica.pdf).
 -  [Heath and Sudderth (1976)](https://www.tandfonline.com/doi/abs/10.1080/00031305.1976.10479175?journalCode=utas20) provide a simpler proof of De Finetti's representation theorem for binary variables.
 
-## Lecture 3: Priors I: rationale and construction
+## Lecture 3: Priors I: rationale and construction; conjugate analysis
 - The [SHeffield ELicitation Framework (SHELF)](http://tonyohagan.co.uk/shelf/) is a package for rigorous elicitation of probability distributions.
 - John Cook provides a nice [compendium](https://www.johndcook.com/CompendiumOfConjugatePriors.pdf) of conjugate priors by Daniel Fink.
 
-
-## Lecture 4: Priors II: types of priors; implementation, conjugate analysis
+## Lecture 4: Priors II: types of priors; implementation
 
 - [Hidden Dangers of Specifying Noninformative Priors](https://www.tandfonline.com/doi/abs/10.1080/00031305.2012.695938) is a must-read for those who wish to understand the counter-intuitive nature of prior measures and their push-forwards.
 - [The Case for Objective Bayesian Analysis](https://www.ime.usp.br/~abe/lista/pdfTFOW5ADDD0.pdf) is a good read to try and put objective Bayes on solid footing. 
