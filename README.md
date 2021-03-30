@@ -43,8 +43,11 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 
 ## Lecture 3: Priors I: rationale and construction
 - The [SHeffield ELicitation Framework (SHELF)](http://tonyohagan.co.uk/shelf/) is a package for rigorous elicitation of probability distributions.
+- John Cook provides a nice [compendium](https://www.johndcook.com/CompendiumOfConjugatePriors.pdf) of conjugate priors.
+
 
 ## Lecture 4: Priors II: types of priors; implementation, conjugate analysis
+
 - [Hidden Dangers of Specifying Noninformative Priors](https://www.tandfonline.com/doi/abs/10.1080/00031305.2012.695938) is a must-read for those who wish to understand the counter-intuitive nature of prior measures and their push-forwards.
 - [The Case for Objective Bayesian Analysis](https://www.ime.usp.br/~abe/lista/pdfTFOW5ADDD0.pdf) is a good read to try and put objective Bayes on solid footing. 
 
