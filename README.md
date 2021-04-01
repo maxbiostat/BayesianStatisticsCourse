@@ -46,8 +46,11 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - John Cook provides a nice [compendium](https://www.johndcook.com/CompendiumOfConjugatePriors.pdf) of conjugate priors by Daniel Fink.
 
 ## Lecture 4: Priors II: types of priors; implementation
-
+**Required reading**
 - [Hidden Dangers of Specifying Noninformative Priors](https://www.tandfonline.com/doi/abs/10.1080/00031305.2012.695938) is a must-read for those who wish to understand the counter-intuitive nature of prior measures and their push-forwards.
+- [The Prior Can Often Only Be Understood in the Context of the Likelihood](https://www.mdpi.com/1099-4300/19/10/555) explains that, from a practical perspective, priors can be seen as regularisation  devices and should control what the model _does_ rather than what values the parameter takes.
+- [Penalising Model Component Complexity: A Principled, Practical Approach to Constructing Priors](https://projecteuclid.org/journals/statistical-science/volume-32/issue-1/Penalising-Model-Component-Complexity--A-Principled-Practical-Approach-to/10.1214/16-STS576.full) shows how to formalise the idea that one should prefer a simpler model by penalising deviations from a base model.
+**Optional reading**
 - [The Case for Objective Bayesian Analysis](https://www.ime.usp.br/~abe/lista/pdfTFOW5ADDD0.pdf) is a good read to try and put objective Bayes on solid footing. 
 
 ## Lecture 5: Bayesian point estimation
