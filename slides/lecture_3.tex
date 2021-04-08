@@ -1,0 +1,198 @@
+\subsection{Belief functions and exchangeability}
+\begin{frame}{Belief functions}
+Let $F, G$ and $H \in \mathcal{S}$ be three (possibly overlapping) statements about the world.
+For example, consider the following statements about a person:
+\begin{itemize}
+ \item [F] = \{votes for a left-wing candidate\} ;
+ \item [G] = \{is in the 10\% lower income bracket\} ;
+ \item [H] = \{lives in a large\} ;
+\end{itemize}
+
+ \begin{defn}[Belief function]
+ \label{def:belief_function} 
+ For $A, B \in \mathcal{S}$, a belief function $\be : \mathcal{S} \to \mathbb{R}$ assigns numbers to statements such that $\be(A) < \be(B)$ implies one is more confident in $B$ than in $A$.
+ \end{defn}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Belief functions: properties}
+It is useful to think of $\be$ as~\textbf{preferences over bets}:
+ \begin{itemize}
+  \item $\be(F) > \be(G)$ means we would bet on $F$ being true over $G$ being true;
+  \item $\be(F\mid H) > \be(G \mid H)$ means that, \textbf{conditional} on knowing $H$ to be true, we would bet on $F$ over $G$;
+  \item $\be(F\mid G) > \be(F \mid H)$ means that if we were forced to be on $F$, we would be prefer doing so if $G$ were true than $H$.
+ \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Belief functions: axioms}
+ In order for $\be$ to be \textbf{coherent}, it must adhere to a certain set of properties/axioms.
+ A self-sufficient collection is:
+ \begin{itemize}
+  \item [A1]  (boundedness of complete [dis]belief): $$\be(\lnot H \mid H) \leq \be(F \mid H) \leq \be(H \mid H),\, \forall\: F \in \mathcal{S};$$
+  \item [A2]  (monotonicity):
+  $$\be(F \, \text{or} \, G \mid H) \geq \max \left\{ \be(F \mid H), \be(G \mid H) \right\};$$
+  \item [A3] (sequentiality): There exists $f: \mathbb{R}^2 \to \mathbb{R}$ such that
+  $$ \be(F\, \text{and} \, G \mid H) = f\left(\be(G\mid H), \be(F \mid G\, \text{and} \, H) \right).$$
+ \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Probabilities can be beliefs!}
+ \begin{exercise}[Probabilities and beliefs]
+  Show that the axioms of belief functions map one-to-one to the axioms of probability:
+  \begin{itemize}
+   \item[P1.] $0 \leq \pr(E), \forall E \in \mathcal{S}$;
+   \item[P2.] $\pr(\mathcal{S}) = 1$;
+   \item[P3.] For any countable sequence of disjoint statements $E_1, E_2, \ldots \in \mathcal{S}$ we have
+   $$ \pr \left(\bigcup_{i=1}^\infty E_i \right) = \sum_{i=1}^\infty \pr(E_i).$$
+  \end{itemize}
+ \end{exercise}
+Hint: derive the consequences (e.g. monotonicity) of these axioms and compare them with the axioms of belief functions.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Useful probability laws}
+\begin{defn}[Partition]
+ \label{def:partition}
+ If $H = \{H_1, H_2, \ldots, H_k\}$, $H_i \in \mathcal{S}$, such that $H_i \cap H_j = \emptyset$  for all $i \neq j$ and $\bigcup_{k=1}^K = \mathcal{S}$, we say $H$ is a partition of $\mathcal{S}$.
+\end{defn}
+For any $H \in \mathcal{D}(\mathcal{S})$:
+ \begin{itemize}
+  \item \textbf{Total probability}: $\sum_{k=1}^K \pr(H_k) = 1$;
+  \item \textbf{Marginal probability}: $$\pr(E) = \sum_{k=1}^K = \pr(E \cap H_k) =  \sum_{k=1}^K \pr(E \mid H_k)\pr(H_k),$$
+  for all $E \in \mathcal{S}$;
+  \item Consequence $\implies$ Bayes's rule:
+$$ \pr(H_j \mid E) = \frac{\pr(E \mid H_j)\pr(H_j)}{\sum_{k=1}^K \pr(E \mid H_k)\pr(H_k)}.$$
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Independence}
+We will now state a central concept in probability theory and Statistics.
+ \begin{defn}[ (Conditional) Independence]
+  For any $F, G \in \mathcal{S}$, we say $F$ and $G$ are~\textbf{conditionally independent} given $A$ if 
+  $$ \pr(F \cap G \mid A) = \pr(F\mid A)\pr(G\mid A).$$  
+ \end{defn}
+\begin{remark}
+ \label{rmk:conditional_indep}
+ If $F$ and $G$ are conditionally independent given $A$, then
+ $$ \pr(F \mid A \cap G) = \pr(F \mid A).$$
+\end{remark}
+\begin{proof}
+ First, notice that the axioms P1-P3 imply $\pr(F \cap G \mid A) = \pr(G\mid A)\pr(F \mid A \cap G)$.
+ Now use conditional independence to write
+ \begin{align*}
+  \pr(G \mid A) \pr(F \mid A \cap G) &= \pr(F \cap G \mid A) = \pr(F\mid A)\pr(G\mid A),\\
+  \pr(G\mid A) \pr(F \mid A \cap G) &= \pr(F\mid A) \pr(G \mid A).
+ \end{align*} 
+\end{proof} 
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Exchangeability} 
+\begin{defn}[Exchangeable]
+ \label{def:exchangeable}
+We say a sequence of random variables $\boldsymbol{Y} = \{ Y_1, Y_2, \ldots, Y_n \}$ are \textbf{exchangeable} if 
+$$ \pr(Y_1, Y_2, \ldots Y_n) = \pr(Y_{\xi_1}, Y_{\xi_2}, \ldots Y_{\xi_n}),$$
+for all \textbf{permutations} $\boldsymbol{\xi}$ of the labels of $\boldsymbol{Y}$.
+\end{defn}
+\begin{example}[Uma vez Flamengo... continued]
+ Suppose we survey 12 people and record whether they cheer for Flamengo $Y_i = 1$ or not $Y_i = 0$, $i=1, 2,\ldots, 12$.
+ What value shoud we assign to :
+ \begin{itemize}
+  \item $p_1 := \pr(1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1)$;
+  \item $p_2 :=\pr(1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1)$;
+  \item $p_3 := \pr(1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0)$?
+ \end{itemize}
+If your answer is $p_1 = p_2 = p_3$ then you are saying the $Y_i$ are (at least partially) exchangeable!
+\end{example}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{An application of conditional independence}
+For $\theta \in (0, 1)$, consider the following sequence of probability statements:
+\begin{align*}
+\pr(Y_{12} = 1 \mid \theta) &= \theta,\\
+\pr(Y_{12} = 1 \mid Y_1, \ldots Y_{11}, \theta) & = \theta,\\
+\pr(Y_{11} = 1 \mid Y_1, \ldots Y_{10}, Y_{12}, \theta) &= \theta.
+\end{align*}
+These imply that the $Y_i$ are conditionally independent and identically distributed (iid), and in particular:
+\begin{align*}
+ \pr(Y_1 = y_1, \ldots, Y_{12} = y_{12} \mid \theta) &= \prod_{i=1}^{12} \theta^{y_i} (1-\theta)^{1-y_i},\\
+ &= \theta^{S} (1-\theta)^{12-S},
+\end{align*}
+with $S := \sum_{i=1}^{12} y_i$.
+Also, under a uniform prior, 
+$$ \pr(Y_1, \ldots Y_{12}) = \int_{0}^1 t^{S} (1-t)^{12-S} \pi(t)\,dt = \frac{(S + 1)!(12-S +1)!}{13!} = \binom{13}{S + 1}^{-1}.$$
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Relaxing exchangeability (a bit)}
+ Sometimes total symmetry can be a burden. 
+ We can relax this slightly by introducing the concept of \textbf{partial exchangeability}:
+ \begin{defn}[Partially exchangeable]
+  \label{def:partially_exchangeable}
+  Let $\boldsymbol{X} = \{ X_1, \ldots, X_n\}$ and $\boldsymbol{X} = \{ Y_1, \ldots, Y_m\}$ be two sets of random variables.
+  We say $\boldsymbol{X}$ and $\boldsymbol{Y}$ are \textbf{partially} exchangeable if
+  $$ \pr\left(X_1, \ldots, X_n ; Y_1, \ldots, Y_m\right) = \pr\left(X_{\xi_1}, \ldots, X_{\xi_n} ; Y_{\sigma_1}, \ldots, Y_{\sigma_m}\right),$$
+ \end{defn}
+ for any two permutations $\boldsymbol{\xi}$ and $\boldsymbol{\sigma}$ of $1, \ldots, n$ and $1, \ldots, m$, respectively.
+ \begin{example}[Uma vez Flamengo...continued]
+  To see how exchangeability can be relaxed into partial exchangeability, consider $\boldsymbol{X}$ and $\boldsymbol{Y}$ as observations coming from populations from Rio de Janeiro and Ceará, respectively.
+  If the covariate ``state'' were deemed to not matter, then we would have complete exchangeability.
+ \end{example}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{A statistically useful remark}
+ \begin{remark}[Exchangeability from conditional independence]
+  \label{rmk:pre_deFinetti}
+  Take $\theta \sim \pi(\theta)$, i.e., represent uncertainty about $\theta$ using a probability distribution. 
+  If $ \pr(Y_1 = y_1, \ldots, Y_{n} = y_n \mid \theta) = \prod_{i=1}^{n} \pr(Y_i = y_i \mid \theta)$, then $Y_1, \ldots, Y_{n}$ are exchangeable.
+ \end{remark}
+ \begin{proof}
+  Sketch:
+  Use
+  \begin{itemize}
+   \item Marginalisation;
+   \item Conditional independence;
+   \item Commutativity of products in $\mathbb{R}$;
+   \item Definition of exchangeability.
+  \end{itemize}
+ \end{proof}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{A fabulous theorem!}
+ \begin{theo}[De Finetti's theorem\footnote{Technically, the theorem stated here is more general than the representation theorem proven by De Finetti in his seminal memoir, which concerned binary variables only.}]
+  If $\pr\left(Y_1, \ldots, Y_n\right) = \pr\left(Y_{\xi_1}, \ldots, Y_{\xi_n}\right)$ for all permutations $\boldsymbol{\xi}$ of $1, \ldots, n$, then
+  \begin{equation}
+   \pr\left(Y_1, \ldots, Y_n\right) = \pr\left(Y_{\xi_1}, \ldots, Y_{\xi_n}\right) = \int_{\boldsymbol{\Theta}} \pr\left(Y_1, \ldots, Y_n \mid t\right) \pi(t)\,dt,
+  \end{equation}
+for some choice of triplet $\{ \theta,  \pi(\theta), f(y_i \mid \theta) \}$, i.e., a parameter, a prior and a sampling model.
+ \end{theo}
+ See Proposition 4.3 in \cite{Bernardo2000} for a proof outline.
+ Here we shall prove the version from~\cite{DeFinetti1931}.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Consequences}
+  This theorem has a few important implications, namely:
+ \begin{itemize}
+  \item $\pi(\theta)$ represents our beliefs about $\lim_{n\to\infty} \sum_i (Y_i \leq c)/n$ for all $c \in \mathcal{Y}$;
+  \item \{ $Y_1, \ldots, Y_n \mid \theta $ are i.i.d \} + \{ $\theta \sim \pi(\theta)$ \} $\iff$ \{ $Y_1, \ldots, Y_n$ are exchangeable for all $n$ \};
+  \item If $Y_i \in \{0, 1\}$, we can also claim that:
+  \begin{itemize}
+   \item If the $Y_i$ are assumed to be independent, then they are distributed Bernoulli conditional on a random quantity $\theta$;
+   \item $\theta$ has a prior measure $\Pi \in \mathcal{P}( (0, 1) )$;
+   \item By the strong law of large numbers (SLLN), $\theta = \lim_{n \to \infty} (\frac{1}{n}\sum_{i=1}^n Y_i)$, so $\Pi$ can be interpreted as a ``belief about the limiting relative frequency of 1's''.
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{The soul of Statistics}
+ As the exchangeability results above clearly demonstrate, being able to use conditional independence is a handy tool.
+ More specifically, knowing on what to condition so as to make things exchangeable is key to statistical analysis.
+ \begin{idea}[Conditioning is the soul of Statistics\footnote{This idea is due to Joe Blitzstein, who did his PhD under no other than the great Persi Diaconis.}] 
+ Knowing on what to condition can be the difference between an unsolvable problem and a trivial one.
+ When confronted with a statistical problem, always ask yourself ``What do I know for sure?'' and then ``How can I create a conditional structure to include this information?''.
+ \end{idea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Recommended reading}
+\begin{itemize}
+  \item[\faBook] \cite{Hoff2009} Ch. 2 and $^\ast$\cite{Schervish2012} Ch.1;
+ \item $^\ast$Paper: \cite{Diaconis1980} explains why if $n$ samples are taken from an exchangeable population of size $N \gg n$ without replacement, then the sample $Y_1, \ldots Y_n$ can be modelled as approximately exchangeable;
+ \item[\faForward] Next lecture: \cite{Robert2007} Ch. 3.
+ \end{itemize} 
+\end{frame}

@@ -1,0 +1,121 @@
+\subsection{Principled statistical inference}
+\begin{frame}{Principle I: the sufficiency principle}
+Sufficiency plays a central role in all of Statistics.
+\begin{defn}[Sufficient statistic]
+ Let $x \sim f(x \mid \theta)$.
+ We say $T : \mathcal{X} \to \mathbb{R}$ is a \textbf{sufficient statistic} for the parameter $\theta$ if $\pr(X = x \mid T(x), \theta)$ is independent of $\theta$.
+\end{defn}
+This is the basis for a cornerstone of Statistics, 
+\begin{theo}[Factorisation theorem]
+ Under mild regularity conditions, we can write:
+ $$ f(x \mid \theta) = g(T(x) \mid \theta) h(x \mid T(x)).$$
+\end{theo}
+We can now state
+\begin{idea}[Sufficiency principle (SP)]
+\label{idea:SP}
+ For $x, y \in \mathcal{X}$, if $T$ is sufficient for $\theta$ and $T(x) = T(y)$, then $x$ and $y$ should lead to the same inferences about $\theta$.
+\end{idea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[allowframebreaks]{Principle II: the Likelihood principle}
+The Likelihood Principle (LP) is a key concept in Statistics, of particular Bayesian Statistics.
+\begin{idea}[Likelihood Principle]
+\label{idea:LP}
+ The information brought by an observation $x \in \mathcal{X}$ about a parameter $\theta \in \boldsymbol{\Theta}$ is \textbf{completely} contained in the likelihood function $l(\theta \mid x) \propto f(x \mid \theta)$.
+\end{idea}
+\begin{example}[Uma vez Flamengo...]
+ Suppose a pollster is interested in estimating the fraction $\theta$ of football fans that cheer for Clube de Regatas do Flamengo (CRF).
+ They survey $n=12$ people and get $x=9$ supporters and $y=3$ ``antis''.
+ Consider the following two designs:
+ \begin{itemize}
+  \item[i)] Survey $12$ people and record the number of supporters; 
+  \item[ii)] Survey until they get $y=3$.
+ \end{itemize}
+The likelihoods for both surveys are, respectively,
+\begin{align*}
+x \sim \operatorname{Binomial}(n, \theta) \implies l_1(\theta \mid x, n) &= \binom{n}{x} \theta^{x}(1-\theta)^{n-x},\\
+n \sim \operatorname{Negative Binomial}(y, 1-\theta) \implies l2(\theta \mid n, y) &=  \binom{n-1}{y-1}y (1-\theta)^{n-y} \theta^y,
+\end{align*}
+hence
+\begin{equation*}
+ l_1(\theta) \propto l_2(\theta) \propto \theta^{3}(1-\theta)^9.
+\end{equation*}
+Therefore, we say that these two experiments bring exactly the same information about $\theta$.
+\end{example}
+A generalised version of the LP can be stated as follows:
+\begin{theorem}[\textbf{Likelihood Proportionality Theorem}~\citep{Goncalves2019}]
+ Let  $\Theta$ be a nonempty set and $\mathcal{P} = \{ P_\theta; \theta \in \Theta \}$ be a family of probability measures on $(\Omega, \mathcal{A})$ and $\nu_1$ and $\nu_2$ be $\sigma$-finite measures on $(\Omega, \mathcal{A})$.
+ Suppose $P \ll \nu_1$ and $P \ll \nu_2$ for all $P \in \mathcal{P}$.
+ Then there exists  a measurable set $A \in \mathcal{A}$  such that $P_\theta(A) = 1$ for all $\theta \in \Theta$ and there exist $f_{1,\theta} \in \left[ \frac{dP_\theta}{d\nu_1}\right]$ and $f_{2,\theta} \in \left[ \frac{dP_\theta}{d\nu_2}\right]$ and a measurable function $h$ such that
+ \begin{equation*}
+  f_{1,\theta}(\omega) = h(\omega)f_{2,\theta}(\omega), \forall\, \theta \in \Theta\, \forall\, \omega \in A.
+ \end{equation*}
+\end{theorem}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Principle III: stopping rule principle}
+A subject of contention between inference paradigms is the role of stopping rules in the inferences drawn.
+\begin{idea}[Stopping rule principle (SRP)]
+\label{idea:SRP}
+Let $\tau$ be a stopping rule directing a series of experiments $\mathcal{E}_1, \mathcal{E}_2, \ldots$, which generates data $\boldsymbol{x} = (x_1, x_2, \ldots)$.
+Inferences about $\theta$ should depend on $\tau$ only through $\boldsymbol{x}$.
+\end{idea}
+\begin{example}[Finite stopping rules]
+ Suppose experiment $\mathcal{E}_i$ leads to the observation of $x_i \sim f(x_i \mid \theta)$ and let $\mathcal{A}_i \subset \mathcal{X}_1 \times \ldots \times \mathcal{X}_i$ be a sequence of events.
+ Define 
+ $$ \tau := \inf \left\{ n : (x_1, \ldots, x_n) \in \mathcal{A}_n \right\}.$$
+ It can be shown that $\pr(\tau < \infty) = 1$ (exercise 1.20 BC). 
+\end{example}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Principle IV: the conditionality principle}
+We will now state one of the main ingredients of the derivation of the LP.
+The Conditionality Principle (CP) is a statement about the permissible inferences from randomised experiments.
+\begin{idea}[Conditionality Principle]
+\label{idea:CP}
+ Let $\mathcal{E}_1$ and $\mathcal{E}_2$ be two experiments about $\theta$.
+ Let $Z \sim \operatorname{Bernoulli}(p)$ and 
+ \begin{itemize}
+  \item If $Z=1$, perform $\mathcal{E}_1$ to generate $x_1 \sim f_1(x_1 \mid \theta)$;
+  \item If $Z=0$ perform $\mathcal{E}_2$ to generate $x_2 \sim f_2(x_2 \mid \theta)$.
+ \end{itemize}
+Inferences about $\theta$ should depend \textbf{only} on the selected experiment, $\mathcal{E}_i$.
+\end{idea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Deriving the Likelihood Principle}
+\cite{Birnbaum1962} showed that the simpler and mostly uncontroversial Sufficiency and Conditionality principles lead to the Likelihood Principle.
+\begin{theo}[Birnbaum's theorem~\citep{Birnbaum1962}]
+\label{thm:Birnbaum}
+ \begin{equation}
+  \operatorname{SP} + \operatorname{CP} \implies \operatorname{LP}.
+ \end{equation}
+\end{theo}
+\begin{proof}
+ Sketch:
+ \begin{itemize}
+  \item Define a function $\operatorname{EV}(\mathcal{E}, x)$ to quantify the evidence about $\theta$ brought by data $x$ from experiment $\mathcal{E}$ and consider a randomised experiment $\mathcal{E}^*$ in which $\mathcal{E}_1$ and $\mathcal{E}_2$ are performed with probability $p$;
+  \item Show that CP implies
+  $\operatorname{EV}(\mathcal{E}^*, (j, x_j)) = \operatorname{EV}(\mathcal{E}_j, x_j), j = 1, 2$;
+  \item Show that SP implies
+  $\operatorname{EV}(\mathcal{E}^*, (1, x_1)) = \operatorname{EV}(\mathcal{E}^*, (2, x_2))$ when
+  $$ l(\theta \mid x_1) = c l(\theta \mid x_2).$$
+ \end{itemize}
+\end{proof}
+See~\cite{Robert2007}, pg.18 for a complete proof.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Recommended reading}
+\begin{itemize}
+ \item[\faBook] \cite{Robert2007} Ch. 1;
+ \item[\faForward] Next lecture: \cite{Robert2007} Ch. 2 and $^\ast$ \cite{Schervish2012} Ch.3;
+%  \item {\large\textbf{Recommended exercises}}
+%  \begin{itemize}
+%   \item[\faBookmark] \cite{Robert2007}.
+%   \begin{itemize}
+%    \item Sections.
+%    \item $^\ast$ Sections .
+%   \end{itemize}   
+%   \end{itemize}
+ \end{itemize} 
+\end{frame}

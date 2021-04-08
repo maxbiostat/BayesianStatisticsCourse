@@ -1,0 +1,103 @@
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+\section{Part I: Foundations}
+\begin{frame}{Welcome!}
+\begin{itemize}
+ \item This is a 60-hour, PhD-level course on Bayesian inference.
+ \item We have 11 planned weeks. Reading material is posted at~\url{https://github.com/maxbiostat/BayesianStatisticsCourse/}
+ \item Assessment will be done via a written exam (70\%) and an assignment ($30\%$);
+ \item Tenets:
+ \begin{itemize}
+  \item Respect the instructor and your classmates;
+  \item Read before class;
+  \item Engage in the discussion;
+  \item Don't be afraid to ask/disagree.
+ \end{itemize}
+ \item Books are
+ \begin{itemize}
+  \item  \cite{Robert2007};
+  \item \cite{Hoff2009};
+  \item \cite{Bernardo2000}.  
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Bayes's Theorem}
+What do
+\begin{equation}
+ \label{eq:BT_1}
+ \pr(A \mid B) = \frac{\pr(B \mid A)\pr(A)}{\pr(B)},
+\end{equation}
+and
+\begin{equation}
+ \label{eq:BT_2}
+ \pr(A_i \mid B) = \frac{\pr(B \mid A)\pr(A)}{\sum_{i=1}^n \pr(B \mid A_i)\pr(A_i)},
+\end{equation}
+and
+\begin{equation}
+ \label{eq:BT_3}
+  p(\theta \mid \boldsymbol{y}) = \frac{l(\boldsymbol{y} \mid \theta)\pi(\theta)}{\int_{\boldsymbol{\Theta}} l(\boldsymbol{y} \mid t)\pi(t) \, dt},
+\end{equation}
+and
+\begin{equation}
+ \label{eq:BT_4}
+  p(\theta \mid \boldsymbol{y}) = \frac{l(\boldsymbol{y} \mid \theta)\pi(\theta)}{m(\boldsymbol{y})},
+\end{equation}
+all have in common?
+In this course, we will find out how to use Bayes's rule in order to draw statistical inferences in a coherent and mathematically sound way.
+\end{frame}
+\begin{frame}{Bayesian Statistics is a complete approach}
+Our whole paradigm revolves around the posterior:
+$$ p(\theta \mid \boldsymbol{x}) \propto l(\theta \mid \boldsymbol{x})\pi(\theta).$$
+Within the Bayesian paradigm, you are able to
+\begin{itemize}
+ \item Perform point and interval inference about unknown quantities;
+ \begin{align*}
+  \delta(\boldsymbol{x}) &= E_p[\theta] := \int_{\boldsymbol{\Theta}} t p(t \mid \boldsymbol{x} )\,dt,\\
+\pr( a \leq \theta \leq b) &= 0.95 = \int_{a}^{b} p(t \mid \boldsymbol{x} )\,dt;
+ \end{align*}
+\item Compare models:
+$$\operatorname{BF}_{12} = \frac{\pr(M_1 \mid \boldsymbol{x})}{\pr(M_2 \mid \boldsymbol{x})} = \frac{\pr(\boldsymbol{x} \mid M_1)\pr(M_1)}{\pr(\boldsymbol{x} \mid M_2)\pr(M_2)};$$
+ \item Make predictions: $g(\tilde{x} \mid \boldsymbol{x}) := \int_{\boldsymbol{\Theta}} f(\tilde{x} \mid t)p(t\mid \boldsymbol{x})\,dt$;
+ \item Make decisions: $E_p[U(r)]$.
+\end{itemize} 
+\end{frame}
+\begin{frame}{Statistical model: informal definition}
+Stuff you say at the bar:
+\begin{defn}[Statistical model: informal]
+\label{def:statistical_model_informal}
+DeGroot, def 7.1.1, pp. 377
+A statistical model consists in identifying the random variables of interest (observable and potentially observable), the specification of the joint distribution of these variables and the identification of parameters ($\theta$) that index this joint distribution.
+Sometimes it is also convenient to assum that the parameters are themselves random variables, but then one needs to specify a joint distribution for $\theta$ also.
+\end{defn} 
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Statistical model: formal definition}
+Stuff you say in a Lecture:
+\begin{defn}[Statistical model: formal]
+\label{def:statistical_model_formal}
+\href{https://projecteuclid.org/download/pdf_1/euclid.aos/1035844977}{McCullagh, 2002}.
+Let $\mathcal{X}$ be an arbitrary sample space, $\Theta$ a non-empty set and $\mathcal{P}(\mathcal{X})$ the set of all probability distributions on $\mathcal{X}$, i.e. $P : \Theta \to [0, \infty)$, $P \in \mathcal{P}$.
+ A \underline{parametric} statistical model is a function $P : \Theta \to \mathcal{P}(\mathcal{X})$, that associates each point $\theta \in \Theta$ to a probability distribution $P_\theta$ over $\mathcal{X}$.
+\end{defn}
+\textbf{Examples}:
+\begin{itemize}
+ \item Put $\mathcal{X} = \mathbb{R}$ and $\Theta = (-\infty, \infty)\times (0, \infty)$.
+ We say $P$ is a \textit{normal} (or \textit{Gaussian}) statistical model\footnote{Note the abuse of notation: striclty speaking, $P_\theta$  is a probability~\textbf{measure} and not a ~\textit{density} as we have presented it here.} if for every $\theta = \{\mu, \sigma^2\} \in \Theta$,
+ $$P_{\theta}(x) \equiv \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right), \: x \in \mathbb{R}.$$
+ \item Put $\mathcal{X} = \mathbb{N}\cup \{0\}$ and $\Theta = (0, \infty)$.
+ $P$ is a Poisson statistical model if, for $\lambda \in \Theta$,
+ $$P_{\lambda}(k) \equiv \frac{e^{-\lambda}\lambda^k}{k!}, \: k = 0, 1, \ldots$$
+\end{itemize} 
+\end{frame}
+% \begin{frame}
+% Theorem 
+% $$ \int_{\mathcal{X}} f_X(t)\,dt$$ 
+%  \begin{theo}[b]
+%  a
+% \end{theo}
+% \end{frame}
+% \begin{frame}{Overview}
+% \tableofcontents
+% \end{frame}

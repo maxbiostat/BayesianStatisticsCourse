@@ -1,0 +1,371 @@
+\subsection{Prior distributions I: the basics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Priors: a curse and a blessing}
+\begin{itemize}
+ \item Priors are the main point of contention between Bayesians and non-Bayesians;
+ \item As we shall see, there is usually no unique way of constructing a prior measure;
+ \item Moreover, in many situations the choice of prior is not inconsequential.
+ \item There is always a question of when to stop adding uncertainty...
+\end{itemize}
+\begin{figure}
+ \includegraphics[scale=0.6]{figures/turtles_all_the_way_down.jpeg}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Determination of priors: existence}
+It is usually quite hard to determine a (unique) prior even when substantial knowledge.
+Why?
+One reason is that a prior measure is guaranteed to exist only when there is a \textbf{coherent ordering} of the Borel sigma-algebra $\mathcal{B}(\boldsymbol{\Theta})$.
+This entails that the following axioms hold:
+\begin{itemize}
+ \item [(A1)] Total ordering: For all measurable $A, B \in \mathcal{B}(\boldsymbol{\Theta})$ one and \underline{only one} of these can hold:
+ $$ A \prec B , B \prec A \:\text{or} \: A \sim B.$$
+ \item [(A2)] Transitivity: For measurable $A_1, A_2, B_1, B_2 \in \mathcal{B}(\boldsymbol{\Theta})$ such that $A_1 \cap A_2 = \emptyset = B_1 \cap B_2$ and $A_i \preceq B_i, i = 1, 2$ then the following holds:
+ \begin{itemize}
+  \item $A_1 \cup A_2 \preceq B_1 \cup B_2$;
+  \item If $A_1 \prec B_1$ then $A_1 \cup A_2 \prec B_1 \cup B_2$;
+ \end{itemize}
+ \item [(A3)] For any measurable $A$, $\emptyset \preceq A$ and also $\emptyset \prec \boldsymbol{\Theta}$;
+ \item [(A4)] Continuity: If $E_1 \supset E_2 \ldots$ is a decreasing sequence of measurable sets and $B$ is such that $B \preceq E_i$ for all $i$, then
+ $$ B \preceq \bigcap_{i=1}^\infty E_i.$$
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Approximation I: marginalisation}
+ One way to approach the problem of determining a prior measure is to consider the marginal distribution of the data:
+ \begin{equation}
+  \label{eq:marginal_mx}
+  m(x) = \int_{\boldsymbol{\Theta}} f(x\mid \theta)\pi(\theta)\,d\theta.
+ \end{equation}
+In other words we are trying to solve an inverse problem  in the form of an integral equation by placing restrictions on $m(x)$ and calibrating $\pi$ to satisfy them. 
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Approximation II: moments}
+ Another variation on the integral-equation-inverse-problem theme is to consider expectations of measurable functions.
+ Suppose
+ \begin{equation}
+  \label{eq:prior_moments}
+  E_\pi[g_k] := \int_{\boldsymbol{\Theta}} g_k(t)\pi(t)\,dt = w_k.
+ \end{equation}
+For instance, if the analyst knows that $E_\pi[\theta] = \mu$ and $\vr_\pi(\theta) = \sigma^2$, then this restricts the class of functions in $\mathcal{L}_1(\boldsymbol{\Theta})$ that can be considered as prior density\footnote{As we shall see in the coming lectures, $\pi$ needs not be in $\mathcal{L}_1(\boldsymbol{\Theta})$, i.e., needs not be \textbf{proper}. But this ``method-of-moments'' approach is then complicated by lack of integrability.}.
+One can also consider \textit{order statistics} by taking $g_k(x) = \mathbb{I}_{(-\infty, a_k]}(x)$. 
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Maximum entropy priors} 
+The moments-based approach is not complete in the sense that it does not lead to a unique prior measure $\pi$.
+\begin{defn}[Entropy]
+ The entropy of a probability distribution $P$ is defined as 
+ \begin{equation}
+  H(P) := E_p[-\log p] = -\int_
+  {\mathcal{X}} \log p(x) dP(x).
+ \end{equation}
+\end{defn}
+When $\theta$ has finite support, we get the  familiar 
+$$ H(P) = - \sum_i p(\theta_i) \log(p(\theta_i)).$$
+We can leverage this concept in order to pick $\pi$.
+\begin{defn}[Maximum entropy prior]
+\label{def:maxent_prior}
+Let $\mathcal{P}_r$ be a class of probability measures on $\mathcal{B}(\boldsymbol{\Theta})$. 
+A maximum entropy prior in $\mathcal{P}_r$ is a distribution that satisfies
+$$ \argmax_{ P \in \mathcal{P}_r } H(P).$$
+\end{defn}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Finding a maxent prior}
+When $\boldsymbol{\Theta}$ is finite, we can write
+\begin{equation*}
+ \pi^\ast(\theta_i) = \frac{\exp\left\{\sum_{k=1} \lambda_k g_k(\theta_i) \right\}}{\sum_j \exp\left\{\sum_{k=1} \lambda_k g_k(\theta_j) \right\}},
+\end{equation*}
+where the $\lambda_k$ are Lagrange multipliers.
+In the uncountable case things are significantly more delicate, but under regularity conditions there exists a reference measure $\Pi_0$ such that 
+\begin{align*}
+ H_\Pi &= E_{\pi_0}\left[\log \left(\frac{\pi(\theta)}{\pi_0(\theta)}\right)\right],\\
+ &= \int_{\boldsymbol{\Theta}} \log \left(\frac{\pi(\theta)}{\pi_0(\theta)}\right)\, \Pi_0(d\theta).
+\end{align*}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Maximum entropy: practice}
+\begin{exercise}[Maximum entropy Beta prior]
+ \label{exerc:maxent_beta}
+ Find the maximum entropy Beta distribution under the following constraints:
+ \begin{itemize}
+  \item $E[\theta] = 1/2$;
+  \item $E[\theta] = 9/10$.
+ \end{itemize}
+\end{exercise}
+\textbf{Hint:} If $P$ is a Beta distribution with parameters $\alpha$ and $\beta$, then
+$$H_P = \log B(\alpha, \beta) -(\alpha-1)\psi(\alpha) - (\beta-1)\psi(\beta) + (\alpha + \beta -2)\psi(\alpha + \beta),$$
+where $B(x, y) = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x + y)}$ is the Beta function and $\psi(x) = \frac{d}{dx} \log(\Gamma(x))$ is the digamma function.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Parametric approximations: easy-peasy}
+In some situations, the ``right'' parametric family presents itself naturally.
+\begin{example}[Eliciting Beta distributions]
+ Let $x_i \sim \operatorname{Binomial}(n_i, p_i)$ be the number of Flamengo supporters out of $n_i$ people surveyed. 
+ Over the years, the average of $p_i$ has been $0.70$ with variance $0.1$. 
+ If we assume $p_i \sim \operatorname{Beta}(\alpha, \beta)$ we can elicit an informative distribution based on historical data by solving the system of equations
+ \begin{align*}
+  E[\theta] &= \frac{\alpha}{\alpha + \beta} = 0.7,\\
+  \vr(\theta) &= \frac{\alpha\beta}{(\alpha + \beta)^2(\alpha +\beta +1)} = 0.1.
+ \end{align*}
+\end{example}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Parametric approximations: difficulties}
+ Other times we may have a hard time narrowing down the prior to a specific parametric family.
+ Consider the following example.
+ \begin{example}[Normal or Cauchy?]
+  Suppose $x_i \sim \operatorname{Normal}(\theta, 1)$ and we are informed that $\pr(\theta \leq -1) = 1/4$, $\pr(\theta \leq 0) = 1/2$ and $\pr(\theta \leq 1) = 3/4$.
+Seems like plenty of information.
+It can be shown that 
+\begin{align*}
+ \pi_1(\theta) &= \frac{1}{\sqrt{2\pi 2.19}}\exp\left(-\frac{\theta^2}{2\times2.19}\right) \: \text{(Normal)},\\
+ \pi_2(\theta) &= \frac{1}{\pi (1 + x^2)} \: \text{(Cauchy)},
+\end{align*}
+both satisfy the requirements.
+Unfortunately, under quadratic loss we get $\delta_1(4) = 2.75$ and $\delta_2(4) = 3.76$ and differences are exacerbated for $|x|\geq 4$. 
+\end{example}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Why, though?}
+Remember the marginal approach?
+It is illuminating in this case.
+Heres $m(x)$:
+\begin{figure}
+\includegraphics[scale=0.5]{figures/BC_example_326.pdf}
+ \caption{Prior predictive distributions of $x$ under Normal and Cauchy priors.}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Conjugacy}
+Conjugacy is a central concept in Bayesian statistics. 
+It provides a functional view of the prior-posterior mechanic that emphasises tractability over coherence.
+\begin{defn}[Conjugate]
+\label{def:conjugate}
+A family $\mathcal{F}$ of distributions on $\boldsymbol{\Theta}$ is called \textbf{conjugate} or closed under sampling for a likelihood $f(x \mid \theta)$ if, for every $\pi \in \mathcal{F}$, $p(\theta \mid x) \in \mathcal{F}$.
+\end{defn}
+\textbf{Arguments for using conjugate priors}
+\begin{itemize}
+ \item ``Form-preservation'': in a limited-information setting it makes sense that $p(\theta \mid x)$ and $\pi(\theta)$ lie on the same family, since the information in $x$ might not be enough to change the structure of the model, just its parameters;
+ \item Simplicity: when you do not know a whole lot, it makes sense to KISS\footnote{Keep it simple, stupid!};
+ \item Sequential learning: since $\mathcal{F}$ is closed under sampling, one can update a sequence of posteriors $p_i(\theta \mid x_1, \ldots, x_i)$ as data comes in.
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Exponential families}
+The exponential family of distributions is a cornerstone of statistical practice, underlying many often-used models. 
+Here are a few useful definitions.
+\begin{defn}[(Natural) Exponential family]
+ \label{def:expo_family}
+ Let $\mu$ be a $\sigma$-finite measure on $\mathcal{X}$ and let $\boldsymbol{\Theta}$ be a non-empty set serving as the parameter space.
+ Let $C : \boldsymbol{\Theta} \to (0, \infty)$ and $h: \boldsymbol{\Theta} \to (0, \infty)$ and let $R : \boldsymbol{\Theta} \times \mathcal{X} \to \mathbb{R}^k$ and $T: \boldsymbol{\Theta} \times \mathcal{X} \to \mathbb{R}^k$.
+ The family of distributions with density 
+ \begin{equation*}
+  f(x \mid \theta) = C(\theta)h(x)\exp\left(R(\theta) \cdot T(x) \right)
+ \end{equation*}
+ w.r.t. $\mu$ is called an \textbf{exponential family}.
+ Moreover, if $R(\theta) = \theta$, the family is said to be \textbf{natural}.
+\end{defn}
+\begin{defn}[Regular exponential family]
+ We say a natural exponential family $f(x\mid\theta)$ is \textbf{regular} if the natural parameter space
+ \begin{equation}
+  N := \left\{ \theta : \int_{\mathcal{X}} \exp(\theta\cdot x) h(x)\,d\mu(x) < \infty \right\},
+ \end{equation}
+is an open set of the same dimension as the closure of the convex hull of $\supp(\mu)$.
+\end{defn}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Conjugacy and sufficiency}
+There is an intimate link between sufficiency (i.e. the existence of sufficient statistics) and conjugacy.
+The following is a staple of Bayesian theory.
+\begin{theo}[Pitman-Koopman-Darmois]
+ If a family of distributions $f(\cdot \mid \theta)$ whose support does not depend on $\theta$ is such that, for a sample size large enough, there exists a sufficient statistic of \underline{fixed dimension}, then $f(\cdot \mid \theta)$ is an exponential family.
+\end{theo}
+The support condition is not a complete deal breaker, however:
+\begin{remark}[Quasi-exponential]
+ The $\operatorname{Uniform}(-\theta, \theta)$ and $\operatorname{Pareto}(\theta, \alpha)$ families are called \textit{quasi-exponential} due to the fact that there do exist sufficient statistics of fixed dimension for these families, even though their supports depend on $\theta$.
+\end{remark}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Conjugacy in the exponential family}
+I hope you are convinced of the utility of the exponential family by now.
+It would be nice to have an automated way to deduce a conjugate prior for $f(x\mid \theta)$ when it is in the exponential family.
+This is exactly what the next result gives us.
+\begin{remark}[Conjugate prior for the exponential family]
+ A conjugate family for $f(x\mid \theta)$ is given by
+ \begin{equation}
+ \label{eq:conjugate_exponential_family}
+  \pi(\theta \mid \mu, \lambda) = K(\mu, \lambda) \exp\left(\theta \cdot \mu - \lambda g(\theta)\right),
+ \end{equation}
+such that the posterior is given by $p(\theta \mid \mu + x, \lambda + 1)$.
+\end{remark}
+Please do note that (\ref{eq:conjugate_exponential_family}) is only a valid density when $\lambda > 0$ and $\mu/\lambda$ belongs to the interior of the natural space parameter. 
+Then, it is a $\sigma$-finite measure.
+See \cite{Diaconis1979} for more details.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Conjugacy: common families}
+\begin{figure}
+ \includegraphics[scale=.5]{figures/conjugate_table.pdf}
+ \caption{Taken from~\cite{Robert2007}, page 121.}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Conjugacy: drawbacks}
+Conjugate modelling is certainly useful, but has its fair share of pitfalls.
+
+\textbf{Arguments against using conjugate priors}
+\begin{itemize}
+ \item Conjugate priors are restrictive \textit{a priori}: in many settings, specially in high dimensions, the set of conjugate priors that retain tractability is so limited so as to not be able to encode all prior information available;
+ \item Conjugate priors are not truly subjective: they limit the analyst's input to picking values for the hyperparameters;
+  \item Conjugate priors are restrictive \textit{a posteriori}: you are stuck with a given structure forever, no matter how much data you run into.
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{The principle of insufficient reason}
+ Also called principle of indifference by Keynes\footnote{John Maynard Keynes (1883--1946) was an English economist.}.
+ \begin{quote}
+  ...if there is no known reason for predicating of our subject one rather than another of several alternatives, then relatively to such knowledge the assertions of each of these alternatives have an equal probability." \cite[Ch4 pg. 52-53]{Keynes1921}. 
+ \end{quote}
+ The idea dates back to Laplace and even Bayes himself and usually leads to 
+$$ \pi(\theta) \propto 1.$$
+ \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Invariance}
+In many applications we might want some sort of~\textit{invariance} in our prior model. 
+\begin{defn}[Invariant model]
+ \label{def:invariant_model}
+ A statistical model is said to be~\textbf{invariant} (or closed) under the action of a group $\mathcal{G}$ if $\forall g \in \mathcal{G} \: \exists \theta^\star \in \boldsymbol{\Theta}$ such that $y = g(x)$ is distributed with density $f(y\mid \theta^\star)$, denoting $\theta^\star = \bar{g}(\theta)$.
+\end{defn}
+Consider two types of invariance
+\begin{itemize}
+ \item \textit{Translation} invariance:
+ A model $f(x-\theta)$ such that $x-x_0$ has a distribution in the same family for every $x_0$ leads to
+ $$\pi(\theta) = \pi(\theta-\theta_0),\: \forall\: \theta_0 \in \boldsymbol{\Theta}.$$
+ \item \textit{Scale} invariance:
+ Similarly, a model of the form $\sigma^{-1} f(x/\sigma)$, $\sigma >0$ is \textit{scale-invariant} and  leads to
+ $$ \pi(A/c) = \pi(A),$$
+ for any measurable A.
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Jeffreys's prior}
+One can try to build a prior that captures only the essential structural information about the problem by deriving an invariant distribution from the Fisher information:
+$$ I(\theta) = E\left[\left(\frac{\partial \log f(X \mid \theta)}{\partial \theta}\right)^2\right].$$
+Under regularity conditions, we can usually also write
+$$ I(\theta) = - E\left[\frac{\partial^2 \log f(X \mid \theta)}{\partial \theta^2}\right].$$
+Jeffreys showed that 
+$$\pi_J(\theta) \propto \sqrt{I(\theta)},$$
+is invariant.
+There are straightforward generalisations when $\theta$ is multidimensional.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Jeffreys's priors: examples}
+A good exercise is to show that
+\begin{itemize}
+ \item If $x \sim \operatorname{Normal}(0, \theta)$, $\pi_J(\theta) \propto 1/\theta^2$;
+ \item If $x \sim \operatorname{Normal}_d(\theta, \boldsymbol{I}_d)$, $\pi_J(\theta) \propto 1$;
+ \item If $x \sim \operatorname{Binomial}(n, \theta)$, $\pi_J(\theta) \equiv \operatorname{Beta}(1/2, 1/2)$;
+ \item If $f(x\mid \theta) = h(x) \exp\left(\theta \cdot x - \psi(\theta)\right)$, then
+ $$ \pi_J(\theta)  \propto \sqrt{\prod_{i=1}^k\psi^{\prime\prime}(\theta)}.$$
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Beware!}
+One important caveat of Jeffreys's priors is that they violate the Likelihood Principle.
+To see why, consider the following exercise.
+\begin{exercise}[Poisson process]
+Suppose one is interested in estimating the rate, $\theta$, of a Poisson process:
+$$ Y(t) \sim \operatorname{Poisson}(t\theta).$$
+There are two possible experimental designs: 
+\begin{itemize}
+ \item[a)] Fix a number $n$ of events to be observed and record the time $X$ to observe them, or;
+ \item[b)] Wait a fixed amount of time, $t$, and count the number $Y$ of occurences of the event of interest.
+ Show that
+\end{itemize}
+ \begin{align*}
+\label{eq:poisson_process_informationMatrix}
+\text{a)}&\:  I_X(\theta) = \frac{n}{\theta^2},\\
+\text{b)}&\: I_Y(\theta) = \frac{t}{\theta}.
+\end{align*}
+Which conclusions can we draw from this example?
+\end{exercise}
+See also example 3.5.7 in~\cite{Robert2007}.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Reference priors}
+Jeffreys's approach can sometimes lead to marginalisation paradoxes and calibration issues (see exercise 4.47 in \cite{Robert2007}).
+\cite{Bernardo1979} proposes a modification that avoids these difficulties by explicit separating parameters in~\textit{nuisance} and~\textit{interest}.
+It works like this: take $f(x\mid \theta)$, with $\theta = (\theta_1, \theta_2)$ and let $\theta_1$ be the parameter of interest.
+We must first compute\footnote{Notice that this need not be well-defined. One common way of dealing with difficulties is to integrate on a sequence of measurable compact sets and take the limit.}
+$$ \tilde{f}(x\mid \theta_1) = \int_{\boldsymbol{\Theta_2}} f(x \mid \theta_1, t_2)\pi(t_2\mid \theta_1)\, dt_2, $$
+and then compute the Jeffreys's prior associated with this marginalised likelihood.
+Notice that this entails first deriving $\pi(\theta_2\mid \theta_1)$.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Reference priors: example}
+Suppose we have $x_{ij} \sim \operatorname{Normal}(\mu_i, \sigma^2)$, $i = 1, \ldots, n$, $j=1,2$ and consider making inferences about $\boldsymbol{\theta} = (\sigma^2, \boldsymbol{\mu})$.
+Here $\theta_1 = \sigma$ is a nuisance parameter and we're interested in the location $\boldsymbol{\theta}_2 = \boldsymbol{\mu}$.
+The Jeffreys's prior is 
+$$\pi_J(\boldsymbol{\theta}) \propto 1/\sigma^{n+1},$$
+leading to a Bayes estimator under quadratic loss:
+$$ \hat{\sigma}_J := E[\sigma^2 \mid \boldsymbol{x}] = \frac{\sum_{i=1}^n (x_{i1}-x_{i2})^2}{4n-4},$$
+which in not consistent.
+The reference approach give $\pi(\theta_1 \mid \boldsymbol{\theta_2})$ as a flat prior - because $\boldsymbol{\theta_2}$ is a location parameter.
+Marginalising the likelihood against this flat density over $(0,\infty)$ gives $\pi_R(\sigma^2) \propto 1/\sigma^2$, leading to
+$$ \hat{\sigma}_R =\frac{\sum_{i=1}^n (x_{i1}-x_{i2})^2}{2n-4},$$
+which is consistent.
+Phew!
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Frequentist considerations}
+If you are a bit greedy and want to please Greeks and Troyans, you might also try to construct your prior so that it attains good frequency properties. 
+One such way is to construct~\textbf{matching priors}:
+\begin{defn}[Matching prior]
+ We say $\pi(\theta)$ is a \textbf{matching prior} for a confidence level $\alpha$ if it is constructed in such a way that  
+ \begin{equation*}
+  \pr(g(\theta) \in C_x \mid x) = \frac{1}{m(x)}\int_{C_x} f(x\mid t) \pi(t) \, dt = 1-\alpha,
+ \end{equation*}
+holds for a given confidence set $C_x(\alpha)$ for $g(\theta)$.
+\end{defn}
+In other words, if the posterior matches the confidence set.
+It can be shown that, in unidimensional families, the Jeffreys's prior gives
+$$ \pr(\theta \leq k_\alpha(x)) = 1-\alpha + O(n^{-1}),$$
+where $C_x = (-\infty, k_\alpha(x))$ is a one-sided confidence interval.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Prior classes}
+\cite{Robert2007} gives a classification of priors in classes:
+\begin{itemize}
+ \item[i)] Conjugate classes:
+  $$ \Gamma_C = \{\pi \in \mathcal{F} : p \in \mathcal{F} \}, $$
+ \item[ii)] Determined moment(s) classes:
+ $$ \Gamma_M = \{\pi : a_i \leq E_\pi[\theta] \leq b_i, i = 1, \ldots, k\}, $$
+ \item[iii)] Neighbourhood (or $\epsilon$-contamination) classes:
+  $$ \Gamma_{\epsilon, \mathcal{Q}} = \{\pi = (1-\epsilon)\pi_0 + q, q \in \mathcal{Q}\}, $$
+ \item[iv)] Underspecified classes:
+   $$ \Gamma_{U} = \{\pi : \int_{I_i} \pi(t)\,dt \leq \mu_i, i = 1, \ldots, k\}, $$
+ \item[v)] Ratio of density classes:
+    $$ \Gamma_{R} = \{\pi : L(\theta) \leq \pi(\theta) \leq U(\theta)\}. $$
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Prior sensitivity analysis}
+ General recommendations about building priors:
+ \begin{itemize}
+  \item Check the \textbf{observable consequences} of your priors :what kinds of data does this produce?
+  \item Check the inferential consequences of your priors: how do my estimators change under different priors?
+  \item Make sure you know what your restrictions do to the tail of your prior;  
+  \item It is usually a good idea to understand what the prior \textbf{does} to the model, as opposed to only which values $\theta$ can plausibly take;
+  \item Sometimes it may be useful to think of priors as \textit{penalisations} that \textbf{regularise} inference.
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Recommended reading}
+\begin{itemize}
+ \item[\faBook] \cite{Robert2007} Ch. 3;
+ \item[\faForward] Next lecture: \cite{Robert2007} Ch. 3.6, \cite{Seaman2012}, \cite{Gelman2017} and \cite{Simpson2017}.
+ \end{itemize} 
+\end{frame}
