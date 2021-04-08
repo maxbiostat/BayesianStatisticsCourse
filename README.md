@@ -35,7 +35,6 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - As advanced reading, one can consider [Birnbaum (1962)](https://www.tandfonline.com/doi/abs/10.1080/01621459.1962.10480660) and a helpful review [paper](https://link.springer.com/content/pdf/10.1007/978-1-4612-0919-5_31.pdf) published 30 years later by Bjornstad.
 - Michael Evans has a few papers on the LP. See [Evans, Fraser & Monette (1986)](https://errorstatistics.files.wordpress.com/2017/12/evans-fraser-monette-1986.pdf) for an argument using a stronger version of CP and [Evans, 2013](https://projecteuclid.org/journals/electronic-journal-of-statistics/volume-7/issue-none/What-does-the-proof-of-Birnbaums-theorem-prove/10.1214/13-EJS857.full) for a flaw with the original 1962 paper by Birnbaum. 
 
-
 ## Lecture 2: Belief functions, coherence, exchangeability
 
 - David Alvarez-Melis and Tamara Broderick were kind enough to provide an [English translation](https://arxiv.org/abs/1512.01229) of De Finetti's seminal 1930 [paper](http://www.brunodefinetti.it/Opere/funzioneCaratteristica.pdf).
@@ -46,8 +45,12 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - John Cook provides a nice [compendium](https://www.johndcook.com/CompendiumOfConjugatePriors.pdf) of conjugate priors by Daniel Fink.
 
 ## Lecture 4: Priors II: types of priors; implementation
-
+**Required reading**
 - [Hidden Dangers of Specifying Noninformative Priors](https://www.tandfonline.com/doi/abs/10.1080/00031305.2012.695938) is a must-read for those who wish to understand the counter-intuitive nature of prior measures and their push-forwards.
+- [The Prior Can Often Only Be Understood in the Context of the Likelihood](https://www.mdpi.com/1099-4300/19/10/555) explains that, from a practical perspective, priors can be seen as regularisation  devices and should control what the model _does_ rather than what values the parameter takes.
+- [Penalising Model Component Complexity: A Principled, Practical Approach to Constructing Priors](https://projecteuclid.org/journals/statistical-science/volume-32/issue-1/Penalising-Model-Component-Complexity--A-Principled-Practical-Approach-to/10.1214/16-STS576.full) shows how to formalise the idea that one should prefer a simpler model by penalising deviations from a base model.
+
+**Optional reading**
 - [The Case for Objective Bayesian Analysis](https://www.ime.usp.br/~abe/lista/pdfTFOW5ADDD0.pdf) is a good read to try and put objective Bayes on solid footing. 
 
 ## Lecture 5: Bayesian point estimation
