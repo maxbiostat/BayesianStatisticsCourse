@@ -74,4 +74,4 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 
 - See Jayne's monograph above.
 - See [Frequentism and Bayesianism: A Practical Introduction](https://jakevdp.github.io/blog/2014/03/11/frequentism-and-bayesianism-a-practical-intro/) for a five-part discussion of the Bayesian vs Orthodox statistics.
-- [Why isn't everyone a Bayesian](https://www2.stat.duke.edu/courses/Spring10/sta122/Handouts/EfronWhyEveryone.pdf) is a nice discussion of the trade-offs between paradigms by [Bradley Efron](https://statweb.stanford.edu/~ckirby/brad/).
+- [Why isn't everyone a Bayesian?](https://www2.stat.duke.edu/courses/Spring10/sta122/Handouts/EfronWhyEveryone.pdf) is a nice discussion of the trade-offs between paradigms by [Bradley Efron](https://statweb.stanford.edu/~ckirby/brad/).
