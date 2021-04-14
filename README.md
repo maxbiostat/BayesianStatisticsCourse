@@ -54,6 +54,7 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - [The Case for Objective Bayesian Analysis](https://www.ime.usp.br/~abe/lista/pdfTFOW5ADDD0.pdf) is a good read to try and put objective Bayes on solid footing. 
 
 ## Lecture 5: Bayesian point estimation
+- The paper [The Federalist Papers As a Case Study](https://link.springer.com/chapter/10.1007/978-1-4612-5256-6_1) by Mosteller and Wallace (1984) is a very nice example of capture-recapture models. It is cited in Sharon McGrayne's book ["The Theory That Would Not Die"](https://www.amazon.com/Theory-That-Would-Not-Die/dp/0300188226) as triumph of Bayesian inference. It is also a serious contender for coolest paper abstract ever. 
 
 ## Lecture 6: Bayesian interval estimation
 - [Jaynes](https://en.wikipedia.org/wiki/Edwin_Thompson_Jaynes)'s 1976 monograph [Confidence Intervals vs Bayesian Intervals](https://link.springer.com/chapter/10.1007/978-94-009-6581-2_9) is a great source of useful discussion. [PDF](https://link.springer.com/content/pdf/10.1007/978-94-010-1436-6_6.pdf).
