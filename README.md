@@ -55,6 +55,7 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 
 ## Lecture 5: Bayesian point estimation
 - The paper [The Federalist Papers As a Case Study](https://link.springer.com/chapter/10.1007/978-1-4612-5256-6_1) by Mosteller and Wallace (1984) is a very nice example of capture-recapture models. It is cited in Sharon McGrayne's book ["The Theory That Would Not Die"](https://www.amazon.com/Theory-That-Would-Not-Die/dp/0300188226) as triumph of Bayesian inference. It is also a serious contender for coolest paper abstract ever. 
+- [This](https://statmodeling.stat.columbia.edu/2011/01/31/using_sample_si/) post in the Andrew Gelman blog discusses how to deal with the sample size (`n`) in a Bayesian problem: either write out a full model that specifies a probabilistic model for `n`  or write an approximate prior pi(theta|n).
 
 ## Lecture 6: Bayesian interval estimation
 - [Jaynes](https://en.wikipedia.org/wiki/Edwin_Thompson_Jaynes)'s 1976 monograph [Confidence Intervals vs Bayesian Intervals](https://link.springer.com/chapter/10.1007/978-94-009-6581-2_9) is a great source of useful discussion. [PDF](https://link.springer.com/content/pdf/10.1007/978-94-010-1436-6_6.pdf).
