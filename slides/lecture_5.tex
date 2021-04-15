@@ -47,9 +47,9 @@ for measurable $h$.
  It can be shown that:
  $$ E_\pi\left[\left(\delta_1 - \theta \right)^2 \mid x \right] = \left(\frac{x - n/2}{n(n+1)}\right)^2 +  \frac{(x + 1/2)(n - x + 1/2)}{(n + 1)^2(n+2)}.$$
  Moreover,
- $$\argmax_{\theta \in (0, 1)}  E_\pi\left[\left(\delta_1 - \theta\right)^2 \mid x \right] = [4(n+2)]^{-1},$$
+ $$\max_{\theta \in (0, 1)}  E_\pi\left[\left(\delta_1 - \theta\right)^2 \mid x \right] = [4(n+2)]^{-1},$$
  and
- $$ \argmax_{\theta \in (0, 1)} E_\theta \left[\left(\delta_1 - \theta\right)^2\right] = [4n]^{-1}.$$ 
+ $$ \max_{\theta \in (0, 1)} E_\theta \left[\left(\delta_1 - \theta\right)^2\right] = [4n]^{-1}.$$ 
 \end{example}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -107,7 +107,7 @@ We will stretch our Bayesian muscles with the next problem.
  $$ L_1(\delta, \theta) = \left(\delta - \frac{1}{\theta}\right)^2, $$
  and the scale-invariant loss
  $$ L_2(\delta, \theta) = \theta^2 \left(\delta - \frac{1}{\theta}\right)^2$$
- \textit{Hint:} If $X \sim \operatorname{Gamma}(\alpha, \beta)$, $Y = 1/X \sim \operatorname{InverseGamma}(\alpha, \beta)$ and $E[Y^k] = \frac{\beta}{(\alpha-1)\cdots(\alpha-k)}$
+ \textit{Hint:} If $X \sim \operatorname{Gamma}(\alpha, \beta)$, $Y = 1/X \sim \operatorname{InverseGamma}(\alpha, \beta)$ and $E[Y^k] = \frac{\beta^k}{(\alpha-1)\cdots(\alpha-k)}$
 \end{exercise}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -137,7 +137,6 @@ The following problem is described by Jeffreys as originating with Jerzy Neyman\
  The first thing they see is a tramcar numbered $100$.
  Assuming tramcars are numbered consecutively from $1$ onwards, what could one \textit{infer} about the number $N$ of tramcars in this town?
 \end{exercise}
-
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
