@@ -21,6 +21,9 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - [Bayesian Learning](https://github.com/mattiasvillani/BayesLearnCourse) by [Mattias Vilani](mattiasvillani.com) is a book for a computation-minded audience. 
 - Michael Betancourt's website is a treasure trove of rigorous, modern and insightful applied Bayesian statistics. See [this](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#1_Questioning_Authority) as a gateway drug.
 
+### Acknowledgements
+[Guido Moreira](http://github.com/GuidoAMoreira/) suggested topics, exercises and exam questions.
+
 # Syllabus
 ## Lecture 0: Overview
 - The LaplacesDemon introductory [vignette](https://cran.r-project.org/web/packages/LaplacesDemon/vignettes/BayesianInference.pdf) gives a very nice overview of Bayesian Statistics.
