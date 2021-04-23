@@ -30,6 +30,7 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - [What is a statistical model?](https://projecteuclid.org/journals/annals-of-statistics/volume-30/issue-5/What-is-a-statistical-model/10.1214/aos/1035844977.full) by Peter McCullagh gives a good explanation of what a statistical model is. See also BC Ch1.
 - There are a few [Interpretations of Probability](https://plato.stanford.edu/entries/probability-interpret/) and its important to understand them so the various schools of statistical inference make sense. 
 - [WHAT IS BAYESIAN/FREQUENTIST INFERENCE?](https://normaldeviate.wordpress.com/2012/11/17/what-is-bayesianfrequentist-inference/) by [Larry Wasserman](https://www.stat.cmu.edu/~larry/) is a must read in order to understand what makes each inference paradigm tick.
+- This [cross-validated post](https://stats.stackexchange.com/questions/444080/a-measure-theoretic-formulation-of-bayes-theorem) has a very nice, measure-theoretic proof of Bayes's theorem.
 
 ## Lecture 1: Principled Inference, decision-theoretical foundations
 
