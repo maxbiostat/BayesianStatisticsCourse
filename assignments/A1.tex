@@ -1,0 +1,163 @@
+\documentclass[a4paper,10pt, notitlepage]{report}
+\usepackage{geometry}
+\geometry{verbose,tmargin=30mm,bmargin=25mm,lmargin=25mm,rmargin=25mm}
+\usepackage[utf8]{inputenc}
+\usepackage[sectionbib]{natbib}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{cancel}
+\usepackage{mathtools}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\hypersetup{colorlinks=true,citecolor=blue}
+
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{proposition}[thm]{Proposition}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{defn}[thm]{Definition}
+
+%%%%%%%%%%%%%%%%%%%% Notation stuff
+\newcommand{\pr}{\operatorname{Pr}} %% probability
+\newcommand{\vr}{\operatorname{Var}} %% variance
+\newcommand{\rs}{X_1, X_2, \ldots, X_n} %%  random sample
+\newcommand{\irs}{X_1, X_2, \ldots} %% infinite random sample
+\newcommand{\rsd}{x_1, x_2, \ldots, x_n} %%  random sample, realised
+\newcommand{\bX}{\boldsymbol{X}} %%  random sample, contracted form (bold)
+\newcommand{\bx}{\boldsymbol{x}} %%  random sample, realised, contracted form (bold)
+\newcommand{\bT}{\boldsymbol{T}} %%  Statistic, vector form (bold)
+\newcommand{\bt}{\boldsymbol{t}} %%  Statistic, realised, vector form (bold)
+\newcommand{\emv}{\hat{\theta}}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% Title Page
+\title{Exam 1 (A1)}
+\author{Class: Bayesian Statistics \\ Instructor: Luiz Max Carvalho}
+\date{26/04/2021}
+
+\begin{document}
+\maketitle
+
+\textbf{Turn in date: until 28/04/2021 at 23:59h Brasilia Time.}
+
+\begin{center}
+\fbox{\fbox{\parbox{1.0\textwidth}{\textsf{
+    \begin{itemize}
+    \item Please read through the whole exam before starting to answer;
+    \item State and prove all non-trivial mathematical results necessary to substantiate your arguments;
+    \item Do not forget to add appropriate scholarly references~\textit{at the end} of the document;
+    \item Mathematical expressions also receive punctuation;
+    \item You can write your answer to a question as a point-by-point response or in ``essay'' form, your call;
+    \item Please hand in a single, \textbf{typeset} ( \LaTeX) PDF file as your final main document.
+ Code appendices are welcome,~\textit{in addition} to the main PDF document.
+    \item You may consult any sources, provided you cite \textbf{ALL} of your sources (books, papers, blog posts, videos);
+    \item You may use symbolic algebra programs such as Sympy or Wolfram Alpha to help you get through the hairier calculations, provided you cite the tools you have used.
+    \item The exam is worth $\min\left\{\text{your\:score}, 100\right\}$ marks.
+    \end{itemize}}
+}}}
+\end{center}
+% \newpage
+% \section*{Hints}
+% \begin{itemize}
+%  \item a
+%  \item b
+% \end{itemize}
+% 
+\newpage
+
+\section*{Background}
+
+This exam covers decision theory, prior elicitation and  point estimation.
+You will need a little measure theory here and there and also be sharp with your knowledge of expectations and conditional expectations.
+
+\section*{1. Warm up: stretching our Bayesian muscles with a classic.}
+
+\cite{Bayes1763}\footnote{The paper was published posthumously and read to the Royal Society by Bayes's close friend Richard Price (1723-1791).}: a billiard ball $W$ is rolled on a line of length $L = 1$, with uniform probability of stopping anywhere on $L$. 
+It stops at $0 < p < 1$.
+A second ball, $O$, is then rolled $n$ times under the same assumptions.
+Let $X$ denote the number of times (out of $n$) that $O$ stopped to the left of $W$.
+Given $X=x$, \textbf{what inference(s) can we make on $p$}?
+You may assume $n\geq2$.
+
+The idea here is to provide a rigorous, principled Bayesian analysis of this $250$ years old problem.
+Here are a few road signs to help you in your analysis:
+\begin{enumerate}[label=\alph*)]
+ \item (10 marks) For the problem at hand, \textbf{carefully} define the parameter space, data-generating mechanism, likelihood function and all of crucial elements of a Bayesian analysis. What is the dominating measure?
+ \item (10 marks) Exhibit your posterior measure and sketch its density.
+ 
+ \textit{Hint:} it might be convenient to prove the following proposition:
+ \begin{proposition}
+ \label{prop:joint_bayes}
+ The joint distribution of $p$ and $X$ is given by
+ \begin{equation*}
+  \pr(a < p < b, X = x) = \int_{a}^{b} \binom{n}{x} t^x(1-t)^{n-x}\,dt.
+ \end{equation*}
+ \end{proposition}
+ \item (10 marks) Provide a Bayes estimator under (i) quadratic and (ii) 0-1 loss\footnote{Recall the discussion in class about how to properly define 0-1 loss as for continuous parameter spaces.};
+ \item (10 marks) Contrast the estimators obtained in the previous item  with the maximum likelihood estimator, in terms of (i) Bayes risk and (ii) integrated risk.
+ Is any of the estimators preferable according to both risks?
+ If not, which estimator should be preferred under each goal risk?
+ \item (10 marks) Suppose one observes $X = x = 6$ for $n=9$ rolls.
+ Produce an updated prediction of where the next $m$ balls are going to stop along $L$.
+ Please provide (i) a point prediction in the form of an expected value and (ii) a full probability distribution.
+\end{enumerate}
+
+
+\section*{2. Proper behaviour.}
+
+In this question we will explore propriety and its implications for inference.
+Consider a parameter space $\boldsymbol{\Theta}$ and a sampling model with density $f(x \mid \theta)$.
+A density $h : \boldsymbol{\Theta} \to (0, \infty)$ is said to be proper if 
+\begin{equation*}
+ \int_{\boldsymbol{\Theta}} h(t)\,d\mu(t)  < \infty,
+\end{equation*}
+where $\mu$ is the dominating measure.
+Assuming $\mu$ to be the Lebesgue measure and that the prior $\pi(\theta)$ is proper, show that
+\begin{itemize}
+ \item[a)] (10 marks) The posterior density,
+ \begin{equation*}
+  \xi(\theta \mid x) = \frac{f(x\mid \theta)\pi(\theta)}{m(x)},
+ \end{equation*}
+is proper almost surely.
+\item[b)] (10 marks) The Bayes estimator under quadratic loss, $\delta_{\text{S}}(x) = E_\xi[\theta]$ is biased almost surely.
+\textit{Hint:} consider what happens to the integrated risk under unbiasedness.
+\end{itemize}
+Now,
+\begin{itemize}
+ \item[c)] (10 marks) Take
+$$f(x \mid \theta) = \frac{2x}{\theta}, x \in [0, \sqrt{\theta}],$$
+and 
+$$ \pi(\theta) = \frac{2}{\pi (1 +\theta^2)}, \theta > 0.$$
+The posterior density is then
+\begin{equation*}
+ p(\theta \mid x) = \frac{1}{m(x)} \frac{4x}{\pi}\frac{1}{\theta(1 +\theta^2)},
+\end{equation*}
+ and thus
+\begin{equation*}
+ m(x) = \int_{0}^\infty \frac{4x}{\pi} \frac{1}{t(1 +t^2)}\,dt = \frac{4x}{\pi} \int_{0}^\infty \frac{1}{t(1 +t^2)}\,dt = \infty,
+\end{equation*}
+i.e., the posterior is apparently improper.
+Explain how this ``counter-example'' is wrong.
+\end{itemize}
+
+\section*{3. Rayleigh dispersion\footnote{This question's title is pun: \url{https://en.wikipedia.org/wiki/Rayleigh_scattering}.}.}
+
+Let $X_1, \ldots, X_n$ be a random sample from a distribution whose probability density function is
+\begin{equation*}
+ f(x \mid \sigma) = \frac{x}{\sigma^2} \exp\left(-\frac{x^2}{2\sigma^2}\right),\, \sigma>0,\, 0 < x < \infty.
+\end{equation*}
+This is the Rayleigh\footnote{John William Strutt (1842-1919), the Third Baron Rayleigh, was a British physicist, known for his work on Statistical Mechanics.} distribution, used in reliability modelling, where the $X$ are failure times (time-until-failure).
+\begin{itemize}
+ \item[a)] (5 marks) For $t$ fixed and known, find $\eta = \pr(X > t)$ as function of $\sigma^2$;
+ \item[b)] (5 marks) Find the likelihood function for $\eta$ for a sample $\boldsymbol{x} = \{x_1, \ldots, x_n\}$;
+ \item[c)] (10 marks) Is the Rayleigh distribution a member of the exponential family? Justify your answer;
+ \item[d)] (10 marks) Find the Jeffreys's prior for $\eta$, $\pi_J(\eta)$;
+ \item[e)] (10 marks) Using $\pi_J(\eta)$, derive the predictive distribution $p(\tilde{x} \mid \boldsymbol{x})$.
+\end{itemize}
+
+\bibliographystyle{apalike}
+\bibliography{a1}
+\end{document}          
