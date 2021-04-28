@@ -62,7 +62,7 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - [This](https://statmodeling.stat.columbia.edu/2011/01/31/using_sample_si/) post in the Andrew Gelman blog discusses how to deal with the sample size (`n`) in a Bayesian problem: either write out a full model that specifies a probabilistic model for `n`  or write an approximate prior pi(theta|n).
 
 ## Lecture 6: Bayesian Testing I
-- In their seminal 1995 [paper](https://www.tandfonline.com/doi/abs/10.1080/01621459.1995.10476572), [Robert Kass](http://www.stat.cmu.edu/people/faculty/rob-kass) and [Adrian Raftery](https://sites.stat.washington.edu/raftery/) give a nice overvbiew of, along with recommendations for, Bayes factors.
+- In their seminal 1995 [paper](https://www.tandfonline.com/doi/abs/10.1080/01621459.1995.10476572), [Robert Kass](http://www.stat.cmu.edu/people/faculty/rob-kass) and [Adrian Raftery](https://sites.stat.washington.edu/raftery/) give a nice overview of, along with recommendations for, Bayes factors.
 - [This](https://arxiv.org/pdf/1303.5973.pdf) paper by Christian Robert gives a nice discussion of the Jeffreys-Lindley paradox.
 - [Jaynes](https://en.wikipedia.org/wiki/Edwin_Thompson_Jaynes)'s 1976 monograph [Confidence Intervals vs Bayesian Intervals](https://link.springer.com/chapter/10.1007/978-94-009-6581-2_9) is a great source of useful discussion. [PDF](https://link.springer.com/content/pdf/10.1007/978-94-010-1436-6_6.pdf).
 
