@@ -1,0 +1,515 @@
+\documentclass[a4paper,10pt, notitlepage]{report}
+\usepackage{geometry}
+\geometry{verbose,tmargin=30mm,bmargin=25mm,lmargin=25mm,rmargin=25mm}
+\usepackage[utf8]{inputenc}
+\usepackage{natbib}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{cancel}
+\usepackage{mathtools}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\hypersetup{colorlinks=true,citecolor=blue}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{proposition}[thm]{Proposition}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{defn}[thm]{Definition}
+
+%%%%%%%%%%%%%%%%%%%% Notation stuff
+\newcommand{\pr}{\operatorname{Pr}} %% probability
+\newcommand{\vr}{\operatorname{Var}} %% variance
+\newcommand{\rs}{X_1, X_2, \ldots, X_n} %%  random sample
+\newcommand{\irs}{X_1, X_2, \ldots} %% infinite random sample
+\newcommand{\rsd}{x_1, x_2, \ldots, x_n} %%  random sample, realised
+\newcommand{\bX}{\boldsymbol{X}} %%  random sample, contracted form (bold)
+\newcommand{\bx}{\boldsymbol{x}} %%  random sample, realised, contracted form (bold)
+\newcommand{\bT}{\boldsymbol{T}} %%  Statistic, vector form (bold)
+\newcommand{\bt}{\boldsymbol{t}} %%  Statistic, realised, vector form (bold)
+\newcommand{\emv}{\hat{\theta}}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% Title Page
+\title{Exam 1 (A1)}
+\author{Class: Bayesian Statistics \\ Instructor: Luiz Max Carvalho}
+\date{26/04/2021}
+
+\begin{document}
+\maketitle
+
+\textbf{Turn in date: until 28/04/2021 at 23:59h Brasilia Time.}
+
+\begin{center}
+\fbox{\fbox{\parbox{1.0\textwidth}{\textsf{
+    \begin{itemize}
+    \item Please read through the whole exam before starting to answer;
+    \item State and prove all non-trivial mathematical results necessary to substantiate your arguments;
+    \item Do not forget to add appropriate scholarly references~\textit{at the end} of the document;
+    \item Mathematical expressions also receive punctuation;
+    \item You can write your answer to a question as a point-by-point response or in ``essay'' form, your call;
+    \item Please hand in a single, \textbf{typeset} ( \LaTeX) PDF file as your final main document.
+ Code appendices are welcome,~\textit{in addition} to the main PDF document.
+    \item You may consult any sources, provided you cite \textbf{ALL} of your sources (books, papers, blog posts, videos);
+    \item You may use symbolic algebra programs such as Sympy or Wolfram Alpha to help you get through the hairier calculations, provided you cite the tools you have used.
+    \item The exam is worth $\min\left\{\text{your\:score}, 100\right\}$ marks.
+    \end{itemize}}
+}}}
+\end{center}
+% \newpage
+% \section*{Hints}
+% \begin{itemize}
+%  \item a
+%  \item b
+% \end{itemize}
+% 
+\newpage
+
+\section*{Background}
+
+This exam covers decision theory, prior elicitation and  point estimation.
+You will need a little measure theory here and there and also be sharp with your knowledge of expectations and conditional expectations.
+
+% \begin{defn}[variable]
+%  $x$ is a variable.
+% \end{defn}
+% 
+% \begin{thm}[$P=NP$]
+% \label{thm:pnp}
+%  Indeed, $P$ is equivalent to $NP$.
+% \end{thm}
+% 
+% \begin{remark}[Trivial]
+%  Theorem~\ref{thm:pnp} is trivial.
+% \end{remark}
+
+\section*{1. Warm up: stretching our Bayesian muscles with a classic.}
+
+\cite{Bayes1763}\footnote{The paper was published posthumously and read to the Royal Society by Bayes's close friend Richard Price (1723-1791).}: a billiard ball $W$ is rolled on a line of length $L = 1$, with uniform probability of stopping anywhere on $L$. 
+It stops at $0 < p < 1$.
+A second ball, $O$, is then rolled $n$ times under the same assumptions.
+Let $X$ denote the number of times (out of $n$) that $O$ stopped to the left of $W$.
+Given $X=x$, \textbf{what inference(s) can we make on $p$}?
+You may assume $n\geq2$.
+
+The idea here is to provide a rigorous, principled Bayesian analysis of this $250$ years old problem.
+Here are a few road signs to help you in your analysis:
+\begin{enumerate}[label=\alph*)]
+ \item (10 marks) For the problem at hand, \textbf{carefully} define the parameter space, data-generating mechanism, likelihood function and all of crucial elements of a Bayesian analysis. What is the dominating measure?
+ \item (10 marks) Exhibit your posterior measure and sketch its density.
+ 
+ \textit{Hint:} it might be convenient to prove the following proposition:
+ \begin{proposition}
+ \label{prop:joint_bayes}
+ The joint distribution of $p$ and $X$ is given by
+ \begin{equation*}
+  \pr(a < p < b, X = x) = \int_{a}^{b} \binom{n}{x} t^x(1-t)^{n-x}\,dt.
+ \end{equation*}
+ \end{proposition}
+ \item (10 marks) Provide a Bayes estimator under (i) quadratic and (ii) 0-1 loss\footnote{Recall the discussion in class about how to properly define 0-1 loss as for continuous parameter spaces.};
+ \item (10 marks) Contrast the estimators obtained in the previous item  with the maximum likelihood estimator, in terms of (i) posterior expected loss and (ii) integrated risk.
+ Is any of the estimators preferable according to both risks?
+ If not, which estimator should be preferred under each goal risk?
+ \item (10 marks) Suppose one observes $X = x = 6$ for $n=9$ rolls.
+ Produce an updated prediction of where the next $m$ balls are going to stop along $L$.
+ Please provide (i) a point prediction in the form of an expected value and (ii) a full probability distribution.
+\end{enumerate}
+\textcolor{red}{\textbf{Concepts}: prior elicitation; point estimation; Bayes risk; integrated risk; posterior predictive.}\\ \textcolor{purple}{\textbf{Level}: Easy.  Cumbersome, but easy.}\\
+\textcolor{blue}{
+\textbf{Solution:}
+Discussion here will follow mostly from page 11 in \cite{Robert2007}.
+Let us first define the parameter space.
+Clearly, $p \in \boldsymbol{\Theta} \subseteq [0, 1]$ is our parameter of interest.
+The experiment with $W$ tells us that it is safe to assume a uniform probability distribution on $\boldsymbol{\Theta}$ such that
+\begin{equation*}
+ \pi(p) \equiv \operatorname{Beta}(1, 1) = 1 \cdot \mathbb{I}_{[0, 1]}(p),
+\end{equation*}
+where $\mathbb{I}_{A}(x) = 1$ if $x \in A$ and $\mathbb{I}_{A}(x) = 0$ otherwise.
+The dominating measure here is thus the Lebesgue measure on $[0, 1]$.
+Next, the data-generating process: each roll of the billiard ball produces a Bernoulli random variable $Y_i$, $i = 1, \ldots,n$ with parameter $p$: if the ball stops to left of $W$, $Y_i = 1$, if it stops to the right, $Y_i = 0$.
+It is well known that $X := \sum_{i=1}^n Y_i \sim \operatorname{Binomial}(n, p)$, i.e.,
+\begin{equation*}
+ \pr(X = x \mid n, p) = \binom{n}{x} p^x(1-p)^{n-x},
+\end{equation*}
+meaning we are justified in writing 
+\begin{equation*}
+ l(\theta) = p^x(1-p)^{n-x}
+\end{equation*}
+as our likelihood function.
+Now, let us prove Proposition~\ref{prop:joint_bayes} above, following~\cite{Edwards1978} (Proposition 8 therein): 
+\begin{align*}
+ f(p, X = x, n) &= \pr(X = x \mid n, p)\pi(p),\\
+ &= p^x(1-p)^{n-x}\mathbb{I}_{[0, 1]}(t),\\
+ & \text{thus}\\
+ \pr(p \in (a,b), X = x) &= \int_a^b \binom{n}{x} t^x(1-t)^{n-x}\,dt.
+\end{align*}
+From this, we surmise that
+\begin{equation*}
+%  \label{eq:q1_marginal_x}
+ \pr(X = x) = \int_{0}^{1} \binom{n}{x} t^x(1-t)^{n-x}\,dt,
+\end{equation*}
+and hence we are ready to exhibit the posterior measure:
+\begin{align}
+\nonumber
+ \pr( p \in (a, b) \mid X = x, n) &= \frac{\pr(p \in (a,b), X = x)}{\pr(X = x)},\\
+ \nonumber
+ &= \frac{\int_{a}^{b} \binom{n}{x} t^x(1-t)^{n-x}\,dt}{\int_{0}^{1} \binom{n}{x} t^x(1-t)^{n-x}\,dt},\\
+ \label{eq:q1_posterior_density}
+ &= \frac{\int_{a}^{b} \binom{n}{x} t^x(1-t)^{n-x}\,dt}{B(x + 1, n - x + 1)},
+\end{align}
+that is $\xi(p \mid n, x) \equiv \operatorname{Beta}(\alpha^\prime, \beta^\prime)$, with $\alpha^\prime := x + 1$ and $\beta^\prime := n-x+1$.
+A sketch of both the prior and the posterior can be found in Figure~\ref{fig:beta_density}.
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[scale=0.6]{figures/beta_density_sketch.pdf}
+\end{center} 
+\caption{\textbf{Probability density function of the posterior distribution for $p$ given $x=4$ and $n=10$}.
+The solid line shows $\xi(p \mid n, x)$ and the dashed line sketches $\pi(p)$.
+}
+\label{fig:beta_density}
+\end{figure}
+The expression in (\ref{eq:q1_posterior_density}) immediately informs us that the Bayes estimator under quadratic loss is the posterior mean,
+\begin{equation*}
+ \delta_{\text{S}}(x) = \frac{\alpha^\prime}{\alpha^\prime + \beta^\prime} = \frac{x + 1}{n + 2}
+\end{equation*}
+and the estimator under 0-1 loss is the maximum \textit{a posteriori} (MAP):
+\begin{equation*}
+ \delta_{\text{MAP}}(x) = \frac{\alpha^\prime -1 }{\alpha^\prime + \beta^\prime - 2} = \frac{x}{n},
+\end{equation*}
+i.e. the posterior mode.
+The maximum likelihood estimator (MLE) is $\delta_{\text{MLE}}(x) = x/n$.
+Observe that the MAP estimator is thus identical to the MLE and hence achieves the same risk.
+It remains to compute the risks for the MLE/MAP and posterior mean.
+In the remainder, it will be convenient to know that if $Z \sim \operatorname{Beta}(a, b)$,
+the raw moments of a Beta random variable  are given by
+\begin{equation}
+ \label{eq:beta_raw_moments}´
+E[Z^r] = \prod_{k=0}^{r-1} \frac{a + r}{a + b + r}. 
+\end{equation}
+Now, on to the risks.
+First, recall that the \textbf{posterior expected loss} is:
+\begin{align*}
+ \rho(\delta, h(\theta)) &= E_\xi \left[ \left(\delta - h(\theta) \right)^2\right],\\
+ &= \delta^2 - 2\delta E_\xi \left[h(\theta)\right] + E_\xi \left[h(\theta)^2 \right],
+\end{align*}
+where $\xi(\theta \mid x)$ is our posterior density.
+We will draw on Example 4.1.5 in~\cite{Robert2007} (pg. 171) to save some computations.
+Specifically,
+\begin{equation*}
+ \rho(\delta_{\text{MAP}}, p) =  \left(\frac{x - n/2}{n(n+1)}\right)^2 +  \frac{(x + 1/2)(n - x + 1/2)}{(n + 1)^2(n+2)}.
+\end{equation*}
+Now, for the posterior mean, we have 
+\begin{align*}
+ \rho(\delta_{\text{S}}, p) &= \delta_{\text{S}}^2 - 2\delta_{\text{S}}E_\xi \left[p\right] + E_\xi \left[p^2 \right],\\
+ &= \left(\frac{\alpha^\prime}{\alpha^\prime + \beta^\prime}\right)^2  - 2 \left(\frac{\alpha^\prime}{\alpha^\prime + \beta^\prime}\right)^2+ \frac{\alpha^\prime}{\alpha^\prime + \beta^\prime} \left(\frac{\alpha^\prime + 1}{\alpha^\prime + \beta^\prime + 1}\right),\\
+ &= \frac{x+1}{n+2}\left(\frac{x+2}{n+3} - \frac{x+1}{n+2}\right).
+\end{align*}
+A sketch is provided in Figure~\ref{fig:Bayesrisks_q1} and, unsurprinsingly, the posterior mean always provides lower conditional risk.
+Since $\delta_{\text{S}}$ minimises $\rho(\cdot, p)$, this is exactly what we would expect. 
+Hence, if you are only interested in making \textbf{conditional} risk statements, you should always prefer the posterior mean as an estimator.
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[scale=0.6]{figures/Bayes_risks_beta_binomial.pdf}
+\end{center} 
+\caption{\textbf{Bayes risk for the posterior mean and the posterior mode}.
+The black line shows $\rho(\delta_{\text{S}}, p)$ whilst the red one depicts $\rho( \delta_{\text{MAP}}, p)$.
+}
+\label{fig:Bayesrisks_q1}
+\end{figure}
+Now, let us compute the integrated risks for both estimators.
+Recall the definition of \textbf{frequentist risk}:
+\begin{equation*}
+ R_{\text{F}}(\delta, h) := E_\theta\left[(\delta-h(\theta))^2\right].
+\end{equation*}
+The \textit{integrated risk} is then
+\begin{equation*}
+ r(\pi, \delta) := E_\pi\left[R_{\text{F}}(\delta, h) \mid x \right].
+\end{equation*}
+We will again lean on the derivations in Example 4.1.5 of~\cite{Robert2007} for the MLE/MAP:
+\begin{equation*}
+ R_{\text{F}}(\delta_{\text{MAP}}, p) = \frac{p(1-p)}{n}
+\end{equation*}
+Hence, 
+\begin{equation*}
+ r(\pi, \delta_{\text{MAP}}) = \frac{1}{n} \left\{E_\pi[p] - E_\pi[p^2]\right\}.
+\end{equation*}
+Using (\ref{eq:beta_raw_moments}), we have  $E_{\pi}[p] = 1/2$, $E_{\pi}[p^2]= 1/3$ and $E_{\pi}[p^3]= 1/4$ and thus
+\begin{align*}
+  r(\pi, \delta_{\text{MAP}}) &= \frac{1}{n} \left\{\frac{1}{2} - \frac{1}{3}\right\},\\
+  &= \frac{1}{6n}.
+\end{align*}
+Now, 
+\begin{align*}
+ R_{\text{F}}(\delta_{\text{S}}(x), p) &= E\left[\left(\delta_{\text{S}}(x)-p\right)^2\right],\\
+ &= E\left[\delta_{\text{S}}(x)^2\right] - 2pE\left[\delta_{\text{S}}(x)^2\right] + p^2,\\
+ &= E\left[\frac{x+1}{n+2}\right] - 2pE\left[\frac{x^2 + 2x + 1}{(n+2)^2}\right] + p^2,
+\end{align*}
+Fist, recalling that $E[X^2] = \vr(X) + (E[X])^2$ and, for the data at hand $E[X \mid n,  p] = np$ and $\vr(X \mid n, p) = np(1-p)$.
+This gives $E[X^2] = np(1-p) + (np)^2$.
+Moreover,
+\begin{align*}
+ R_{\text{F}}(\delta_{\text{S}}(x), p) &= E\left[\frac{x+1}{n+2}\right] - 2pE\left[\frac{x^2 + 2x + 1}{(n+2)^2}\right] + p^2,\\
+ &=  \frac{1 + np}{n+2} - \frac{2p\left(np(1-p) + n^2p^2 + 2np+ 1\right)}{(n+2)^2} + p^2,\\
+ &=  \frac{1 + np}{n+2} - \frac{2np^2 + 2n(n-1)p^3 + 4np^2 + 2p}{(n+2)^2} + p^2. 
+\end{align*}
+We can now compute
+\begin{align*}
+ r(\pi, \delta_{\text{S}}) &= E_\pi\left[ R_{\text{F}}(\delta_{\text{S}}(x), p)\right],\\
+  &= E_\pi\left[ \frac{1 + np}{n+2} - \frac{2np^2 + 2n(n-1)p^3 + 4np^2 + 2p}{(n+2)^2} + p^2\right],\\
+ &= \frac{6(n+2) + 3n(n+2) - \left(4n + 3n(n-1) + 8n +6)\right) + 2(n+2)^2}{6(n+2)^2}.
+\end{align*}
+A brief look at a sketch of the risks in Figure~\ref{fig:integrated_risks_q1} shows that the posterior mean offers much higher integrated risk than MAP or MLE.
+So in this case, if you are concerned with frequentist loss you should use the estimator under 0-1 loss.
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[scale=0.6]{figures/integrated_risks_beta_binomial.pdf}
+\end{center} 
+\caption{\textbf{Integrated risk for the posterior mean and the posterior mode}.
+The black line shows $r(\pi, \delta_{\text{S}})$ whilst the red one depicts $r(\pi, \delta_{\text{MAP}})$.
+}
+\label{fig:integrated_risks_q1}
+\end{figure}
+Finally, we will produce a prediction for the next $m$ rolls, conditional on having observed $x=6$ balls stop to the left of $W$ out of $n=9$.
+This can be accomplished by computing the posterior predictive:
+\begin{align*}
+ g(\tilde{x} \mid x, n, m) &= \int_{0}^{1} f(\tilde{x} \mid m, z)\xi(z \mid x, n)\,dz,\\
+ &= \frac{ \binom{m}{\tilde{x}} }{ B(\alpha^\prime, \beta^\prime)}\int_{0}^{1} z^{\tilde{x} + \alpha^\prime - 1}(1-z)^{m - \tilde{x} + \beta^\prime - 1}\,dz,\\
+ &= \binom{m}{\tilde{x}} \frac{B(\alpha^\prime + \tilde{x}, m - \tilde{x} + \beta^\prime)}{B(\alpha^\prime, \beta^\prime)},
+\end{align*}
+i.e. $\pr(\tilde{X} = \tilde{x} \mid m, n, x)$ is the p.m.f. of a Beta-binomial distribution.
+This gives a full probability distribution for prediction.
+Knowing the predictive p.m.f., we can give a point prediction as 
+\begin{equation*}
+E_g[\tilde{X}] = \frac{m(x+1)}{n+2} = m \delta_{\text{S}}.
+\end{equation*}
+This result can also be arrived at by the law of total expectation.
+\paragraph{Discussion:} In this question we have just seen how to conduct a rigorous Bayesian analysis of a problem, using a simple (by modern standards) classical example.
+We worked through the calculations involved in evaluating estimators under both Bayes and integrated risk and saw explicitly that different choices of risk lead to different estimators being selected.
+We also produced Bayesian predictions both point and distributional.
+$\blacksquare$
+}
+
+\section*{2. Proper behaviour.}
+
+In this question we will explore propriety and its implications for inference.
+Consider a parameter space $\boldsymbol{\Theta}$ and a sampling model with density $f(x \mid \theta)$.
+A density $h : \boldsymbol{\Theta} \to (0, \infty)$ is said to be proper if 
+\begin{equation*}
+ \int_{\boldsymbol{\Theta}} h(t)\,d\mu(t)  < \infty,
+\end{equation*}
+where $\mu$ is the dominating measure.
+Assuming $\mu$ to be the Lebesgue measure and that the prior $\pi(\theta)$ is proper, show that
+\begin{itemize}
+ \item[a)] (10 marks) The posterior density,
+ \begin{equation*}
+  \xi(\theta \mid x) = \frac{f(x\mid \theta)\pi(\theta)}{m(x)},
+ \end{equation*}
+is proper almost surely.
+\item[b)] (10 marks) The Bayes estimator under quadratic loss, $\delta_{\text{S}}(x) = E_\xi[\theta]$ is biased almost surely.
+\textit{Hint:} consider what happens to the integrated risk under unbiasedness.
+\end{itemize}
+Now,
+\begin{itemize}
+ \item[c)] (10 marks) Take
+$$f(x \mid \theta) = \frac{2x}{\theta}, x \in [0, \sqrt{\theta}],$$
+and 
+$$ \pi(\theta) = \frac{2}{\pi (1 +\theta^2)}, \theta > 0.$$
+The posterior density is then
+\begin{equation*}
+ p(\theta \mid x) = \frac{1}{m(x)} \frac{4x}{\pi}\frac{1}{\theta(1 +\theta^2)},
+\end{equation*}
+ and thus
+\begin{equation*}
+ m(x) = \int_{0}^\infty \frac{4x}{\pi} \frac{1}{t(1 +t^2)}\,dt = \frac{4x}{\pi} \int_{0}^\infty \frac{1}{t(1 +t^2)}\,dt = \infty,
+\end{equation*}
+i.e., the posterior is apparently improper.
+Explain how this ``counter-example'' is wrong.
+\end{itemize}
+\textcolor{red}{\textbf{Concepts}: propriety; bias; indicator functions.}\\ \textcolor{purple}{\textbf{Level}: Intermediate.}\\
+\textcolor{blue}{
+\textbf{Solution:}
+To answer a), we need to show that $m(x) = \int_{\boldsymbol{\Theta}} f(x \mid t) \pi(t)\,dt < \infty$.
+We will first address the simpler part of the derivation.
+Under the assumptions we may take the sampling distribution to be absolutely continuous w.r.t. the Lebesgue measure, and write 
+\begin{align*}
+ \int_{\mathcal{X}} m(v)\,dv = \int_{\mathcal{X}}\int_{\boldsymbol{\Theta}} f(v\mid t)\pi(t) \, dv \,dt.
+\end{align*}
+Here, the functions involved are (i) non-negative and (ii) continuous and we are dealing with $\sigma$-finite probability spaces, so we can apply Fubini's\footnote{\textcolor{blue}{Guido Fubini (1879-1943) was an Italian mathematician, known for his work in mathematical analysis.}} theorem to write:
+\begin{align}
+\label{eq:q2_marginal}
+\int_{\mathcal{X}} m(v)\,dv &= \int_{\boldsymbol{\Theta}}\int_{\mathcal{X}} f(v\mid t) \, dv \, \pi(t) \,dt,\\
+\nonumber
+ &= \int_{\boldsymbol{\Theta}} 1 \cdot\pi(t) \,dt = 1. 
+\end{align}
+We are \textit{almost}\footnote{\textcolor{blue}{Pun most definitely intended.}} done.
+All we need to do now is to take care of the case where $m(x)$ is infinite.
+The only way $m(x)$ can be infinite if (\ref{eq:q2_marginal}) is finite is if $m$ is infinite \textit{only} on a set of measure zero.
+Therefore, we are justified in saying that, if the prior is proper, the posterior is proper \textit{almost surely}.
+Now, to show b), we will show that unbiasedness of the posterior mean implies something that only happens in a set of measure zero.
+First, let $E_\theta$, $E_{X \mid \theta}$ and $E_X$ denote expectations with respect to the prior, sampling (likelihood) and marginal (data) distributions, respectively.
+Now let us write the integrated risk as nested expectations:
+\begin{equation}
+\label{eq:q2_integrated_risk_expectations}
+ r(\pi, \delta) = E_\theta \left[E_{X \mid \theta} \left[ \left(\delta(X) - \theta \right)^2\right]\right].
+\end{equation}
+Now observe that unbiasedness of $\delta_{\text{S}}(x) := E_{\theta \mid X} \left[\theta\right]$ means that
+%\left[\right]
+\begin{equation*}
+ E_{X \mid \theta}\left[ E_{\theta \mid X} \left[\theta\right] \right] = \theta \: \forall\: \theta \in \boldsymbol{\Theta},
+\end{equation*}
+Assuming unbiasedness of the posterior mean  and developing (\ref{eq:q2_integrated_risk_expectations}), we get
+\begin{align}
+\label{eq:q2_b_line1}
+ r(\pi, \delta(X)) &=   E_\theta \left[E_{X \mid \theta} \left[ \delta(X)^2 - 2\delta(X) \theta + \theta^2\right]\right],\\
+ % \left[\right]
+ \label{eq:q2_b_line2}
+ & = E_\theta \left[ E_{X \mid \theta}\left[\theta^2 \right]\right] -E_\theta \left[ E_{X \mid \theta}\left[\theta\delta(X) \right]\right] -E_X \left[E_{\theta \mid X}\left[\theta \delta(X)\right]\right] + E_X \left[E_{\theta \mid X} \left[\delta(X)^2\right]\right]\\
+ \label{eq:q2_b_line3} 
+  &=  E_\theta \left[ E_{X \mid \theta}\left[\theta^2 \right]\right] -E_\theta \left[\theta E_{X \mid \theta}\left[\delta(X) \right]\right] -E_X \left[\delta(X)E_{\theta \mid X}\left[\theta \right]\right] + E_X \left[E_{\theta \mid X} \left[\delta(X)^2\right]\right],\\
+    &=  E_\theta \left[ E_{X \mid \theta}\left[\theta^2 \right]\right] - E_\theta \left[\theta^2 \right] -E_X \left[\delta(X)^2\right] + E_X \left[\delta(X)^2\right],\\
+\nonumber
+ & = 0,
+\end{align}
+ where we have used Fubini's theorem for expectations plus some rearranging, i.e., we sometimes wrote $E_\theta [E_{X \mid \theta}[\cdot]]$ and sometimes $E_X[E_{\theta \mid X}[\cdot]]$ as convenient.
+ These calculations show that assuming unbiasedness leads to an integrated risk of zero, which only happens when $\delta_{\text{S}}(X) = \theta$ with probability 1, which in turn only happens in a set of measure zero.
+ We have therefore obtained our target result.
+The solution to c) is given in a CrossValidated post by a confused yours truly: \url{https://stats.stackexchange.com/questions/370624/proper-prior-leading-to-improper-posterior/}.
+Reproduced here for convenience.
+First, consider the correct way to write the likelihood:
+\begin{equation*}
+ f(x \mid \theta) = \frac{2x}{\theta}\mathbb{I}_{\leq \sqrt{\theta}}(x),
+\end{equation*}
+and notice $\mathbb{I}_{\leq \sqrt{\theta}}(x) = \mathbb{I}_{\geq x^2}(\theta)$.
+Thus, we can write
+\begin{equation*}
+p(\theta \mid x) \propto \frac{4x}{\pi}\frac{1}{\theta(1 +\theta^2)}\mathbb{I}_{\geq x^2}(\theta),
+\end{equation*}
+such that integration now gives
+\begin{align*}
+ m(x) &= \int_{\boldsymbol{\Theta}} \frac{4x}{\pi}\frac{1}{t(1 +t^2)}\mathbb{I}_{\geq y^2}(t)\,dt = \int_{y^2}^\infty \frac{4x}{\pi}\frac{1}{t(1 +t^2)}\,dt,\\
+ &= \frac{2x}{\pi}\left(\log(x^4 + 1) - 4\log(x)\right).
+\end{align*}
+This last expression is finite except perhaps in a set of measure zero (where $x$ might take infinite values), hence the result is established.
+\paragraph{Discussion:} This problem helps put the pins in place for the theory of proper priors.
+Using proper priors has many advantages -- specially for model choice, which we will see in a few lectures -- and one of the biggest ones is almost sure propriety of the posterior, which authorises its use as a device encoding our beliefs about the quantities of interest in the model.
+We also saw the importance of judicious use of indicator functions to properly restrict the support of the functions involved and avoid wrong conclusions.
+Finally, a note on unbiasedness: as we have just shown, the posterior mean can never be unbiased.
+This does not seem to bother most Bayesians.
+Why?
+Quite simply because unbiasedness is not as useful as one might think.
+In practice, an unbiased estimator with high variance is less useful than a biased estimator with substantially lower variance.
+Secondly, phenomena such as the \textit{Stein effect}\footnote{\textcolor{blue}{Charles Max Stein (1920-2016) was an American statistician, known for his work on the admissibility of minimax estimators in higher dimensions.}} make clear that there is no \textit{the} unbiased estimator in higher dimensions.
+See the discussion in Section 2.8.2 of~\cite{Robert2007}, specially page 99.
+$\blacksquare$
+}
+
+
+\section*{3. Rayleigh dispersion\footnote{This question's title is pun: \url{https://en.wikipedia.org/wiki/Rayleigh_scattering}.}.}
+
+Let $X_1, \ldots, X_n$ be a random sample from a distribution whose probability density function is
+\begin{equation*}
+ f(x \mid \sigma) = \frac{x}{\sigma^2} \exp\left(-\frac{x^2}{2\sigma^2}\right),\, \sigma>0,\, 0 < x < \infty.
+\end{equation*}
+This is the Rayleigh\footnote{John William Strutt (1842-1919), the Third Baron Rayleigh, was a British physicist, known for his work on Statistical Mechanics.} distribution, used in reliability modelling, where the $X$ are failure times (time-until-failure).
+\begin{itemize}
+ \item[a)] (5 marks) For $t$ fixed and known, find $\eta = \pr(X > t)$ as function of $\sigma^2$;
+ \item[b)] (5 marks) Find the likelihood function for $\eta$ for a sample $\boldsymbol{x} = \{x_1, \ldots, x_n\}$;
+ \item[c)] (10 marks) Is the Rayleigh distribution a member of the exponential family? Justify your answer;
+ \item[d)] (10 marks) Find the Jeffreys's prior for $\eta$, $\pi_J(\eta)$;
+ \item[e)] (10 marks) Using $\pi_J(\eta)$, derive the predictive distribution $p(\tilde{x} \mid \boldsymbol{x})$.
+\end{itemize}
+a\\
+\textcolor{red}{\textbf{Concepts}: exponential family; Jeffreys's prior; reparametrisation}\\
+\textcolor{purple}{\textbf{Level}: Intermediate.}\\
+\textcolor{blue}{
+\textbf{Solution:}
+The first item basically asks us to find a reparametrisation of the model.
+Let us compute, it, then:
+\begin{align*}
+ \eta &= 1 - \int_0^t \frac{u}{\sigma^2} \exp\left(-\frac{u^2}{2\sigma^2}\right)\,du,\\
+ &= 1 -\left(1- \exp\left(-\frac{t^2}{2\sigma^2}\right)\right),\\
+ &= \exp\left(-\frac{t^2}{2\sigma^2}\right).
+\end{align*}
+This immediately gives
+$$\sigma^2 = -\frac{t^2}{2\log\eta}.$$
+Now, let us derive the joint conditional distribution of $\boldsymbol{x}$:
+\begin{equation*}
+ f_n(\boldsymbol{x} \mid \sigma^2) = \sigma^{-2n}\prod_{i=1}^n x_i \exp\left(\frac{1}{2\sigma^2}S^2\right), 
+\end{equation*}
+where $S^2 := \sum_{i=1}^n x_i^2$.
+So,
+\begin{equation}
+\label{eq:likelihood_rayleigh}
+ f_n(\boldsymbol{x} \mid \eta) = \left(-\frac{2\log\eta}{t^2}\right)^n\left(\prod_{i=1}^n x_i \right) \exp\left(\frac{\log\eta}{t^2}S^2\right),
+\end{equation}
+answers b).
+To answer c) we will recall that to say $f(x\mid\theta)$ is in the exponential family is to say that it can be written as:
+\begin{equation*}
+ f(x \mid \theta) = h(x) \exp\left\{R(\theta)\cdot T(x) - \psi(\theta) \right\}.
+\end{equation*}
+Putting $\theta = \sigma^2$ and making $h(x) =  \mathbb{I}_{(0, \infty)}(x) \cdot x $, $R(\sigma) = -1/2\sigma^2$, $T(x) = x^2$ and $\psi(\sigma) = 2\log(\sigma)$ shows the Rayleigh distribution to be a single-parameter exponential family.
+We will now use the special properties of the exponential family's cumulant-generating function to compute the expectation of the sufficient statistic, $T(X) = X^2$.
+First, consider the natural parametrisation: if $R(\theta) = -1/2\sigma^2$, then the natural parameter is $\alpha = -1/2\sigma^2$ and thus $\psi(\alpha) = -\log(-2\alpha)$.
+The moment generating function of $T(x)$ is thus
+\begin{equation*}
+ M(t) = \exp\left(\psi(\alpha + t) - \psi(\alpha) \right),
+\end{equation*}
+which gives
+\begin{equation*} 
+E[x^2 \mid \sigma] = \frac{d^2}{dt^2} M(t)\bigg\rvert_{t=0} = -\alpha^{-1} = 2\sigma^2.
+\end{equation*}
+Using the reparametrisation, we get $E[x^2 \mid \eta] = t^2/\log\eta$.
+One could also compute $E[X^2]$ directly via integration or by using the information in the Wikipedia article for the Rayleigh distribution\footnote{\textcolor{blue}{\url{https://en.wikipedia.org/wiki/Rayleigh_distribution}}.} to deduce $E[X^2]$ from $\vr(X) = \sigma^2(4-\pi)/2$ and $E[X] = \sigma\sqrt{\pi/2}$.
+Now we will derive the Jeffreys prior
+\begin{equation*}
+ \pi_J(\eta) \propto \sqrt{|I(\eta)|},
+\end{equation*}
+where $I(\eta)$ is the Fisher information.
+Dropping constants, differentiating the log of (\ref{eq:likelihood_rayleigh}) and taking expectations, we get
+\begin{equation*}
+ I(\eta) = - E \left[\frac{\partial^2}{\partial \eta^2} \log f_n(\eta) \right] = -\left[ \eta^2\left(\log(\eta)\right)^2 \right]^{-1} \: \text{for}\: 0 < \eta < 1,
+\end{equation*}
+hence $\pi_J(\eta) \propto \left[\eta \log\eta \right]^{-1}$.
+Now, let us explore a different path to this derivation and show how all of this trouble could be avoided.
+We can exploit the invariance property of the Jeffreys's prior: since $\sigma^2$ is a scale parameter, it follows that $\pi_J(\sigma) \propto \sigma^{-1}$.
+Recall that we have $g(\sigma) = t/\sqrt{-2\log\eta}$.
+From this we can surmise
+\begin{align*}
+ \pi_J(\eta) &\propto \pi_J(g(\sigma))\bigg\rvert\frac{dg(\sigma)}{d\sigma}\bigg\lvert,\\
+ &\propto \frac{\sqrt{-2\log\eta}}{t}\cdot\frac{t}{\sqrt{\left(-2\log\eta\right)^3}},\\
+ &\propto \frac{1}{\eta\log\eta}.
+\end{align*}
+Good.
+Now, on to the posterior:
+\begin{align*}
+ \xi(\eta \mid \boldsymbol{x}) &\propto \frac{1}{\eta\log\eta} \left(-\log\eta\right)^{n}\eta^{\frac{1}{t^2}S^2},\\
+ &\propto \left(-\log\eta\right)^{n-1}\eta^{\frac{1}{t^2}S^2 -1}.
+\end{align*}
+It might not look like it, but this is the kernel of a Gamma p.d.f., and therefore
+\begin{equation*}
+\xi(\eta \mid \boldsymbol{x}) = \frac{\left(\frac{1}{t^2}S^2 \right)^n}{\Gamma(n)} \left(-\log\eta\right)^{n-1}\eta^{\frac{1}{t^2}S^2 -1}, 0 < \eta < 1.
+\end{equation*}
+We are now prepared to compute the predictive
+\begin{align*}
+ p(\tilde{x} \mid \boldsymbol{x}) &= \int_{\boldsymbol{\Omega}} \xi(t \mid \boldsymbol{x}) f(\tilde{x} \mid t)\,dt,\\
+ &= \kappa \int_0^\infty z^n \exp\left(-z\left\{\frac{S^2 + \tilde{x}^2}{t^2}\right\}\right)\,dz,
+\end{align*}
+where
+\begin{align*}
+ \kappa &:= \frac{2\tilde{x}}{\Gamma(n)}\left(\frac{1}{t^2}S^2\right)^n,\\
+ z &:=-\log\eta.
+\end{align*}
+Again making use of the fact that the integrand is the kernel of a Gamma p.d.f., we arrive at our predictive density
+\begin{equation*}
+ p(\tilde{x} \mid \boldsymbol{x}) = n \left(\frac{1}{t^2}S^2\right)^n \left(\frac{2\tilde{x}}{t^2}\right)\left(\frac{t^2}{S^2 + \tilde{x}^2}\right)^{n+1} = \frac{2n\tilde{x}\left(S^2\right)^n}{\left(S^2 + \tilde{x}^2\right)^{n+1}} .
+\end{equation*}
+\paragraph{Discussion:} In this question we explored a single-parameter exponential distribution, derived a Jeffreys's prior for a transformation of the original parameter and then used this prior to obtain a proper posterior and its corresponding posterior predictive distribution.
+In our calculations, we made use of special properties of the cumulant-generating function of the exponential family.
+Additionally, we have used the invariance of the Jeffreys's prior to cut back on calculations and achieve a cleaner solution.
+$\blacksquare$
+}
+\bibliographystyle{apalike}
+\bibliography{a1_sol}
+\end{document}          
