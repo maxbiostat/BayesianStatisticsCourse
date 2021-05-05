@@ -118,7 +118,7 @@ Modern Bayesian inference not only allows for, but actively encourages model int
 \begin{itemize}
  \item The central idea of \textbf{Leave-one-out cross-validation (LOO)} is to estimate the \textit{expected log pointwise predictive density for a new dataset}, elpd:
  \begin{equation*}
-  \operatorname{elpd} = \sum_{i=1}^n \int m(\tilde{x}_i)\log p(\tilde{x}_i \mid \boldsymbol{x}),d\tilde{x}_i.
+  \operatorname{elpd} = \sum_{i=1}^n \int m(\tilde{x}_i)\log p(\tilde{x}_i \mid \boldsymbol{x})\,d\tilde{x}_i.
  \end{equation*}
  See \cite{Vehtari2017}.
  \item With \textbf{Posterior predictive checks (PPCs)} we wish to compare  functions of the observed data, $f(\boldsymbol{x})$ with functions of the predictive distribution, $f(\boldsymbol{\tilde{x}})$.
