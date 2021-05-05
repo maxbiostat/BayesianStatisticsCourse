@@ -70,6 +70,8 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 
 ## Lecture 7: Bayesian Testing II
 - [This](https://www.tandfonline.com/doi/pdf/10.1080/00031305.1999.10474443?casa_token=PvYUGVh0CjwAAAAA:B6UnfgSkoeUNQ5g4nh-D0DxaLTLAOOuoa2I37u33xdxIlair84fSzUuKUcsnHlC24BjRlfWWEcgZ3Q) paper by Lavine and Schervish provides a nice "disambiguation" for what Bayes factors can and cannot do inferentially.
+- [Yao et al. (2018)](https://projecteuclid.org/journals/bayesian-analysis/volume-13/issue-3/Using-Stacking-to-Average-Bayesian-Predictive-Distributions-with-Discussion/10.1214/17-BA1091.full) along with ensuing discussion is a must-read for an understanding of modern prediction-based Bayesian model comparison.
+- 
 
 ## Lecture 8: Asymptotics
 
