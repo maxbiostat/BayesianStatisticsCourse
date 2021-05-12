@@ -74,6 +74,8 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 
 ## Lecture 8: Asymptotics
 
+- The [entry](https://encyclopediaofmath.org/wiki/Bernstein-von_Mises_theorem) on the Encyclopedia of Mathematics on the Bernstein-von Mises theorem is nicely written. 
+
 ## Lecture 9: Applications I
 
 ## Lecture 10: Applications II
