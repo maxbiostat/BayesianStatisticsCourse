@@ -1,0 +1,95 @@
+\section*{Bayesian asymptotics}
+\begin{frame}{Asymptotics}
+A major part of a statistical approach is understanding what happens in the limit of many many observations.
+Consider the joint conditional density of the data, $f_n(\boldsymbol{x} \mid \theta)$ and a prior $\pi(\theta)$.
+What happens to $p_n(\theta \mid \boldsymbol{x}) = f_n(\boldsymbol{x} \mid \theta)\pi(\theta)/m_n(\boldsymbol{x})$ as $n \to \infty$ ?
+\begin{idea}[Asymptotics is about understanding]
+ Infinity is a big ``number''.
+ Considering what happens  as $n \to \infty$ is less a statement about a real world situation than about the structure and regularity of a model.
+ Doing asymptotics is about understanding what makes a model tick rather than getting useful results for a regime seldom achieved in practice.
+\end{idea}
+Another important aspect to consider is the \textbf{rate} at which things converge asymptotically.
+Studying rates provides complementary information about the structure of the model and gives hints as to the accuracy of asymptotic approximations.
+ \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Bayesian asymptotics I: consistency}
+\begin{theo}[The posterior concentrates around the ``true'' value]
+Let $(S, \mathcal{A}, \mu)$ be a probability space and let $(\Omega, \tau)$ be a finite-dimensional parameter space equipped with a Borel $\sigma$-field.
+Suppose there exist measurable $h_n: \mathcal{X}^n \to \Omega$ such that $h_n(\boldsymbol{X})$ converges in probability to $\Theta$.
+Writing $\mu_{\boldsymbol{\Theta} \mid \boldsymbol{X}}(\cdot \mid \boldsymbol{x})$ for the posterior measure, we have
+\begin{equation*}
+ \lim_{n \to \infty} \mu_{\boldsymbol{\Theta} \mid \boldsymbol{X}}(A \mid \boldsymbol{X}) = I_A(\Theta), \: \mu-\textrm{a.s.}
+\end{equation*}
+\end{theo}
+\textbf{Please} see Theorem 7.78 in \cite{Schervish1995} (pg 429) for all of the \textit{many} details.
+
+\textbf{Discussion:} what we are essentially saying here is that if there exists a consistent (sequence of) estimator(s) for $\theta$, then the posterior will concentrate around the true generating distribution of the parameter asymptotically.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Remember Cromwell's law?}
+Here is another neat little theorem with a cumbersome proof.
+\begin{theo}[A ``nice'' prior ensures posterior consistency]
+Define $\operatorname{KL}(\theta, \theta^\prime)$ as the Kullback-Leibler divergence between $P_{\theta}$ and $P_{\theta^\prime}$.
+Let $\theta_0$ be the true data-generating parameter and define $C_\epsilon = \{\theta : \operatorname{KL}(\theta_0, \theta) < \epsilon\}$, $\epsilon > 0$.
+ Let $\Pi$ be a prior measure such that $\Pi(C_\epsilon) > 0$ for every $\epsilon > 0$.
+ Take $N_0$ open such that $C_\epsilon \subset N_0$.
+ Then 
+ \begin{equation*}
+  \lim_{n \to \infty} \mu_{\boldsymbol{\Theta} \mid \boldsymbol{X}}(N_0 \mid \boldsymbol{X}) = 1, \: P_{\theta_0}-\textrm{a.s.}
+ \end{equation*}
+\end{theo}
+Again, \textbf{please} see Theorem 7.80 in \cite{Schervish1995} (pg 430) for the details.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[allowframebreaks]{Interlude: regularity conditions}
+Before we proceed, we will need to make things nice.
+Consider the following regularity conditions
+\begin{itemize}
+ \item[1] The parameter space is $\boldsymbol{\Theta} \subset \mathbb{R}^d$ for some finite $d$;
+ \item[2] We have $\theta_0$ an an interior point of $\boldsymbol{\Theta}$;
+ \item[3] The prior distribution has a density w.r.t. Lebesgue which is positive and continuous at $\theta_0$;
+ \item[4] There exists $N_0 \subseteq \boldsymbol{\Theta}$ with $\theta_0 \in N_0$ such that the log-likelihood, $l_n(\theta)$, is twice-differentiable with respect to all coordinates of $\theta$, $P_{\theta}$-a.s.
+ \item[5] The largest eigenvalue of the inverse observed Fisher information, $\Sigma_n$, vanishes in probability.
+ \item[6] The MLE is consistent;
+ \item[7] The Fisher information is a smooth function of $\theta$.
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Bayesian asymptotics II: asymptotic normality}
+We can now state a nice result which characterises the asymptotic form of the posterior.
+\begin{theo}[Bernstein von-Mises\footnote{Named after Austrian mathematician Richard Edler von Mises (1883--1953) and Russian mathematician Sergei Natanovich Bernstein (1880--1968).}]
+Under the regularity conditions we have discussed, take $\hat{\theta}$ to be the MLE.
+Put $\boldsymbol{\Psi}_n = \left(\Sigma_n\right)^{-1/2}(\theta- \hat{\theta})$.
+Then the posterior distribution of $\boldsymbol{\Psi}_n$ conditional on $\boldsymbol{X}$ converges in probability \textbf{uniformly} on compact sets to the multivariate normal distribution $\operatorname{Normal}_d\left(\boldsymbol{0}, \boldsymbol{I}_d\right)$ with density $\phi_d$.
+More precisely,
+\begin{equation*}
+  \lim_{n \to \infty} P_{\theta_0}\left(\sup_{\psi \in B} \bigg\rvert f_{\boldsymbol{\Psi}_n \mid \boldsymbol{X}}(\psi) - \phi_d(\psi)  \bigg\lvert > \epsilon \right) = 0,
+\end{equation*}
+for all $B \subset \mathbb{R}^d$ compact and $\epsilon > 0$.
+\end{theo}
+See Theorem 7.89 in \cite{Schervish1995} (page 437).
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Dabbling with normal approximations}
+\begin{exercise}[Cauchy location posterior]
+ Take $X_i \sim \operatorname{Cauchy}(\theta, 1)$, $i = 1, 2,\ldots, 10$.
+ In particular, suppose $\boldsymbol{x} = \{-5, -3, 0, 2, 4, 5, 7, 9, 11, 14\}$.
+ \begin{itemize}
+  \item[i)] Compute the MLE and $l^{\prime\prime}$;
+  \item[ii)] Deduce the parameters of the normal approximation to $p(\theta \mid \boldsymbol{x})$;
+  \item[iii)] Use an MCMC\footnote{The instructor can assist with this step.} routine to sample from $p(\theta \mid \boldsymbol{x})$, obtain a posterior approximation to its density and compare it to the normal approximation;
+  \item[iv)] Simulate data sets of sizes $n=20, 50, 100, 500, 1000$ and $10, 000$ and repeat iii.
+  \item[v)] See if you can reduce/increase the discrepancy between the posterior and its approximation by fiddling with the prior (without breaking the regularity assumptions!).
+ \end{itemize}
+\end{exercise}
+See example 7.104 in \cite{Schervish1995} (page 444).
+ \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Recommended reading}
+\begin{itemize}
+  \item[\faBook] \cite{Schervish1995} Ch. 7.4.
+%  \item 
+ \item[\faForward] Next lecture: \cite{Raftery1988} and~\cite{Gelman2002}.
+ \end{itemize} 
+\end{frame}
