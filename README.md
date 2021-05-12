@@ -74,9 +74,9 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 
 ## Lecture 8: Asymptotics
 
-## Lecture 9: Model choice
+## Lecture 9: Applications I
 
-## Lecture 10: Applications
+## Lecture 10: Applications II
 - See [Reporting Bayesian Results](https://journals.sagepub.com/doi/abs/10.1177/0193841X20977619?journalCode=erxb) for a guide on which summaries are indispensable in a Bayesian analysis.
 -  [Visualization in Bayesian workflow](https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/rssa.12378) is a great paper about making useful graphs for a well-calibrated Bayesian analysis.
 
