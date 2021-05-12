@@ -75,6 +75,7 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 ## Lecture 8: Asymptotics
 
 - The [entry](https://encyclopediaofmath.org/wiki/Bernstein-von_Mises_theorem) on the Encyclopedia of Mathematics on the Bernstein-von Mises theorem is nicely written. 
+- The integrated nested Laplace approximation (INLA) methodology leverages Laplace approximations to provide accurate approximations to the posterior in latent Gaussian models, which cover a huge class of models used in applied modelling. [This](https://arxiv.org/pdf/1210.0333.pdf) by Thiago G. Martins and others, specially section 2, is a good introduction.
 
 ## Lecture 9: Applications I
 
