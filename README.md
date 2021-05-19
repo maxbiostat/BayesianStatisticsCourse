@@ -64,6 +64,7 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 ## Lecture 6: Bayesian Testing I
 **Required reading** 
 - In their seminal 1995 [paper](https://www.tandfonline.com/doi/abs/10.1080/01621459.1995.10476572), [Robert Kass](http://www.stat.cmu.edu/people/faculty/rob-kass) and [Adrian Raftery](https://sites.stat.washington.edu/raftery/) give a nice overview of, along with recommendations for, Bayes factors.
+
 **Optional reading**
 - [This](https://arxiv.org/pdf/1303.5973.pdf) paper by Christian Robert gives a nice discussion of the Jeffreys-Lindley paradox.
 - [Jaynes](https://en.wikipedia.org/wiki/Edwin_Thompson_Jaynes)'s 1976 monograph [Confidence Intervals vs Bayesian Intervals](https://link.springer.com/chapter/10.1007/978-94-009-6581-2_9) is a great source of useful discussion. [PDF](https://link.springer.com/content/pdf/10.1007/978-94-010-1436-6_6.pdf).
@@ -75,12 +76,12 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 ## Lecture 8: Asymptotics
 
 - The [entry](https://encyclopediaofmath.org/wiki/Bernstein-von_Mises_theorem) on the Encyclopedia of Mathematics on the Bernstein-von Mises theorem is nicely written. 
+- The integrated nested Laplace approximation ([INLA](https://www.r-inla.org/)) methodology leverages Laplace approximations to provide accurate approximations to the posterior in latent Gaussian models, which cover a huge class of models used in applied modelling. [This](https://arxiv.org/pdf/1210.0333.pdf) by Thiago G. Martins and others, specially section 2, is a good introduction.
 
 ## Lecture 9: Applications I
 
 - Ever wondered what to do when both the number of trials and success probability are unknown in a binomial model? Well, [this](https://pluto.mscc.huji.ac.il/~galelidan/52558/Material/Raftery.pdf) paper by Adrian Raftery has _an_ answer.
 - [This](https://mc-stan.org/users/documentation/case-studies/golf.html) case study shows how to create a model from first (physical) principles.
-
 
 ## Lecture 10: Applications II
 - See [Reporting Bayesian Results](https://journals.sagepub.com/doi/abs/10.1177/0193841X20977619?journalCode=erxb) for a guide on which summaries are indispensable in a Bayesian analysis.
