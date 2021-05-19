@@ -80,7 +80,7 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 
 ## Lecture 9: Applications I
 
-- Ever wondered what to do when both the number of trials and success probability are unknown in a binomial model? Well, [this](https://pluto.mscc.huji.ac.il/~galelidan/52558/Material/Raftery.pdf) paper by Adrian Raftery has _an_ answer.
+- Ever wondered what to do when both the number of trials and success probability are unknown in a binomial model? Well, [this](https://pluto.mscc.huji.ac.il/~galelidan/52558/Material/Raftery.pdf) paper by Adrian Raftery has _an_ answer. See also [this](https://stats.stackexchange.com/questions/113851/bayesian-estimation-of-n-of-a-binomial-distribution) discussion with JAGS and Stan implementations.
 - [This](https://mc-stan.org/users/documentation/case-studies/golf.html) case study shows how to create a model from first (physical) principles.
 
 ## Lecture 10: Applications II
