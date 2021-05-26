@@ -93,3 +93,4 @@ Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) 
 - See Jayne's monograph above.
 - See [Frequentism and Bayesianism: A Practical Introduction](https://jakevdp.github.io/blog/2014/03/11/frequentism-and-bayesianism-a-practical-intro/) for a five-part discussion of the Bayesian vs Orthodox statistics.
 - [Why isn't everyone a Bayesian?](https://www2.stat.duke.edu/courses/Spring10/sta122/Handouts/EfronWhyEveryone.pdf) is a nice discussion of the trade-offs between paradigms by [Bradley Efron](https://statweb.stanford.edu/~ckirby/brad/).
+- [Holes in Bayesian statistics](https://iopscience.iop.org/article/10.1088/1361-6471/abc3a5#:~:text=Here%20are%20a%20few%20holes,Bayes%20factors%20fail%20in%20the) is a collection of holes in Bayesian data analysis, such as, conditional probability in the quantum real, flat and weak priors, and model checking, written by Andrew Gelman and Yuling Yao. 
