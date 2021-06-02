@@ -1,0 +1,124 @@
+\section*{Bayesian rules}
+\begin{frame}{Why be Bayesian I: probabilistic representation}
+
+We already reduce our uncertainty about phenomena to probability distributions for sampling distributions (likelihoods).
+
+\begin{idea}[Probabilisation of uncertainty]
+ \label{id:prob_uncertainty}
+ Our statistical models are \textit{interpretations} of reality, rather than \textit{explanations} of it.
+ Moreover,
+ \begin{quote}
+ `` ...the representation of unknown phenomena by a probabilistic model,  at the observational level as well as at the parameter level, does not need to correspond effectively—or physically—to a generation from a probability distribution, nor does it compel us to enter a supradeterministic scheme, fundamentally because of the nonrepeatability of most experiments.''
+ \end{quote}
+ \cite{Robert2007}, pg 508.
+\end{idea}
+ \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Why be Bayesian II: conditioning on OBSERVED data}
+  Remember Idea~\ref{id:soul}: conditioning is the soul of (Bayesian) Statistics.
+  \begin{idea}[Conditioning on what is actually observed]
+   \label{id:obs_data}
+   A quantitative analysis about the parameter(s) $\theta$ conditioning \textit{only} on the observed data, $x$ unavoidably requires a distribution over $\theta$.
+   To this end, the \textbf{only} coherent way to achieve this goal starting from a distribution $\pi(\theta)$ is to use Bayes's theorem.
+  \end{idea}
+  
+  Frequentist arguments are, necessarily, about procedures that behave well under a given data-generating process and thus forcibly make reference to unobserved data sets that could, in theory, have been observed.
+ \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Why be Bayesian III: priors as inferential tools}
+
+A refreshing break from the strictly subjectivist view of Bayesianism can be had if we think about inference functionally. 
+
+ \begin{idea}[The prior as a regularisation tool]
+ \label{id:prior_tool}
+  If one adopts a mechanistic view of Bayesian inference, the prior can be seen as an additional regularisation or penalty term that enforces certain model behaviours, such as sparsity or parsimony.
+  A good prior both \textit{summarises} substantitve knowledge about the process and rules out unlikely model configurations.
+ \end{idea}
+
+ In other words, sometimes it pays to use the prior to control what the model \textit{does}, rather than which specific values the parameter takes.
+ 
+ \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Why be Bayesian IV: embracing subjectivity}
+The common notion of ``objectivity'' is ruse.
+There is no such thing as a truly objective analysis, and taking objectivity as premise might hinder our ability to focus on actual discovery and explanation~\citep{Hennig2017}.
+\begin{idea}[The subjective basis of knowledge]
+\label{id:subjective}
+ Knowledge arises from a confrontation between \texit{a prioris} and experiments (data).
+ Let us hear what Poincaré\footnote{Jules Henri Poincaré (1854--1912) was a French mathematician and the quote is from \textit{La Science and l'Hypóthese} (1902).} had to say:
+ \begin{quote}
+  ``It is often stated that one should experiment without preconceived ideas.
+  This is simply impossible; not only would it make every experiment sterile, but even if we were ready to do so, we could not implement this principle. 
+  Everyone stands by [their] own conception of the world, which [they] cannot get rid of so easily.''
+ \end{quote}
+ \end{idea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Why be Bayesian V: principled inference}
+As we saw in the first lectures of this course, the Bayesian approach is coherent with a few very compelling principles, namely Sufficiency, Conditionality and the Likelihood principle.
+\begin{idea}[Bayesian inference follows from strong principles]
+Starting from a few desiderata, namely conditioning on the \textbf{observed} data, independence of stopping criteria and respecting the sufficiency, conditionality and  likelihood principles, one arrives at a single approach: Bayesian inference using proper priors.
+ \label{id:principled_inference}
+\end{idea}
+ \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Why be Bayesian VI: universal inference}
+Bayesian Statistics provides an universal procedure for drawing inference about probabilistic models, something Frequentists can only dream of.
+\begin{idea}[Bayesian inference is universal]
+Starting from a sampling model, a (proper) prior and a loss (or utility) function, the Bayesian analyst can always derive an estimator.
+Moreover, and importantly, many optimal frequentist estimators can be recovered from Bayesian estimators or limits of Bayesian estimators.
+Paradoxically, this means that one can be a staunch advocate of Frequentism and still employ Bayesian methods (see, e.g. least favourable priors). 
+ \label{id:universal}
+\end{idea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{How to be Bayesian I: clarity openness}
+Being subjective does not mean ``anything goes''.
+As a scientist, you are still bound by the laws of logic and reason.
+
+\begin{idea}[State your prior elicitation clearly and openly]
+ As we have seen, prior information does not always translate exactly into one unique prior choice.
+ In other words, the same prior information can be represented adequately by two or more probability distributions.
+ Make sure your exposition \textbf{clearly} separates which features of the prior come from substantitve domain expertise and which ones are arbitrary constraints imposed by a particular choice of parametric family, for instance.
+ An effort must be made to state all modelling choices \textbf{openly}.
+ Openly stating limitations is not a bug, it is a feature.
+ \end{idea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{How to be Bayesian II: ``noninformativeness'' requires care}
+Mathematically, Bayesian Statistics is all-encompassing (see Idea~\ref{id:universal}).
+One must be careful\footnote{Personally, I'm not opposed to reference priors and the like, and gladly employ them in my own research work, but I do think one needs to know very well what one is doing in order to employ them properly.} when employing so-called ``objective'' Bayesian methods.
+\begin{idea}[Beware of objective priors]
+ \label{id:careful}
+ In a functional sense, non-informative priors are a welcome addition to Bayesian Statistics because they provide~\textit{closure}, and confer its universality.
+ On the other hand, reference priors and the like cannot be justified as summarising prior information.
+ From a technical standpoint, many noninformative priors are also improper and thus impose the need to check propriety of the resulting posterior distribution.
+\end{idea}
+ \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{A word of caution}
+
+A strong defence of the Bayesian paradigm should not cloud our view of the bigger picture.
+Statistics is the grammar of Science; whatever grammatical tradition you choose, be sure to employ it properly.
+\begin{idea}[Do not become a zealot!]
+ \label{id:not_zealot}
+ Statistics is about learning from data and making decisions under uncertainty.
+ The key to a good statistical analysis is not which ideology underpins it, but how helpful it is at answering the scientific questions at hand.
+ Ideally, you should know both\footnote{Here we are pretending for a second that there are only two schools of thought in Statistics.} schools well enough to be able to analyse any problem under each approach.
+\end{idea}
+ \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{So long, and thanks for all the fish!}
+ Remember, kids:
+ \begin{center}
+ {\Huge Bayes rules!} 
+ \end{center} 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Recommended reading}
+\begin{itemize}
+  \item[\faBook] \cite{Jaynes1976},~\cite{Efron1986} and Ch 11 of~\cite{Robert2007}.
+%  \item
+ \end{itemize} 
+\end{frame}
