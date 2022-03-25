@@ -3,6 +3,13 @@ A PhD-level course at [EMAp](https://emap.fgv.br/en).
 
 Syllabus [here](https://emap.fgv.br/disciplina/doutorado/estatistica-bayesiana) and tentative programme [here](https://docs.google.com/spreadsheets/d/1kuE-_NeSQzaBNnWc9vezXSbKfSIGQoLdmmb2zRDbOng/edit?usp=sharing). 
 
+To compile the [slides](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/slides/bayes_stats.pdf), you'll need to do
+
+```bash
+pdflatex -interaction=nonstopmode --shell-escape bayes_stats
+```
+a few times to get it right. 
+
 ## Pre-requisites
 - Probability theory with measure. [Jeff Rosenthal](http://probability.ca/jeff/)'s book, [A First Look at Rigorous Probability Theory](http://probability.ca/jeff/grprobbook.html), is a good resource.
 - Classical Statistics at the same level as [Mathematical Statistics](https://emap.fgv.br/disciplina/doutorado/mathematical-statistics). For a review, I suggest 
