@@ -29,7 +29,13 @@ a few times to get it right.
 - [Awesome Bayes](https://github.com/hectormz/awesome-bayes) is a curated list of bayesian resources, including blog posts and podcasts.
 
 ### Acknowledgements
-[Guido Moreira](http://github.com/GuidoAMoreira/) suggested topics, exercises and exam questions.
+[Guido Moreira](http://github.com/GuidoAMoreira/) and [Isaque Pim](https://github.com/isaquepim) suggested topics, exercises and exam questions.
+[Lucas Moschen](https://github.com/lucasmoschen) made many good suggestions. 
+
+# Exercises
+
+We keep a list [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/exercises/BC_exercises.md). I recommend you check back every so often because this is likely to be updated (if infrequently). 
+- **2024-03-24**: Exercises about Chapters 1 and 2 are up.
 
 # Syllabus
 ## Lecture 0: Overview
