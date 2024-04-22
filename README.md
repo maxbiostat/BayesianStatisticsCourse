@@ -81,6 +81,7 @@ We keep a list [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blo
 
 **Optional reading**
 - [This](https://arxiv.org/pdf/1303.5973.pdf) paper by Christian Robert gives a nice discussion of the Jeffreys-Lindley paradox.
+- [This](https://link.springer.com/content/pdf/10.1007/s00407-022-00298-3.pdf) paper by [Wagenmakers](https://www.ejwagenmakers.com/) is an excellent historical account of the paradox, and clears many misconceptions. 
 - [Jaynes](https://en.wikipedia.org/wiki/Edwin_Thompson_Jaynes)'s 1976 monograph [Confidence Intervals vs Bayesian Intervals](https://link.springer.com/chapter/10.1007/978-94-009-6581-2_9) is a great source of useful discussion. [PDF](https://link.springer.com/content/pdf/10.1007/978-94-010-1436-6_6.pdf).
 
 ## Lecture 7: Bayesian Testing II
