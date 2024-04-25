@@ -82,9 +82,9 @@ where the $w_i$ are the \textbf{prior probabilities} for each model.
 A nice consequence of the formulation we just saw is that the predictive distribution looks quite intuitive:
 \begin{align}
 \nonumber
- p(\tilde{x} \mid \boldsymbol{x}) &= \sum_{j} w_j \int_{\boldsymbol{\Theta}_j} f_j(\tilde{x} \mid t_j) f_j(\boldsymbol{x}\mid t_j)\pi_j(t_j)\,dt_j,\\
+ p(\tilde{x} \mid \boldsymbol{x}) &= \sum_{j} w_j \frac{1}{m_j(\boldsymbol{x})}\int_{\boldsymbol{\Theta}_j} f_j(\tilde{x} \mid t_j) f_j(\boldsymbol{x}\mid t_j)\pi_j(t_j)\,dt_j,\\
  \label{eq:predictive_1}
- &= \sum_{j} \pr(\mathcal{M}_j \mid \boldsymbol{x}) m_j(\tilde{x}).
+ &= \sum_{j} \pr(\mathcal{M}_j \mid \boldsymbol{x}) p_j(\tilde{x} \mid \boldsymbol{x}).
 \end{align}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
