@@ -5,7 +5,7 @@ For example, consider the following statements about a person:
 \begin{itemize}
  \item [F] = \{votes for a left-wing candidate\} ;
  \item [G] = \{is in the 10\% lower income bracket\} ;
- \item [H] = \{lives in a large\} ;
+ \item [H] = \{lives in a large city\} ;
 \end{itemize}
 
  \begin{defn}[Belief function]
@@ -19,7 +19,7 @@ It is useful to think of $\be$ as~\textbf{preferences over bets}:
  \begin{itemize}
   \item $\be(F) > \be(G)$ means we would bet on $F$ being true over $G$ being true;
   \item $\be(F\mid H) > \be(G \mid H)$ means that, \textbf{conditional} on knowing $H$ to be true, we would bet on $F$ over $G$;
-  \item $\be(F\mid G) > \be(F \mid H)$ means that if we were forced to be on $F$, we would be prefer doing so if $G$ were true than $H$.
+  \item $\be(F\mid G) > \be(F \mid H)$ means that if we were forced to bet on $F$, we would be prefer doing so if $G$ were true than $H$.
  \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -184,6 +184,7 @@ for some choice of triplet $\{ \theta,  \pi(\theta), f(y_i \mid \theta) \}$, i.e
  As the exchangeability results above clearly demonstrate, being able to use conditional independence is a handy tool.
  More specifically, knowing on what to condition so as to make things exchangeable is key to statistical analysis.
  \begin{idea}[Conditioning is the soul of Statistics\footnote{This idea is due to Joe Blitzstein, who did his PhD under no other than the great Persi Diaconis.}] 
+ \label{idea:conditioning_soul}
  Knowing on what to condition can be the difference between an unsolvable problem and a trivial one.
  When confronted with a statistical problem, always ask yourself ``What do I know for sure?'' and then ``How can I create a conditional structure to include this information?''.
  \end{idea}
