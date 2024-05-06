@@ -15,15 +15,15 @@ Studying rates provides complementary information about the structure of the mod
 \begin{frame}{Bayesian asymptotics I: consistency}
 \begin{theo}[The posterior concentrates around the ``true'' value]
 Let $(S, \mathcal{A}, \mu)$ be a probability space and let $(\Omega, \tau)$ be a finite-dimensional parameter space equipped with a Borel $\sigma$-field.
-Suppose there exist measurable $h_n: \mathcal{X}^n \to \Omega$ such that $h_n(\boldsymbol{X})$ converges in probability to $\Theta$.
-Writing $\mu_{\boldsymbol{\Theta} \mid \boldsymbol{X}}(\cdot \mid \boldsymbol{x})$ for the posterior measure, we have
+Suppose there exist measurable $h_n: \mathcal{X}^n \to \Omega$ such that $h_n(\boldsymbol{X}_{n})$ converges in probability to $\Theta$.
+Writing $\mu_{\boldsymbol{\Theta} \mid \boldsymbol{X}_{n}}(\cdot \mid \boldsymbol{x}_{n})$ for the posterior measure, we have
 \begin{equation*}
- \lim_{n \to \infty} \mu_{\boldsymbol{\Theta} \mid \boldsymbol{X}}(A \mid \boldsymbol{X}) = I_A(\Theta), \: \mu-\textrm{a.s.}
+ \lim_{n \to \infty} \mu_{\boldsymbol{\Theta} \mid \boldsymbol{X}_{n}}(A \mid \boldsymbol{X}_{n}) = I_A(\Theta), \: \mu-\textrm{a.s.}
 \end{equation*}
 \end{theo}
 \textbf{Please} see Theorem 7.78 in \cite{Schervish1995} (pg 429) for all of the \textit{many} details.
 
-\textbf{Discussion:} what we are essentially saying here is that if there exists a consistent (sequence of) estimator(s) for $\theta$, then the posterior will concentrate around the true generating distribution of the parameter asymptotically.
+\textbf{Discussion:} what we are essentially saying here is that if there exists a consistent (sequence of) estimator(s) for $\theta$ -- understood here as a random variable --, then the posterior will concentrate around the true generating distribution of the parameter asymptotically.
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Remember Cromwell's law?}
@@ -35,7 +35,7 @@ Let $\theta_0$ be the true data-generating parameter and define $C_\epsilon = \{
  Take $N_0$ open such that $C_\epsilon \subset N_0$.
  Then 
  \begin{equation*}
-  \lim_{n \to \infty} \mu_{\boldsymbol{\Theta} \mid \boldsymbol{X}}(N_0 \mid \boldsymbol{X}) = 1, \: P_{\theta_0}-\textrm{a.s.}
+  \lim_{n \to \infty} \mu_{\boldsymbol{\Theta} \mid \boldsymbol{X}_{n}}(N_0 \mid \boldsymbol{X}_{n}) = 1, \: P_{\theta_0}-\textrm{a.s.}
  \end{equation*}
 \end{theo}
 Again, \textbf{please} see Theorem 7.80 in \cite{Schervish1995} (pg 430) for the details.
