@@ -78,15 +78,15 @@ Now, to each $\mathcal{M}_i$, we associate a prior $\pi_i(\theta_i)$  on each su
 where the $w_i$ are the \textbf{prior probabilities} for each model.
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{An intuitive predictive}
-A nice consequence of the formulation we just saw is that the predictive distribution looks quite intuitive:
-\begin{align}
-\nonumber
- p(\tilde{x} \mid \boldsymbol{x}) &= \sum_{j} w_j \int_{\boldsymbol{\Theta}_j} f_j(\tilde{x} \mid t_j) f_j(\boldsymbol{x}\mid t_j)\pi_j(t_j)\,dt_j,\\
- \label{eq:predictive_1}
- &= \sum_{j} \pr(\mathcal{M}_j \mid \boldsymbol{x}) m_j(\tilde{x}).
-\end{align}
-\end{frame}
+% \begin{frame}{An intuitive predictive}
+% A nice consequence of the formulation we just saw is that the predictive distribution looks quite intuitive:
+% \begin{align}
+% \nonumber
+%  p(\tilde{x} \mid \boldsymbol{x}) &= \sum_{j} w_j \frac{1}{m_j(\boldsymbol{x})}\int_{\boldsymbol{\Theta}_j} f_j(\tilde{x} \mid t_j) f_j(\boldsymbol{x}\mid t_j)\pi_j(t_j)\,dt_j,\\
+%  \label{eq:predictive_1}
+%  &= \sum_{j} \pr(\mathcal{M}_j \mid \boldsymbol{x}) p_j(\tilde{x} \mid \boldsymbol{x}).
+% \end{align}
+% \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Hello, my old friend}
 Here, Bayes factors also play a central role:
@@ -110,7 +110,7 @@ We can write
  \label{eq:predictive_2}
   &= \sum_j w_j^\prime \int_{\boldsymbol{\Theta}_j} f_j(\tilde{x} \mid t_j) p(t_j \mid \boldsymbol{x})\,dt_j.
 \end{align}
-which is another version of the expression in (\ref{eq:predictive_1}).
+% which is another version of the expression in (\ref{eq:predictive_1}).
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Model checking}

@@ -32,7 +32,7 @@ f_rho <- function(rho){
 }
 f_rho <- Vectorize(f_rho)
 
-curve(f_rho, xlab = expression(rho), ylab = "Posterior probability",
+curve(f_rho, xlab = expression(rho[0]), ylab = "Posterior probability",
       main = "x = 5, n = 10")
 
 f_x <- function(x){
@@ -41,5 +41,5 @@ f_x <- function(x){
 f_x <- Vectorize(f_x)
 
 curve(f_x, 0, 10,
-      xlab = expression(rho), ylab = "Posterior probability",
-      main = "x = 5, n = 10")
+      xlab = expression(x), ylab = "Posterior probability",
+      main = "n = 10, rho0 = 1/2")

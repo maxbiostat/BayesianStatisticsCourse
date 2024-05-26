@@ -1,7 +1,7 @@
 data{
   int<lower=1> N;
   real x[N];
-  int<lower=1,upper=2> prior;
+  int<lower=1, upper=2> prior;
 }
 parameters{
   real theta;

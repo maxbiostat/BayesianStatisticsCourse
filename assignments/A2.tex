@@ -90,7 +90,7 @@ Here, we will write $\xi = (N, \theta)$.
 \begin{enumerate}[label=\alph*)]
  \item (10 marks) Formulate a hierarchical prior ($\pi_1$) for $N$, i.e., elicit $F$ such that $N \mid \alpha \sim F(\alpha)$ and $\alpha  \sim \Pi_A$.
  Justify your choice; 
- \item (5 marks) Using the prior from the previous item, write out the full joint posterior kernel for all unknown quantities in the model, $p(\xi \mid \boldsymbol{x})$. \textit{Hint:} do not forget to include the appropriate indicator functions!;
+ \item (5 marks) Using the prior from the previous item, write out the full joint posterior kernel for all unknown quantities in the model, $p_1(\xi \mid \boldsymbol{x})$. \textit{Hint:} do not forget to include the appropriate indicator functions!;
  \item (5 marks) Is your model identifiable?
  \item (5 marks) Exhibit the marginal posterior density for $N$, $p_1(N \mid \boldsymbol{x})$;
  \item (5 marks) Return to point (a) above and consider an alternative, uninformative prior structure for $\xi$, $\pi_2$.
@@ -138,7 +138,7 @@ The observed numbers of waterbuck in separate sightings were $\boldsymbol{x}_{\t
  \item (25 marks) Let $\bar{x} = K^{-1}\sum_{k =1}^K x_k$ and $s^2 = K^{-1}\sum_{k =1}^K (x_k-\bar{x})^2$.
  For this problem, a sample is said to be \textit{stable} if $\bar{x}/s^2 \geq (\sqrt{2} + 1)/\sqrt{2}$ and \textit{unstable} otherwise.
  Devise a simple method of moments estimator (MME) for $N$.
- Then, using a Monte Carlo simulation, compare the MME to the three Bayes estimators under quadratic loss (\ref{eq:relative_loss}) in terms of relative mean squared error. 
+ Then, using a Monte Carlo simulation, compare the MME to the three Bayes estimators under quadratic loss  in terms of relative mean squared error. 
  How do the Bayes estimators compare to MME in terms of the statibility of the generated samples? 
  \textit{Hint}: You may want to follow the simulation setup of~\cite{Carroll1985}. 
 \end{enumerate}
