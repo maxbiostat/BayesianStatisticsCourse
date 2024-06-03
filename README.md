@@ -111,5 +111,5 @@ We keep a list [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blo
 - [Bayesian Estimation with Informative Priors is Indistinguishable from Data Falsification](https://www.cambridge.org/core/journals/spanish-journal-of-psychology/article/bayesian-estimation-with-informative-priors-is-indistinguishable-from-data-falsification/FFAB96BDC5EE3C64B144ECF8F90F31E9) is paper that attempts to draw a connection between strong priors and data falsification. Not for the faint of heart.
 
 # Computational resources
-
+- A few pointers from my [summer course](https://github.com/maxbiostat/computing_applied_bayes). 
 - Darren Wilkinson's [blog](https://darrenjw.wordpress.com/2013/09/29/parallel-tempering-and-metropolis-coupled-mcmc/) on parallel tempering. I took the code and applied it to our [multimodal Cauchy example](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/code/cauchy_bimodal_PT.r). 
