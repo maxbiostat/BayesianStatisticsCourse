@@ -35,7 +35,6 @@ a few times to get it right.
 # Exercises
 
 We keep a list [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/exercises/BC_exercises.md). I recommend you check back every so often because this is likely to be updated (if infrequently). 
-- **2024-03-24**: Exercises about Chapters 1 and 2 are up.
 
 # Syllabus
 ## Lecture 0: Overview
@@ -109,4 +108,8 @@ We keep a list [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blo
 - See [Frequentism and Bayesianism: A Practical Introduction](https://jakevdp.github.io/blog/2014/03/11/frequentism-and-bayesianism-a-practical-intro/) for a five-part discussion of the Bayesian vs Orthodox statistics.
 - [Why isn't everyone a Bayesian?](https://www2.stat.duke.edu/courses/Spring10/sta122/Handouts/EfronWhyEveryone.pdf) is a nice discussion of the trade-offs between paradigms by [Bradley Efron](https://statweb.stanford.edu/~ckirby/brad/).
 - [Holes in Bayesian statistics](https://iopscience.iop.org/article/10.1088/1361-6471/abc3a5#:~:text=Here%20are%20a%20few%20holes,Bayes%20factors%20fail%20in%20the) is a collection of holes in Bayesian data analysis, such as conditional probability in the quantum real, flat and weak priors, and model checking, written by Andrew Gelman and Yuling Yao.
-- [Bayesian Estimation with Informative Priors is Indistinguishable from Data Falsification](https://www.cambridge.org/core/journals/spanish-journal-of-psychology/article/bayesian-estimation-with-informative-priors-is-indistinguishable-from-data-falsification/FFAB96BDC5EE3C64B144ECF8F90F31E9) is paper that attempts to draw a connection between strong priors and data falsification. Not for the faint of heart. 
+- [Bayesian Estimation with Informative Priors is Indistinguishable from Data Falsification](https://www.cambridge.org/core/journals/spanish-journal-of-psychology/article/bayesian-estimation-with-informative-priors-is-indistinguishable-from-data-falsification/FFAB96BDC5EE3C64B144ECF8F90F31E9) is paper that attempts to draw a connection between strong priors and data falsification. Not for the faint of heart.
+
+# Computational resources
+
+- Darren Wilkinson's [blog](https://darrenjw.wordpress.com/2013/09/29/parallel-tempering-and-metropolis-coupled-mcmc/) on parallel tempering. I took the code and applied it to our [multimodal Cauchy example](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/code/cauchy_bimodal_PT.r). 
