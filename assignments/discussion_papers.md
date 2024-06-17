@@ -11,5 +11,5 @@
 - Gelman, A., Jakulin, A., Pittau, M. G., & Su, Y. S. (2008). [A weakly informative default prior distribution for logistic and other regression models](https://doi.org/10.1214/08-AOAS191).
 - Park, T., & Casella, G. (2008). [The Bayesian LASSO](https://doi.org/10.1198/016214508000000337). Journal of the American Statistical Association, 103(482), 681-686.
 - Piironen, J., & Vehtari, A. (2017). [Sparsity information and regularization in the horseshoe and other shrinkage priors](https://doi.org/10.1214/17-EJS1337SI). Electronic Journal of Statistics, 11, 5018-5051.
-- Simpson, D., Rue, H., Riebler, A., Martins, T. G., & Sørbye, S. H. (2017). [Penalising model component complexity: A principled, practical approach to constructing priors](https://doi.org/10.1214/16-STS576). 
+- Simpson, D., Rue, H., Riebler, A., Martins, T. G., & Sørbye, S. H. (2017). [Penalising model component complexity: A principled, practical approach to constructing priors](https://doi.org/10.1214/16-STS576). Statistical Science, 32(1), 1-28.
 - Bai, R., Ročková, V., & George, E. I. (2021). [Spike-and-slab meets LASSO: A review of the spike-and-slab LASSO](https://doi.org/10.1201/9781003089018-4). Handbook of Bayesian variable selection, 81-108.
