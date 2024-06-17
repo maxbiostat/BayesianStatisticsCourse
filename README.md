@@ -36,6 +36,10 @@ a few times to get it right.
 
 We keep a list [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/exercises/BC_exercises.md). I recommend you check back every so often because this is likely to be updated (if infrequently). 
 
+# News
+
+- Papers for the assignment are [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/assignments/discussion_papers.md). A bib [file](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/assignments/bayes_2024.bib) is also made available. Turn in your choice by 18h (Brasilia time) on 2024-06-19. 
+
 # Syllabus
 ## Lecture 0: Overview
 - The LaplacesDemon introductory [vignette](https://cran.r-project.org/web/packages/LaplacesDemon/vignettes/BayesianInference.pdf) gives a very nice overview of Bayesian Statistics.
