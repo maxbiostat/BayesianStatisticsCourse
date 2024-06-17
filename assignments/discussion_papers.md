@@ -1,0 +1,15 @@
+- Goldstein, M. (1980). [The linear Bayes regression estimator under weak prior assumptions](https://doi.org/10.1093/biomet/67.3.621). Biometrika, 67(3), 621-628.
+- Dawid, A. P. (1982). [The well-calibrated Bayesian](https://www.tandfonline.com/doi/abs/10.1080/01621459.1982.10477856). Journal of the American Statistical Association, 77(379), 605-610.
+- O'Hagan, A. (1995). [Fractional Bayes factors for model comparison](https://doi.org/10.1111/j.2517-6161.1995.tb02017.x). Journal of the Royal Statistical Society: Series B (Methodological), 57(1), 99-118.
+- West, M., Harrison, P. J., & Migon, H. S. (1985). [Dynamic generalized linear models and Bayesian forecasting](https://www.tandfonline.com/doi/abs/10.1080/01621459.1985.10477131). Journal of the American Statistical Association, 80(389), 73-83.
+- Besag, J., York, J., & Mollié, A. (1991). [Bayesian image restoration, with two applications in spatial statistics](https://link.springer.com/article/10.1007/bf00116466). Annals of the institute of statistical mathematics, 43, 1-20.
+- O'Hagan, A. (1998). [Eliciting expert beliefs in substantial practical applications](https://doi.org/10.1111/1467-9884.00114). Journal of the Royal Statistical Society Series D: The Statistician, 47(1), 21-35.
+- Tierney, L. (1998). [A note on Metropolis-Hastings kernels for general state spaces](https://www.jstor.org/stable/2667233). Annals of applied probability, 1-9.
+- Kennedy, M. C., & O'Hagan, A. (2001). [Bayesian calibration of computer models](https://doi.org/10.1111/1467-9868.00294). Journal of the Royal Statistical Society: Series B (Statistical Methodology), 63(3), 425-464.
+- Oakley, J. E., & O'Hagan, A. (2004). [Probabilistic sensitivity analysis of complex models: a Bayesian approach](https://doi.org/10.1111/j.1467-9868.2004.05304.x). Journal of the Royal Statistical Society Series B: Statistical Methodology, 66(3), 751-769.
+- Papaspiliopoulos, O., Roberts, G. O., & Sköld, M. (2007). [A general framework for the parametrization of hierarchical models](https://www.jstor.org/stable/2764580). Statistical Science, 59-73.
+- Gelman, A., Jakulin, A., Pittau, M. G., & Su, Y. S. (2008). [A weakly informative default prior distribution for logistic and other regression models](https://doi.org/10.1214/08-AOAS191).
+- Park, T., & Casella, G. (2008). [The Bayesian LASSO](https://doi.org/10.1198/016214508000000337). Journal of the American Statistical Association, 103(482), 681-686.
+- Piironen, J., & Vehtari, A. (2017). [Sparsity information and regularization in the horseshoe and other shrinkage priors](https://doi.org/10.1214/17-EJS1337SI). Electronic Journal of Statistics, 11, 5018-5051.
+- Simpson, D., Rue, H., Riebler, A., Martins, T. G., & Sørbye, S. H. (2017). [Penalising model component complexity: A principled, practical approach to constructing priors](https://doi.org/10.1214/16-STS576). 
+- Bai, R., Ročková, V., & George, E. I. (2021). [Spike-and-slab meets LASSO: A review of the spike-and-slab LASSO](https://doi.org/10.1201/9781003089018-4). Handbook of Bayesian variable selection, 81-108.
