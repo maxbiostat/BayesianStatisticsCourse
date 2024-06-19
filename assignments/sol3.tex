@@ -1,0 +1,47 @@
+\textcolor{red}{\textbf{Concepts}: Bayes estimator, conjugacy, connections with frequentist/orthodox theory.}
+\textcolor{purple}{\textbf{Difficulty}: easy.}\\
+\textcolor{blue}{
+\textbf{Resolution:} 
+This is a very straightforward question and we shall proceed accordingly.
+First we note that the assumption that the $X_i$ are conditionally i.i.d given $\theta$ leads to
+\begin{align*}
+    f\left(\boldsymbol{X} \mid \theta \right) &= \prod_{i=1}^n \frac{\exp(-X_i/\theta)}{\theta}\mathbb{I}(X_i > 0),\\
+    &= \theta^{-n} \exp\left(S_n/\theta\right) \mathbb{I}\left(\prod_{i=1}^n X_i > 0\right), 
+\end{align*}
+where $S_n := \sum_{i=1}^n X_i$.
+From here, there is no point in pretending that we don't know what a good guess for a conjugate family to this likelihood is: an inverse gamma distribution with parameters $\alpha,\beta > 0$ would lead to a posterior
+\begin{align*}
+    p\left(\theta \mid \boldsymbol{X}\right) &\propto \left(\boldsymbol{X} \mid \theta \right)\pi(\theta \mid \alpha, \beta),\\
+    &= \theta^{-n - (\alpha+1)}\exp\left(S_n/\theta + \beta/\theta \right) \mathbb{I}\left(\prod_{i=1}^n X_i > 0\right),
+\end{align*}
+which, after re-arranging, can be recognised as the kernel of an inverse gamma distribution with parameters $\alpha_n = n + \alpha$ and $\beta_n = S_n + \beta$.
+To answer b), we need to remember that the Bayes estimator under quadratic loss is the posterior mean.
+Thus, 
+\begin{align*}
+    \delta_B(\boldsymbol{X}_n) &= \frac{\beta_n}{\alpha_n - 1},\\
+    &= \frac{n\bar{X}_n + \beta}{ n+ \alpha - 1},
+\end{align*}
+where the last line comes from noticing we can write $S_n = n\bar{X}_n$ where $\bar{X}_n$ is the sample mean.
+To compute the bias, we will take
+\begin{equation*}
+    \mathbb{E}_\theta\left[\delta_B(\boldsymbol{X}_n) - \theta \right] = \frac{n + \theta \beta -(n+ \alpha - 1)\theta^2}{\theta (n+ \alpha - 1)},
+\end{equation*}
+which is $O(1/n)$, as requested.
+From orthodox\footnote{Frequentist} theory we know\footnote{If you need a refresher, consider: (i) showing that $\bar{X}_n$ is unbiased, computing the Cramér-Rao lower bound for unbiased estimators and showing that its variance matches the bound or (ii) noticing that $S_n$ is complete suficient and using Lehmann-Scheffé or, yet, (iii) noticing that the exponential distribution belongs to the exponential family -- in canonical form -- and thus the sample mean is UMVUE.} that the UMVUE for $\theta$ is $\bar{X}_n$.
+So the way to get it from $\delta_{B}(\boldsymbol{X}_n)$ is to take $\alpha, \beta \to 0$, i.e., to ``flatten'' out the prior so it approaches the (improper) uniform on $\mathbb{R}_+$.
+$\blacksquare$\\
+\textbf{Comment:} This is a very straightforward question just to make sure we know our basics.
+There is some interesting discussion about the relationship with frequentist estimation if we consider other estimands. 
+Consider estimating $\eta_t := \exp(t/\theta)$ for some $t>0$, for instance.
+In this case we can show\footnote{Just consider the moment-generating function of an inverse-gamma distribution.} that the Bayes estimator under quadratic loss is
+\begin{equation*}
+    \tilde{\delta}_B(\boldsymbol{X}_n) = \left(1 + \frac{t}{n \bar{X}_n + \beta}\right)^{-(n + \alpha)},
+\end{equation*}
+which is biased but consistent. 
+The UMVUE is ,
+\begin{equation*}
+        \tilde{\delta}_{\text{UMVUE}}(\boldsymbol{X}_n) = \left(1 - \frac{t}{n \bar{X}_n}\right)^{-n},
+\end{equation*}
+however, so it is not a limit of Bayes estimators of the sort we considered -- or any for that matter.
+See example 4.7 (page 242) in Shao (2003).
+}

@@ -1,0 +1,134 @@
+\documentclass[a4paper,10pt, notitlepage]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{natbib}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{dsfont}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{cancel}
+\usepackage{mathtools}
+\usepackage{newclude}
+\usepackage{booktabs}
+\usepackage[normalem]{ulem}
+
+%%%%%%%%%%%%%%%%%%%% Notation stuff
+\newcommand{\pr}{\operatorname{Pr}} %% probability
+\newcommand{\vr}{\operatorname{Var}} %% variance
+\newcommand{\rs}{X_1, X_2, \ldots, X_n} %%  random sample
+\newcommand{\irs}{X_1, X_2, \ldots} %% infinite random sample
+\newcommand{\rsd}{x_1, x_2, \ldots, x_n} %%  random sample, realised
+\newcommand{\bX}{\boldsymbol{X}} %%  random sample, contracted form (bold)
+\newcommand{\bx}{\boldsymbol{x}} %%  random sample, realised, contracted form (bold)
+\newcommand{\bT}{\boldsymbol{T}} %%  Statistic, vector form (bold)
+\newcommand{\bt}{\boldsymbol{t}} %%  Statistic, realised, vector form (bold)
+\newcommand{\emv}{\hat{\theta}}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\DeclareRobustCommand{\bbone}{\text{\usefont{U}{bbold}{m}{n}1}}
+\DeclareMathOperator{\EX}{\mathbb{E}} %% Expected Value
+
+%%%%
+\newif\ifanswers
+\answerstrue % comment out to hide answers
+
+% Title Page
+\title{Fist exam (A1)}
+\author{Class: Bayesian Statistics \\ Instructor: Luiz Max Carvalho \\ TA: Isaque Pim}
+\date{22 May 2024}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\fbox{\fbox{\parbox{1.0\textwidth}{\textsf{
+    \begin{itemize}
+        \item You have 4 (four) hours to complete the exam;
+        \item Please read through the whole exam before you start giving your answers;
+        \item Answer all questions briefly;
+        \item Clealy mark your final answer with a square, circle or preferred geometric figure;
+        \item The exam is worth $\min\left\{\text{your\:score}, 100\right\}$ marks.
+        \item You can bring \textbf{\underline{one} ``cheat sheet''} A4 both sides, which must be turned in together with your answers.
+    \end{itemize}}
+}}}
+\end{center}
+
+\newpage
+
+\section*{1. I like 'em short.}
+
+For a prior distribution $\pi$, a set $C_x$ is said to be an
+$\alpha$-credible set if $$P^\pi (\theta \in C_x |x) \geq 1-\alpha.$$
+This region is called an HPD $\alpha$-credible region (for highest posterior density) if it can be written in the form:
+\begin{equation*}
+    \{\theta; \pi(\theta|x) > k_{\alpha}\} \subset C_x^\pi \subset \{\theta; \pi(\theta|x) \geq k_{\alpha}\},
+\end{equation*}
+where $k_{\alpha}$ is the largest bound such that
+$P^\pi (\theta \in C_x^\alpha |x) \geq 1-\alpha$.
+This construction is motivated by the fact that they minimise the volume among $\alpha$-credible regions.
+A special and important case are \textit{HPD intervals}, when $C_x$ is an interval $(a, b)$. 
+
+\begin{enumerate}[label=\alph*)]
+ \item (20 marks) Show that if the posterior density  (i) is unimodal and (ii) never uniform for all intervals of ($1 - \alpha$) probability mass of $\Omega$, then the HPD region is an interval and it is unique.
+ 
+ \textbf{Hint:} formulate a minimisation problem on two variables $a$ and $b$ with a probability restriction and solve for the Lagrangian.
+
+ \item (20 marks) We can also use decision-theoretical criteria to pick between credible intervals.
+ A first idea is to balance between the volume of the region and coverage guarantees through the loss function $$L(\theta, C) = \operatorname{vol}(C) + \mathds{1}_{C^c}(\theta).$$
+ Explain why the above loss is problematic.
+ \item * (20 bonus marks) Define the new loss function $$L^*(\theta, C) = g\left(\operatorname{vol}(C)\right) + \mathds{1}_{C^c}(\theta),$$
+ where $g$ is increasing and $0 \leq g(t) \leq 1$ for all $t$. Show that the Bayes estimator $C^\pi_x$ for $L^*$ is a HPD region. 
+\end{enumerate}
+\ifanswers
+\nocite{*}
+\include*{sol1}
+\fi
+
+\section*{2. Savage!} 
+
+We will now study the case of point hypothesis testing as a case of two nested models.
+Let $\theta_0 \in \Omega_0 \subset \Omega$.
+We want to compare model $M_0: \theta = \theta_0$ to $M_1: \theta \in \Omega$.
+That is, under model $M_1$, $\theta$ can vary freely.
+Assume further that the models are \textit{properly nested}, that is, 
+$$P(x | \theta, M_0) = P(x | \theta = \theta_0, M_1).$$
+
+\begin{enumerate}[label=\alph*)] 
+ \item (25 marks)  Given observed data $x$, show that the Bayes Factor $\operatorname{BF_{01}}$ can be written as
+    \begin{equation*}
+        \operatorname{BF_{01}} = \frac{p(\theta_0| x, M_1)}{p(\theta_0|M_1)},
+    \end{equation*}
+    where the numerator is the posterior under $M_1$ and the denominator the prior probability under $M_1$.
+  \item (25 marks) Apply the result from part (a) to the problem of testing whether a coin is fair.
+    Specifically, we want to compare $H_0: \theta = 0.5$ against $H_1: \theta \neq 0.5$, where theta is the probability of the coin landing heads.
+    Given $n=24$ trials and $x = 3$ heads and employing a uniform prior on $\theta$, calculate the Bayes factor $\operatorname{BF_{01}}$.
+    Based on the Bayes factor, would you prefer $H_0$ over $H_1$? How strong should the prior be for a change in this preference?
+\end{enumerate}
+\textbf{Note}: The ratio above is called the \textit{Savage-Dickey} ratio. It provides a straightforward way to compute Bayes factors, which can be more intuitive and less computationally intensive than other methods.
+\ifanswers
+\include*{sol2}
+\fi
+
+\section*{3. Hey, you're biased! }
+
+Let $\bX = (\rs)$ be a random sample from an $\operatorname{Exponential}(\theta)$ distribution with $\theta > 0$ and common density $f(x \mid \theta) = \theta^{-1}\exp(-x/\theta)\mathbb{I}(x > 0)$ w.r.t. the Lebesgue measure on $\mathbb{R}$.
+
+\begin{enumerate}[label=\alph*)]
+ \item (10 marks) Find a conjugate prior for $\theta$;
+ \item (20 marks)  Exhibit the Bayes estimator under quadratic loss for $\theta$, $\delta_B(\bX)$;
+ \item (10 marks) Show that the bias $\delta_B(\bX)$ is $O(n^{-1})$.
+ \item $\ast$ (10 bonus marks) Show how to obtain the uniformly minimum variance unbiased estimator (UMVUE) from $\delta_B(\bX)$ by taking limits of the hyperparameters.
+ \end{enumerate}
+
+\ifanswers
+\include*{sol3}
+\fi
+
+\bibliographystyle{apalike}
+\bibliography{refs}
+
+\end{document}          

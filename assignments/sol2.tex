@@ -1,0 +1,37 @@
+\textcolor{red}{\textbf{Concepts}: Bayes factors, priors for testing, Savage-Dickey.}
+\textcolor{purple}{\textbf{Difficulty}: intermediate.}\\
+\textcolor{blue}{
+\textbf{Resolution:}
+\begin{enumerate}[label = \alph*)]
+    \item The Bayes Factor is given by
+    \begin{equation*}
+        \operatorname{BF_{01}} = \frac{p(x|M_0)}{p(x|M_1)}.
+    \end{equation*}
+    We can expand the numerator and use the nesting condition to get
+    \begin{align*}
+        p(x|M_0) &= \int p(x|\theta, M_0)p(\theta|M_0)d\theta \\
+        &= \int p(x|\theta = \theta_0, M_1)p(\theta|M_0)d\theta \\
+        &= p(x| \theta = \theta_0, M_1).
+    \end{align*}
+    Now, using Bayes theorem we get
+    \begin{equation*}
+        p(x| \theta = \theta_0, M_1) = \frac{p(\theta_0 | x, M_1) p(x|M_1)}{p(\theta_0|M_1)}.
+    \end{equation*}
+    Substitute $p(x|M_0)$ back into our first expression and we get the result
+    \begin{equation*}
+        \operatorname{BF_{01}} = \frac{p(x|M_0)}{p(x|M_1)} = \frac{p(\theta_0 | x, M_1) p(x|M_1)}{p(x|M_1)p(\theta_0|M_1)} = \frac{p(\theta_0 | x, M_1)}{p(\theta_0|M_1)}
+    \end{equation*}
+    Now we can test point hypothesis by just evaluating the ratio of the prior and the posterior under $M_1$ on the point representing the null set.
+    \item The uniform prior is a $\operatorname{Beta}(1,1)$ distribution, conjugate to the binomial. The posterior is then a $\operatorname{Beta}(x+1,n-x+1)$ distribution. Evaluating the posterior/prior ratio at $1/2$ we get
+    \begin{equation*}
+        \operatorname{BF_{01}} = \frac{\frac{\Gamma(n+2)}{\Gamma(x+1)\Gamma(n-x+1)}\frac{1}{2^{n}}}{\frac{\Gamma(2)}{\Gamma(1)\Gamma(1)} \frac{1}{2}} = \frac{\Gamma(26)}{\Gamma(5)\Gamma(21)} \frac{1}{2^{24}} = \frac{26 \cdot 23 \cdot 22 \cdot 5}{2^{24}}.
+    \end{equation*}
+    That is approximately $0.004$, so it is 255 times more likely for the coin to be biased than not -- which makes perfect sense, since there were only 3 heads out of 24 throws.
+    If we wanted to change this decision we could put aside the idea of nested models and place a point hypothesis for $H_1$, such as $\theta = 1$.
+    We could keep the nested model and try to concentrate prior density on a point to the right of $1/2$.
+    If we use a prior $\operatorname{Beta}(\alpha, \alpha)$ and take $\alpha$ to infinity, it is easy to show that the Bayes Factor converges to 1 -- basically prior and posterior will be a point mass at $1/2$.
+    Both cases are super strong prior choices. 
+\end{enumerate}
+$\blacksquare$\\
+\textbf{Comment:} See Dickey (1971) for more details.
+}

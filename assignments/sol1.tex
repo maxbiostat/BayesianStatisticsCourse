@@ -1,0 +1,66 @@
+\textcolor{red}{\textbf{Concepts}: highest posterior density; interval estimation, loss function.}
+\textcolor{purple}{\textbf{Difficulty}: intermediate.}\\
+\textcolor{blue}{
+\textbf{Resolution:}
+\begin{enumerate}[label = \alph*)]
+    \item Let $b$ and $a$ be the upper and lower bounds of our interval and let $\pi(\theta|x)$ be the posterior distribution. We seek to minimise the quantity $b - a$. Adding the probability restrictions we get:
+    \begin{equation*}
+        \begin{aligned}
+\min_{b,a} \quad & b - a\\
+\textrm{s.t.} \quad &   \int_a^b \pi(\theta|x) d\theta = 1-\alpha. \\
+\end{aligned}
+    \end{equation*}
+    The Lagrangian can then be written as
+    \begin{equation*}
+        \mathcal{L} = (b-a) + \lambda \left[ \int_a^b \pi(\theta|x) d\theta  - (1-\alpha)\right].
+    \end{equation*}
+    Differentiate w.r.t $b$ and $a$ and set the results to zero to get
+    \begin{align*}
+        \frac{\partial \mathcal{L}}{\partial a} &= -1 - \lambda \pi(a|x) = 0, \\
+        \frac{\partial \mathcal{L}}{\partial b} &= 1 - \lambda \pi(b|x) = 0 .
+    \end{align*}
+    From this we get $\pi(a|x) = \pi(b|x) = -1/\lambda$. As $\pi$ is a probability density, $\lambda < 0$. Note that the density on both ends of our interval must be equal, which makes sense according to our definition. The second order conditions gives us that 
+    \begin{equation*}
+        \frac{\partial^2 \mathcal{L}}{(\partial a)^2} = -\lambda \frac{\partial \pi(a|x)}{\partial a} \quad;\quad \frac{\partial^2 \mathcal{L}}{(\partial a)^2} = -\lambda \frac{\partial \pi(b|x)}{\partial b} \quad;\quad \frac{\partial^2 \mathcal{L}}{\partial a\partial b} = 0
+    \end{equation*}
+    Since the posterior density is unimodal and non-constant, we must have have that the derivative at $a$ is positive and the derivative at $b$ is negative. Then the Hessian matrix of second derivatives is positive definite, which implies we have achieved a minimum for the interval $(a,b)$.
+    \item It is problematic because volume and coverage are not on the same scale.
+    If the volume needs to be large to ensure coverage, is better to pick a region with null volume. For example, consider the case of finding a HPD for the mean of a normal distribution. Under Jeffrey's prior the HPD will be the classical \textit{t} interval
+    \begin{equation*}
+        C(\Bar{x}, \Bar{s}^2) = \left(\Bar{x} - t_{\alpha} \sqrt{\frac{\Bar{s}^2}{n}}, \Bar{x} + t_{\alpha} \sqrt{\frac{\Bar{s}^2}{n}}\right).
+    \end{equation*}
+    The volume of the HPD above is twice the standard deviation term.
+    If this volume is larger than 1, it is better to collapse the interval to a point if we are trying to minimise the loss. So the interval under this loss becomes
+    \begin{equation*}
+        C'(\Bar{x}, \Bar{s}^2) = \left\{\begin{split}  C(\Bar{x}&, \Bar{s}^2), \quad \sqrt{\Bar{s}^2} > \sqrt{n}/2t_{\alpha},  \\ \{\Bar{x}\}&, \quad \text{otherwise}.
+        \end{split}\right.
+    \end{equation*}
+    This makes little sense, as one deposits essentially infinite certainty on a single point.
+    See Section 5.5.3 in Robert (2007) for more details.
+    \item Let $C^\pi$ be the Bayes estimator under the given loss. By definition $C^\pi$ minimises the posterior expected loss
+    \begin{equation*}
+        R(C|x) = \EX \left[ L^*(C , \theta | x) \right] = g(\operatorname{vol(C)}) + \int_{C^c} \pi(\theta|x) d\theta,
+    \end{equation*}
+    which is equivalent to finding C that minimises
+    \begin{equation*}
+        g(\operatorname{vol(C)}) - \int_{C} \pi(\theta|x) d\theta.
+    \end{equation*}
+    If the Bayes estimator is not an HPD, there exists $k \geq 0$ such that
+    \begin{equation*}
+        C^\pi \cap \{\theta: \pi(\theta|x) < k\} \neq \emptyset \quad \text{and} \quad (C^\pi)^c \cap \{\theta: \pi(\theta|x) \geq k\} \neq \emptyset,
+    \end{equation*}
+    the intersections being different from zero (we are working with sets defined only up to sets of Lebesgue measure zero). Thus, there exists sets A and B such that
+    \begin{equation*}
+        A \subset C^\pi \cap \{\theta: \pi(\theta|x) < k\}  \quad \text{and} \quad B \subset (C^\pi)^c \cap \{\theta: \pi(\theta|x) \geq k\} ,
+    \end{equation*}
+    and $\operatorname{vol}(A) = \operatorname{vol}(B) > 0$. If we now define $C^* = (C^\pi - A) \cup B$, it follows that
+    \begin{equation*}
+        R(C^\pi|x) > R(C^*|x),
+    \end{equation*}
+    as $\operatorname{vol}(C^\pi) = \operatorname{vol}(C^*)$ and $\int_A \pi(\theta|x) d\theta < \int_B \pi(\theta|x) d\theta$. Therefore we have a contradiction, so $C^\pi$ must be an HPD.
+\end{enumerate}
+$\blacksquare$\\
+\textbf{Comment:} Here we saw how to frame the problem of interval inference -- from a unimodal posterior -- as an optimisation problem, which under regularity conditions yields a well-behaved solution.
+Moreover, we saw that a loss function that makes intuitive sense might lead to strange conclusions.
+Finally, we proved a little result that characterises the HPD as the solution of a particular class of problems, where the volume of the resulting estimate (interval) is transformed through an increasing function, generalising the previous finding.
+}
