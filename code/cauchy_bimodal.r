@@ -167,7 +167,7 @@ chains_coupled = function(pot = U,
   xmat
 }
 
-mc3 <- chains_coupled(tune = 1)
+mc3 <- chains_coupled(tune = .1)
 
 mcmcSummary(mc3, rows = length(temps))
 
