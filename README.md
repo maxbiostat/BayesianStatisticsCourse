@@ -38,7 +38,8 @@ We keep a list [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blo
 
 # News
 
-- Papers for the assignment are [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/assignments/discussion_papers.md). A bib [file](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/assignments/bayes_2024.bib) is also made available. Turn in your choice by 18h (Brasilia time) on 2024-06-19. 
+- Papers for the assignment are [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/assignments/discussion_papers.md). A bib [file](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/assignments/bayes_2024.bib) is also made available. Turn in your choice by 18h (Brasília time) on 2024-06-19.
+- Discussion guide is now [available](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/assignments/2024_A2.pdf). Hand-in deadlineis 2024-07-05 at 16h Brasília time. 
 
 # Syllabus
 ## Lecture 0: Overview
