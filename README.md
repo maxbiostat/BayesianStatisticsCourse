@@ -38,6 +38,8 @@ We keep a list [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blo
 
 # News
 
+- 2026-04-08: There will be nae lecture because of _aula magna_, but there will be a take home exam to keep you happy and occupied.
+
 # Syllabus
 ## Lecture 0: Overview
 - The LaplacesDemon introductory [vignette](https://cran.r-project.org/web/packages/LaplacesDemon/vignettes/BayesianInference.pdf) gives a very nice overview of Bayesian Statistics.
