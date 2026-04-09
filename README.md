@@ -39,6 +39,7 @@ We keep a list [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blo
 # News
 
 - 2026-04-08: There will be nae lecture because of _aula magna_, but there will be a take home exam to keep you happy and occupied.
+- 2026-04-09: The exam is posted [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/assignments/2026_A1.pdf). Due date is `2026-04-13` at 14:20h GMT-3 (Brasília time).
 
 # Syllabus
 ## Lecture 0: Overview
