@@ -38,8 +38,8 @@ We keep a list [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blo
 
 # News
 
-- Papers for the assignment are [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/assignments/discussion_papers.md). A bib [file](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/assignments/bayes_2024.bib) is also made available. Turn in your choice by 18h (Brasília time) on 2024-06-19.
-- Discussion guide is now [available](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/assignments/2024_A2.pdf). Hand-in deadlineis 2024-07-05 at 16h Brasília time. 
+- 2026-04-08: There will be nae lecture because of _aula magna_, but there will be a take home exam to keep you happy and occupied.
+- 2026-04-09: The exam is posted [here](https://github.com/maxbiostat/BayesianStatisticsCourse/blob/main/assignments/2026_A1.pdf). Due date is `2026-04-13` at 14:20h GMT-3 (Brasília time).
 
 # Syllabus
 ## Lecture 0: Overview
