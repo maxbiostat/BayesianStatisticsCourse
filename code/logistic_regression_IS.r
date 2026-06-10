@@ -306,7 +306,7 @@ summarise_is <- function(is_result, label = NULL) {
 true_beta <- c(0.5, 1.2)
 sigma2    <- 4
 N         <- 2000
-n_obs     <- 80
+n_obs     <- 10
 
 dat <- generate_data(n_obs, true_beta, seed = 7)
 X   <- dat$X
