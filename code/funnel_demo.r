@@ -2,6 +2,8 @@
 # Neal's Funnel in Stan using cmdstanr
 #
 # Demonstrates the "Funnel of Hell" and the benefits of non-centering.
+# Made with GPT-5 on 2026-06-10
+# Inpired by http://bebi103.caltech.edu.s3-website-us-east-1.amazonaws.com/2024b/lessons/16/funnel_of_hell.html
 ################################################################################
 
 library(cmdstanr)
